@@ -162,8 +162,12 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   border-bottom: 1px solid var(--line);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 1rem; }
-.logo-link { display: inline-flex; align-items: center; text-decoration: none; }
-.logo-link img { height: 40px; width: auto; }
+.logo-link {
+  display: inline-flex; align-items: baseline; text-decoration: none;
+  font-family: var(--font-display); font-size: 1.65rem; letter-spacing: -0.01em;
+  color: var(--ink-2); white-space: nowrap;
+}
+.logo-link em { font-style: italic; color: var(--accent); }
 .main-nav { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); }
 .main-nav a {
   text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink);
@@ -252,11 +256,12 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   position: absolute; inset: 0; width: 100%; height: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
   background:
-    radial-gradient(120% 90% at 20% 10%, rgba(138,120,184,.35), transparent 60%),
-    radial-gradient(100% 80% at 85% 90%, rgba(107,91,149,.3), transparent 55%),
+    linear-gradient(rgba(27,42,78,.45), rgba(27,42,78,.62)),
+    url('assets/video-poster.jpg') center / cover no-repeat,
     var(--ink-2);
-  color: var(--cream); border: 0; cursor: pointer; font: inherit; text-align: center; padding: 1rem;
+  color: #fff; border: 0; cursor: pointer; font: inherit; text-align: center; padding: 1rem;
 }
+.video-facade .vf-title, .video-facade .vf-note { text-shadow: 0 1px 8px rgba(0,0,0,.5); }
 .video-facade .play {
   width: 84px; height: 84px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -340,12 +345,14 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .case h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 600; color: var(--ink-2); margin-bottom: .35rem; }
 .case p { color: var(--muted); max-width: 46em; }
 
-/* ── Statement ───────────────────────────────────────────── */
-.statement { text-align: center; }
+/* ── Status ──────────────────────────────────────────────── */
+.statement { text-align: center; padding: clamp(2.5rem, 5vw, 4rem) 0; }
+.statement .eyebrow { margin-bottom: 1rem; justify-content: center; display: inline-flex; }
 .statement p {
-  font-family: var(--font-display); font-size: clamp(1.5rem, 3.4vw, 2.4rem);
-  line-height: 1.35; color: var(--ink-2); max-width: 30em; margin: 0 auto;
+  font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.6;
+  color: var(--muted); max-width: 42em; margin: 0 auto;
 }
+.statement p strong { color: var(--ink-2); font-weight: 600; }
 
 /* ── Auszeichnung ────────────────────────────────────────── */
 .award-section { background: var(--ink-2); color: var(--cream); padding: clamp(4rem, 8vw, 7rem) 0; }
@@ -375,20 +382,33 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 
 /* ── Kontakt ─────────────────────────────────────────────── */
 .contact { text-align: center; }
-.contact h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin: 1rem 0 1.2rem; }
-.contact-body { color: var(--muted); max-width: 32em; margin: 0 auto 2rem; }
+.contact h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin: 1rem 0 2rem; }
+.contact-email-row {
+  display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 2.4rem;
+}
 .contact-email {
   display: inline-block; font-family: var(--font-display); font-style: italic;
   font-size: clamp(1.3rem, 3vw, 2rem); color: var(--accent);
-  text-decoration: none; border-bottom: 2px solid var(--accent-2); margin-bottom: 2.4rem;
+  text-decoration: none; border-bottom: 2px solid var(--accent-2);
+  user-select: all;
 }
 .contact-email:hover { color: var(--ink-2); border-color: var(--ink-2); }
+.copy-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em;
+  color: var(--muted); background: none; border: 1px solid var(--line);
+  border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.copy-btn.copied { border-color: #2e7d4f; color: #2e7d4f; }
 .contact .hero-actions { justify-content: center; }
 
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--bg-deep); border-top: 1px solid var(--line); padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start; }
-.footer-inner > img { height: 34px; width: auto; }
+.footer-inner > img { height: 72px; width: auto; }
 .footer-cols { display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 4rem); }
 .footer-col .mono { display: block; margin-bottom: .5rem; }
 .footer-col p, .footer-col a { font-size: 14.5px; color: var(--ink); }
@@ -402,9 +422,7 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo-link" href="#" aria-label="ComposerMeet — Startseite">
-      <img src="assets/logo.svg" alt="ComposerMeet" width="160" height="40">
-    </a>
+    <a class="logo-link" href="#" aria-label="ComposerMeet — Startseite">Composer<em>Meet</em></a>
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
       <a href="#konzept">Konzept</a>
       <a href="#vorteile">Vorteile</a>
@@ -539,10 +557,10 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
       </div>
       <div class="pipe-row reveal">
         <div class="pipe-node"><span class="n">01</span><h3>Frage</h3><p>Audio-Eingabe aus dem Publikum</p></div>
-        <div class="pipe-node"><span class="n">02</span><h3>Transkription</h3><p>Sprache wird zu Text (STT)</p></div>
-        <div class="pipe-node"><span class="n">03</span><h3>Quellenrecherche</h3><p>Abgleich mit kuratierten Beständen (RAG)</p></div>
-        <div class="pipe-node"><span class="n">04</span><h3>Generierung</h3><p>Antwort · Stil · Quellenangabe</p></div>
-        <div class="pipe-node"><span class="n">05</span><h3>Avatar</h3><p>Stimme (TTS) + Live-Animation</p></div>
+        <div class="pipe-node"><span class="n">02</span><h3>Transkription</h3><p>Die Frage wird verschriftlicht</p></div>
+        <div class="pipe-node"><span class="n">03</span><h3>Quellenrecherche</h3><p>Briefe, Tagebücher und Analysen werden durchsucht</p></div>
+        <div class="pipe-node"><span class="n">04</span><h3>Antwort</h3><p>Formuliert im historischen Stil, mit Quellenangabe</p></div>
+        <div class="pipe-node"><span class="n">05</span><h3>Avatar</h3><p>Spricht die Antwort mit Stimme und Mimik</p></div>
       </div>
       <div class="pipe-foot reveal">
         <span>Tausende Seiten an Quellen</span><span>·</span>
@@ -641,10 +659,11 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
     </div>
   </section>
 
-  <!-- Statement -->
-  <section class="section statement">
+  <!-- Status -->
+  <section class="statement">
     <div class="container reveal">
-      <p>ComposerMeet wurde bereits bei mehreren Pilotprojekten erfolgreich eingesetzt und steht seit 2026 für Vermittlungsprojekte zur Verfügung. Erste Kooperationen sind für 2026 und 2027 geplant.</p>
+      <span class="eyebrow">Stand</span>
+      <p>ComposerMeet wurde bereits bei <strong>mehreren Pilotprojekten</strong> erfolgreich eingesetzt und steht seit 2026 für Vermittlungsprojekte zur Verfügung. Erste Kooperationen sind für <strong>2026 und 2027</strong> geplant.</p>
     </div>
   </section>
 
@@ -690,8 +709,13 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
     <div class="container reveal">
       <span class="eyebrow">Kontakt</span>
       <h2>Interesse? <em>Sprechen Sie uns an.</em></h2>
-      <p class="contact-body">Sie möchten ComposerMeet für Ihr Vermittlungsprojekt anfragen?</p>
-      <a class="contact-email" href="mailto:lang.celest@gmail.com">lang.celest@gmail.com</a>
+      <div class="contact-email-row">
+        <a class="contact-email" href="mailto:lang.celest@gmail.com">lang.celest@gmail.com</a>
+        <button class="copy-btn" id="copy-email" type="button" hidden>
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2H3.5A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+          <span>Kopieren</span>
+        </button>
+      </div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:lang.celest@gmail.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
         <a class="btn btn-ghost" href="assets/ComposerMeet_Infosheet.pdf" download>Informations-PDF laden</a>
@@ -703,7 +727,7 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <img src="assets/logo.svg" alt="ComposerMeet" width="136" height="34">
+    <img src="assets/logo.svg" alt="ComposerMeet" width="288" height="72">
     <div class="footer-cols">
       <div class="footer-col">
         <span class="mono">© 2026</span>
@@ -774,6 +798,24 @@ document.documentElement.classList.add('js');
     step = (step + 1) % (bubbles.length + 2); // +2: kurze Pause, wenn alle sichtbar sind
     bubbles.forEach(function (b, i) { b.classList.toggle('shown', i < step); });
   }, 2600);
+})();
+
+// E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)
+(function () {
+  var btn = document.getElementById('copy-email');
+  if (!navigator.clipboard) return;
+  btn.hidden = false;
+  var label = btn.querySelector('span');
+  btn.addEventListener('click', function () {
+    navigator.clipboard.writeText('lang.celest@gmail.com').then(function () {
+      btn.classList.add('copied');
+      label.textContent = 'Kopiert ✓';
+      setTimeout(function () {
+        btn.classList.remove('copied');
+        label.textContent = 'Kopieren';
+      }, 2000);
+    });
+  });
 })();
 
 // YouTube erst nach Klick laden (Datenschutz + Performance)
