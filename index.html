@@ -7,7 +7,7 @@
 <meta name="description" content="ComposerMeet ermöglicht interaktive Live-Dialoge mit historischen Komponist*innen — auf der Bühne, im Museum, im Unterricht. Faktenbasiert, partizipativ und ästhetisch.">
 <link rel="canonical" href="https://composermeet.com/">
 <meta name="theme-color" content="#1b2a4e">
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ComposerMeet">
@@ -24,7 +24,7 @@
   "@type": "Organization",
   "name": "ComposerMeet",
   "url": "https://composermeet.com/",
-  "logo": "https://composermeet.com/assets/logo.svg",
+  "logo": "https://composermeet.com/assets/signet.svg",
   "description": "Interaktive Dialoge mit historischen Komponist*innen — live, auf der Bühne oder im Museum. Faktenbasiert, partizipativ und ästhetisch.",
   "email": "lang.celest@gmail.com",
   "founder": {
@@ -168,6 +168,13 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   color: var(--ink-2); white-space: nowrap;
 }
 .logo-link em { font-style: italic; color: var(--accent); }
+.logo-link img { height: 36px; width: auto; align-self: center; margin-right: 10px; }
+@media (max-width: 480px) {
+  .site-header .logo-link { font-size: 1.3rem; }
+  .site-header .logo-link img { height: 28px; margin-right: 7px; }
+  .header-cta { padding: 9px 14px; }
+  .header-cta .dot { display: none; }
+}
 .main-nav { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); }
 .main-nav a {
   text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink);
@@ -250,6 +257,58 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .award-strip svg { flex-shrink: 0; color: var(--accent); }
 .award-strip b { font-weight: 650; color: var(--ink-2); }
 .award-strip span { color: var(--muted); font-size: 14.5px; }
+
+/* ── Aktuell & Rückblick ─────────────────────────────────── */
+.ev-upcoming .ev-media { aspect-ratio: 2 / 1; }
+.ev-upcoming { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.5rem); }
+@media (max-width: 720px) { .ev-upcoming { grid-template-columns: 1fr; } }
+.ev-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
+}
+.ev-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink-2); }
+.ev-media img, .ev-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Platzhalter, bis Fotos/Videos geliefert sind */
+.ev-media--placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: radial-gradient(90% 80% at 30% 20%, rgba(138,120,184,.28), transparent 65%), var(--ink-2);
+}
+.ev-media--placeholder img { width: 64px; height: auto; opacity: .35; filter: brightness(0) invert(1); }
+.ev-media--placeholder span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(239,233,223,.6); }
+/* Datums-Kachel statt Foto */
+.ev-media--date { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--cream); }
+.ev-media--date .day { font-family: var(--font-display); font-size: clamp(3.4rem, 7vw, 4.6rem); line-height: 1; }
+.ev-media--date .mon { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); line-height: 1.5; }
+.ev-media .ev-badge {
+  position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: 999px; background: var(--cream); color: var(--ink-2);
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+}
+.ev-media .ev-badge i { width: 7px; height: 7px; border-radius: 50%; background: #2e7d4f; animation: pulse 2s infinite; }
+.ev-body { padding: 1.2rem 1.3rem 1.4rem; }
+.ev-meta { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .05em; color: var(--accent); margin-bottom: .5rem; }
+.ev-body h3 { font-size: 1.15rem; font-weight: 650; color: var(--ink-2); line-height: 1.3; }
+.ev-place { color: var(--ink); font-size: 14.5px; margin: .15rem 0 .55rem; }
+.ev-body p:last-child { color: var(--muted); font-size: 14.5px; }
+.ev-empty { color: var(--muted); }
+
+.ev-past-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: clamp(3rem, 6vw, 4.5rem) 0 1.2rem; }
+.ev-past-head h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--ink-2); }
+.ev-nav { display: flex; gap: 8px; }
+.ev-nav button {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg-elev);
+  color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  transition: border-color .15s ease, color .15s ease;
+}
+.ev-nav button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ev-nav button:disabled { opacity: .35; cursor: default; }
+.ev-past {
+  display: flex; gap: clamp(1rem, 2vw, 1.25rem); overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; padding-bottom: 12px; align-items: stretch;
+  scrollbar-width: thin; scrollbar-color: rgba(20,33,61,.2) transparent;
+}
+.ev-past .ev-card { flex: 0 0 clamp(250px, 30%, 330px); scroll-snap-align: start; }
+@media (max-width: 540px) { .ev-past .ev-card { flex-basis: 82%; } }
 
 /* ── Video ───────────────────────────────────────────────── */
 .video-frame {
@@ -445,7 +504,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--bg-deep); border-top: 1px solid var(--line); padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start; }
-.footer-inner > img { height: 72px; width: auto; }
+.footer-logo { font-size: 1.45rem; }
 .footer-cols { display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 4rem); }
 .footer-col .mono { display: block; margin-bottom: .5rem; }
 .footer-col p, .footer-col a { font-size: 14.5px; color: var(--ink); }
@@ -459,8 +518,9 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo-link" href="#" aria-label="ComposerMeet — Startseite">Composer<em>Meet</em></a>
+    <a class="logo-link" href="#" aria-label="ComposerMeet — Startseite"><img src="assets/signet.svg" alt="" width="45" height="36">Composer<em>Meet</em></a>
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="#aktuell">Aktuell</a>
       <a href="#konzept">Konzept</a>
       <a href="#haeuser">Für Ihr Haus</a>
       <a href="#ueber">Über</a>
@@ -531,6 +591,104 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
     </div>
   </div>
 
+  <!-- Aktuell & Rückblick
+       Termine mit data-end wandern nach Ablauf automatisch (per JS) in den Rückblick.
+       Platzhalter (.ev-media--placeholder) durch <img> bzw. <video> ersetzen, sobald Material da ist. -->
+  <section class="section" id="aktuell">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Aktuell</span>
+        <h2>Wo ComposerMeet <em>zu erleben ist.</em></h2>
+      </div>
+
+      <div class="ev-upcoming reveal" id="ev-upcoming">
+        <article class="ev-card">
+          <div class="ev-media ev-media--placeholder">
+            <span class="ev-badge"><i></i>Läuft jetzt</span>
+            <img src="assets/signet.svg" alt=""><span>Video folgt</span>
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta">Seit 3. Oktober 2026 · Wien</p>
+            <h3>Virtual Arnold</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Die Schönberg-Installation von ComposerMeet — eröffnet in der Langen Nacht der Museen und weiterhin im Haus zu erleben.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-10-24" data-end="2026-10-24">
+          <div class="ev-media ev-media--date" aria-hidden="true">
+            <span class="day">24</span><span class="mon">Oktober<br>2026</span>
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-24">24. Oktober 2026</time> · München</p>
+            <h3>Xplorer Day</h3>
+            <p class="ev-place">Deutsches Museum Verkehrszentrum</p>
+            <p>Mit ComposerMeet beim Xplorer Day in München.</p>
+          </div>
+        </article>
+      </div>
+      <p class="ev-empty" id="ev-empty" hidden>Derzeit keine öffentlichen Termine — Anfragen gern per E-Mail.</p>
+
+      <div class="ev-past-head reveal">
+        <h3>Rückblick</h3>
+        <div class="ev-nav" id="ev-nav" hidden>
+          <button type="button" id="ev-prev" aria-label="Zurück">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+          </button>
+          <button type="button" id="ev-next" aria-label="Weiter">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ev-past reveal" id="ev-past" tabindex="0" aria-label="Rückblick: vergangene Stationen">
+        <article class="ev-card" data-date="2026-10-03">
+          <div class="ev-media ev-media--placeholder"><img src="assets/signet.svg" alt=""><span>Video folgt</span></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-03T22:00">3. Oktober 2026, 22 Uhr</time> · Wien</p>
+            <h3>Lange Nacht der Museen</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation „Virtual Arnold“ — mit überragendem Publikumserfolg.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-11">
+          <div class="ev-media ev-media--placeholder"><img src="assets/signet.svg" alt=""><span>Fotos folgen</span></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-11">11. September 2026</time> · München</p>
+            <h3>IMBRA-Konferenz</h3>
+            <p class="ev-place">17. International Music Business Research Days</p>
+            <p>Célest Lang als Speaker und beim Roundtable zum Thema „Music and Entrepreneurship“.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-09">
+          <div class="ev-media ev-media--placeholder"><img src="assets/signet.svg" alt=""><span>Foto folgt</span></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-09">9.–10. September 2026</time> · Linz</p>
+            <h3>Ars Electronica 2026</h3>
+            <p class="ev-place">Cross-Innovation-Reise</p>
+            <p>Mit ComposerMeet Teil der Cross-Innovation-Reise zur Ars Electronica.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-04-01">
+          <div class="ev-media"><img src="assets/award-ceremony.jpg" alt="Verleihung der Honorable Mention bei „The next THING“" loading="lazy" style="object-position: 50% 30%"></div>
+          <div class="ev-body">
+            <p class="ev-meta">April 2026</p>
+            <h3>„The next THING“</h3>
+            <p class="ev-place">Venture Team Kultur</p>
+            <p>Honorable Mention für ein quellenfundiertes, KI-basiertes Vermittlungsformat.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-02-01">
+          <div class="ev-media"><img src="assets/video-poster.jpg" alt="Pilotfolge mit Fanny Hensel an der HMTM München" loading="lazy"></div>
+          <div class="ev-body">
+            <p class="ev-meta">Februar 2026 · München</p>
+            <h3>Pilotfolge Fanny Hensel</h3>
+            <p class="ev-place">Hochschule für Musik und Theater München</p>
+            <p>Erste Live-Umsetzung: Konzert mit interaktivem Publikumsdialog.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Video -->
   <section class="section" id="video">
     <div class="container">
@@ -571,8 +729,8 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         </div>
         <div class="bespoke">
           <span class="b-lead">Jede Figur wird eigens für ein Projekt entwickelt.</span>
-          <span class="b-item"><span class="b-dot done"></span>Fanny Hensel — umgesetzt</span>
-          <span class="b-item"><span class="b-dot wip"></span>Arnold Schönberg — in Arbeit</span>
+          <span class="b-item"><span class="b-dot done"></span>Fanny Hensel — Pilotfolge, HMTM München</span>
+          <span class="b-item"><span class="b-dot done"></span>Arnold Schönberg — Installation „Virtual Arnold“, Arnold Schönberg Center Wien</span>
         </div>
       </div>
       <div class="pillars">
@@ -688,6 +846,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
             <p>Als interaktive Installation oder Langzeitpräsentation — Besucher*innen treten selbst in den Dialog, in Ausstellung, Foyer oder öffentlichem Raum.</p>
           </div>
           <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Im Museum im Einsatz</b> — aktuell als Installation im Arnold Schönberg Center Wien.</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Stabil &amp; unbeaufsichtigt</b> im Dauerbetrieb.</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Untertitel &amp; sichtbarer Prozess</b> — barrierefrei und transparent.</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Minimale Technik</b>, fügt sich in bestehende Räume ein.</span></li>
@@ -805,7 +964,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <img src="assets/logo.svg" alt="ComposerMeet" width="288" height="72">
+    <a class="logo-link footer-logo" href="#" aria-label="ComposerMeet — nach oben"><img src="assets/signet.svg" alt="" width="45" height="36">Composer<em>Meet</em></a>
     <div class="footer-cols">
       <div class="footer-col">
         <span class="mono">© 2026</span>
@@ -913,6 +1072,51 @@ document.documentElement.classList.add('js');
       tabs[next].focus(); select(tabs[next]);
     });
   });
+})();
+
+// Aktuell: abgelaufene Termine (data-end) automatisch in den Rückblick verschieben
+(function () {
+  var upcoming = document.getElementById('ev-upcoming');
+  var past = document.getElementById('ev-past');
+  if (!upcoming || !past) return;
+  var now = new Date();
+  Array.prototype.slice.call(upcoming.querySelectorAll('.ev-card[data-end]')).forEach(function (card) {
+    if (new Date(card.getAttribute('data-end') + 'T23:59:59') >= now) return;
+    // nach Datum absteigend einsortieren
+    var d = card.getAttribute('data-date');
+    var before = Array.prototype.find.call(past.children, function (c) {
+      return (c.getAttribute('data-date') || '') < d;
+    });
+    past.insertBefore(card, before || null);
+  });
+  if (!upcoming.children.length) {
+    upcoming.hidden = true;
+    document.getElementById('ev-empty').hidden = false;
+  }
+})();
+
+// Rückblick-Karussell: Pfeiltasten (ohne JS bleibt es horizontal scrollbar)
+(function () {
+  var track = document.getElementById('ev-past');
+  var nav = document.getElementById('ev-nav');
+  if (!track || !nav) return;
+  var prev = document.getElementById('ev-prev');
+  var next = document.getElementById('ev-next');
+  nav.hidden = false;
+  function step() {
+    var card = track.querySelector('.ev-card');
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+    return card ? card.getBoundingClientRect().width + gap : 300;
+  }
+  function update() {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 
 // E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)

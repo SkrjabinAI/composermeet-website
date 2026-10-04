@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <title>Impressum — ComposerMeet</title>
 <meta name="description" content="Impressum von ComposerMeet — Célest Lang." />
 <style>
@@ -76,6 +77,8 @@ a { color: inherit; }
   letter-spacing: -0.01em;
 }
 .lg-logo span { color: var(--accent); }
+.lg-logo { display: inline-flex; align-items: center; }
+.lg-logo img { height: 32px; width: auto; margin-right: 9px; }
 .lg-back {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-mono);
@@ -229,7 +232,7 @@ a { color: inherit; }
 
 <header class="lg-header">
   <div class="lg-container lg-header-inner">
-    <a href="index.html" class="lg-logo">Composer<span>Meet</span></a>
+    <a href="index.html" class="lg-logo"><img src="assets/signet.svg" alt="" width="40" height="32">Composer<span>Meet</span></a>
     <a href="index.html" class="lg-back">← Zurück zur Startseite</a>
   </div>
 </header>
