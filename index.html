@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ComposerMeet — Im Dialog mit Komponist*innen vergangener Zeiten</title>
-<meta name="description" content="ComposerMeet ermöglicht interaktive Live-Dialoge mit historischen Komponist*innen — auf der Bühne, im Museum, im Unterricht. Faktenbasiert, partizipativ und ästhetisch.">
+<title>ComposerMeet | Im Dialog mit historischen Persönlichkeiten</title>
+<meta name="description" content="ComposerMeet ermöglicht Live-Dialoge mit historischen Persönlichkeiten: Komponist*innen, Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen. Im Museum, auf der Bühne und im Unterricht, auf Grundlage historischer Quellen.">
 <link rel="canonical" href="https://composermeet.com/">
 <meta name="theme-color" content="#1b2a4e">
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ComposerMeet">
-<meta property="og:title" content="ComposerMeet — Im Dialog mit Komponist*innen vergangener Zeiten">
-<meta property="og:description" content="Interaktive Live-Dialoge mit historischen Persönlichkeiten — live, auf der Bühne oder im Museum. Faktenbasiert, partizipativ und ästhetisch.">
+<meta property="og:title" content="ComposerMeet | Im Dialog mit historischen Persönlichkeiten">
+<meta property="og:description" content="Live-Dialoge mit historischen Persönlichkeiten im Museum, auf der Bühne und im Unterricht. Die Antworten beruhen auf historischen Quellen.">
 <meta property="og:url" content="https://composermeet.com/">
 <meta property="og:image" content="https://composermeet.com/assets/hensel-poster.jpg">
 <meta property="og:locale" content="de_DE">
@@ -24,21 +24,21 @@
   "@type": "Organization",
   "name": "ComposerMeet",
   "url": "https://composermeet.com/",
-  "logo": "https://composermeet.com/assets/logo.svg",
-  "description": "Interaktive Dialoge mit historischen Komponist*innen — live, auf der Bühne oder im Museum. Faktenbasiert, partizipativ und ästhetisch.",
+  "logo": "https://composermeet.com/assets/signet.svg",
+  "description": "Live-Dialoge mit historischen Persönlichkeiten im Museum, auf der Bühne und im Unterricht. Die Antworten beruhen auf historischen Quellen.",
   "email": "lang.celest@gmail.com",
   "founder": {
     "@type": "Person",
     "name": "Célest Lang",
     "jobTitle": "Pianist und Musikvermittler"
   },
-  "award": "Honorable Mention — „The next THING“, Venture Team Kultur, April 2026"
+  "award": "Honorable Mention, „The next THING“, Venture Team Kultur, April 2026"
 }
 </script>
 
 <style>
 /* ============================================================
-   ComposerMeet — statische One-Page-Website
+   ComposerMeet: statische One-Page-Website
    Selbst gehostete Fonts, kein Framework, kein Tracking.
    ============================================================ */
 
@@ -74,8 +74,8 @@
   --cream:    #efe9df;
   --muted:    #5b6580;
   --line:     rgba(20, 33, 61, 0.12);
-  --accent:   #6b5b95;
-  --accent-2: #8a78b8;
+  --accent:   #7a5e24;   /* dunkles Gold: Text auf hellem Grund */
+  --accent-2: #b08d45;   /* Logo-Gold: Dekor & Text auf dunklem Grund */
 
   --font-display: 'Instrument Serif', 'Times New Roman', serif;
   --font-body:    'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -124,7 +124,11 @@ a { color: inherit; }
 .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; }
 
 h1, h2, h3 { line-height: 1.12; font-weight: 400; }
-h1, h2 { font-family: var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); }
+h1, h2 { font-family: var(--font-display); color: var(--ink-2); }
+/* Laufweite abhängig von der Größe: große Grade enger, Lesetext neutral */
+h1 { letter-spacing: -0.02em; }
+h2 { letter-spacing: -0.015em; }
+h3 { letter-spacing: -0.005em; }
 h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
 h2 em, h1 em { font-style: italic; color: var(--accent); }
 
@@ -150,17 +154,19 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .btn:hover { transform: translateY(-2px); }
 .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .btn-primary { background: var(--ink-2); color: var(--cream); box-shadow: 0 8px 24px rgba(20,33,61,.22); }
-.btn-primary:hover { background: var(--accent); box-shadow: 0 12px 28px rgba(107,91,149,.32); }
+.btn-primary:hover { background: var(--accent); box-shadow: 0 12px 28px rgba(122,94,36,.3); }
 .btn-ghost { border-color: var(--line); color: var(--ink-2); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ── Header ──────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in oklch, var(--bg) 88%, transparent);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(239, 233, 223, .82);
+  backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+  transition: box-shadow .25s ease;
 }
+/* Statt fester Linie: weiche Kante, sobald Inhalt unter den Header läuft */
+.site-header.scrolled { box-shadow: 0 1px 0 var(--line), 0 10px 24px -16px rgba(20,33,61,.35); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 1rem; }
 .logo-link {
   display: inline-flex; align-items: baseline; text-decoration: none;
@@ -168,6 +174,13 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   color: var(--ink-2); white-space: nowrap;
 }
 .logo-link em { font-style: italic; color: var(--accent); }
+.logo-link img { height: 36px; width: auto; align-self: center; margin-right: 10px; }
+@media (max-width: 480px) {
+  .site-header .logo-link { font-size: 1.3rem; }
+  .site-header .logo-link img { height: 28px; margin-right: 7px; }
+  .header-cta { padding: 9px 14px; }
+  .header-cta .dot { display: none; }
+}
 .main-nav { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); }
 .main-nav a {
   text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink);
@@ -175,6 +188,8 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   transition: color .15s ease, border-color .15s ease;
 }
 .main-nav a:hover { color: var(--accent); border-color: var(--accent-2); }
+/* Wo bin ich? Aktiver Abschnitt in der Navigation */
+.main-nav a[aria-current="true"] { color: var(--accent); border-color: var(--accent-2); }
 .header-cta {
   display: inline-flex; align-items: center; gap: 9px;
   padding: 10px 20px; border-radius: 999px; text-decoration: none;
@@ -193,13 +208,21 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 @media (max-width: 840px) {
   .nav-toggle { display: inline-flex; }
   .js .main-nav {
-    display: none; position: absolute; top: 76px; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 0;
-    background: var(--bg-elev); border-bottom: 1px solid var(--line);
-    padding: .5rem 0;
+    display: flex; position: absolute; top: calc(100% + 8px); right: clamp(1.25rem, 4vw, 2rem);
+    width: min(300px, calc(100vw - 2.5rem));
+    flex-direction: column; align-items: stretch; gap: 0; padding: .4rem 0;
+    background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 24px 48px -20px rgba(20,33,61,.4);
+    transform-origin: top right;
+    opacity: 0; transform: scale(.94) translateY(-6px); filter: blur(4px);
+    visibility: hidden; pointer-events: none;
+    transition: opacity .2s ease, transform .32s cubic-bezier(.2,.9,.25,1), filter .2s ease, visibility 0s linear .32s;
   }
-  .js .main-nav.open { display: flex; }
-  .js .main-nav a { padding: 14px clamp(1.25rem, 4vw, 2rem); border-bottom: none; }
+  .js .main-nav.open {
+    opacity: 1; transform: none; filter: none; visibility: visible; pointer-events: auto;
+    transition: opacity .2s ease, transform .32s cubic-bezier(.2,.9,.25,1), filter .2s ease, visibility 0s;
+  }
+  .js .main-nav a { padding: 13px 20px; border-bottom: none; }
   /* Ohne JS: Navigation als umbrechende Zeile statt Dropdown */
   html:not(.js) .header-inner { height: auto; flex-wrap: wrap; padding: 10px 0; }
   html:not(.js) .main-nav { flex-wrap: wrap; gap: 1rem; width: 100%; order: 3; padding-bottom: 6px; }
@@ -241,6 +264,8 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .as-caption-label[data-mode="speak"] .ic-mic { display: none; }
 .as-caption-label[data-mode="speak"] .ic-speak { display: inline; }
 .as-caption-text { color: var(--cream); font-size: 14px; line-height: 1.5; }
+.as-note { max-width: 460px; margin: .75rem 0 0 auto; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+@media (max-width: 840px) { .as-note { margin: .75rem auto 0; } }
 .js .avatar-stage .as-caption-line { opacity: 0; transition: opacity .4s ease; }
 .js .avatar-stage .as-caption-line.shown { opacity: 1; }
 
@@ -250,6 +275,62 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .award-strip svg { flex-shrink: 0; color: var(--accent); }
 .award-strip b { font-weight: 650; color: var(--ink-2); }
 .award-strip span { color: var(--muted); font-size: 14.5px; }
+
+/* ── Aktuell & Rückblick ─────────────────────────────────── */
+.ev-upcoming .ev-media { aspect-ratio: 2 / 1; }
+.ev-upcoming { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.5rem); }
+@media (max-width: 720px) { .ev-upcoming { grid-template-columns: 1fr; } }
+.ev-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
+}
+.ev-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink-2); }
+.ev-media img, .ev-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Zwei Fotos nebeneinander in einer Karte */
+.ev-media--duo { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--bg-elev); }
+.ev-media--duo img { min-width: 0; }
+/* Platzhalter, bis Fotos/Videos geliefert sind */
+.ev-media--placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: radial-gradient(90% 80% at 30% 20%, rgba(176,141,69,.22), transparent 65%), var(--ink-2);
+}
+.ev-media--placeholder img { width: 64px; height: auto; opacity: .35; filter: brightness(0) invert(1); }
+.ev-media--placeholder span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(239,233,223,.6); }
+/* Datums-Kachel statt Foto */
+.ev-media--date { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--cream); }
+.ev-media--date .day { font-family: var(--font-display); font-size: clamp(3.4rem, 7vw, 4.6rem); line-height: 1; }
+.ev-media--date .mon { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); line-height: 1.5; }
+.ev-media .ev-badge {
+  position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: 999px; background: var(--cream); color: var(--ink-2);
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+}
+.ev-media .ev-badge i { width: 7px; height: 7px; border-radius: 50%; background: #2e7d4f; animation: pulse 2s infinite; }
+.ev-body { padding: 1.2rem 1.3rem 1.4rem; }
+.ev-meta { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .05em; color: var(--accent); margin-bottom: .5rem; }
+.ev-body h3 { font-size: 1.15rem; font-weight: 650; color: var(--ink-2); line-height: 1.3; }
+.ev-place { color: var(--ink); font-size: 14.5px; margin: .15rem 0 .55rem; }
+.ev-body p:not(.ev-meta):not(.ev-place):not(.ev-credit) { color: var(--muted); font-size: 14.5px; }
+.ev-body p.ev-credit { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; color: var(--muted); opacity: .8; margin-top: .7rem; }
+.ev-empty { color: var(--muted); }
+
+.ev-past-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: clamp(3rem, 6vw, 4.5rem) 0 1.2rem; }
+.ev-past-head h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--ink-2); }
+.ev-nav { display: flex; gap: 8px; }
+.ev-nav button {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg-elev);
+  color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  transition: border-color .15s ease, color .15s ease;
+}
+.ev-nav button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ev-nav button:disabled { opacity: .35; cursor: default; }
+.ev-past {
+  display: flex; gap: clamp(1rem, 2vw, 1.25rem); overflow-x: auto; scroll-snap-type: x mandatory;
+  position: relative; padding-bottom: 12px; align-items: stretch;
+  scrollbar-width: thin; scrollbar-color: rgba(20,33,61,.2) transparent;
+}
+.ev-past .ev-card { flex: 0 0 clamp(250px, 30%, 330px); scroll-snap-align: start; }
+@media (max-width: 540px) { .ev-past .ev-card { flex-basis: 82%; } }
 
 /* ── Video ───────────────────────────────────────────────── */
 .video-frame {
@@ -298,6 +379,8 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 /* ── Pipeline (dunkles Band) ─────────────────────────────── */
 .pipeline-band { background: var(--ink-2); color: var(--cream); padding: clamp(4rem, 8vw, 6.5rem) 0; }
 .pipeline-band h2 { color: var(--cream); }
+/* Auf dunklem Grund: helles Logo-Gold statt dunklem Gold */
+.pipeline-band h2 em, .award-section h2 em { color: var(--accent-2); }
 .pipeline-band .eyebrow { color: var(--accent-2); }
 .pipeline-band .section-head p { color: rgba(239,233,223,.65); margin-top: 1rem; }
 .pipe-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
@@ -318,15 +401,6 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 @media (max-width: 960px) { .pipe-node::after { content: none; } }
 .pipe-foot { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; color: rgba(239,233,223,.55); }
 
-/* ── Pilot ───────────────────────────────────────────────── */
-.pilot-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-@media (max-width: 840px) { .pilot-grid { grid-template-columns: 1fr; } }
-.pilot-grid h2 { margin: 1rem 0 0; }
-.pilot-img-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(20,33,61,.18); }
-.pilot-caption { color: var(--muted); margin: 1.2rem 0 .6rem; max-width: 32em; }
-.pilot-caption strong { color: var(--ink-2); font-weight: 600; }
-.credit { font-family: var(--font-mono); font-size: 11px; letter-spacing: .05em; color: var(--muted); opacity: .8; }
-
 /* ── Praxis ──────────────────────────────────────────────── */
 .section-alt { background: var(--bg-deep); }
 .benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2.5vw, 1.5rem); }
@@ -336,8 +410,8 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   border: 1px solid var(--line); border-radius: 16px; padding: clamp(1.4rem, 3vw, 1.9rem);
   background: var(--bg-elev); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.benefit:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,33,61,.12); border-color: rgba(107,91,149,.4); }
-.benefit .n { font-family: var(--font-display); font-style: italic; font-size: 2rem; color: var(--accent-2); line-height: 1; }
+.benefit:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,33,61,.12); border-color: rgba(176,141,69,.55); }
+.benefit .n { font-family: var(--font-display); font-style: italic; font-size: 2rem; color: var(--accent); line-height: 1; }
 .benefit h3 { font-size: 1.12rem; font-weight: 650; margin: .9rem 0 .5rem; color: var(--ink-2); }
 .benefit p { font-size: 14.5px; color: var(--muted); }
 
@@ -413,9 +487,9 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 .about-portrait { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(20,33,61,.16); }
 .about-text h2 { margin: 1rem 0 1.2rem; }
 .about-text > p { color: var(--muted); max-width: 38em; }
-.about-list { list-style: none; margin-top: 1.8rem; display: flex; flex-direction: column; gap: .7rem; }
-.about-list li { display: flex; align-items: baseline; gap: 14px; font-weight: 550; color: var(--ink-2); }
-.about-list .n { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
+.about-list { list-style: none; margin-top: 1.6rem; display: flex; flex-direction: column; gap: .55rem; }
+.about-list li { display: flex; align-items: baseline; gap: 14px; font-weight: 500; color: var(--ink-2); }
+.about-list .n { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; transform: translateY(-2px); }
 
 /* ── Kontakt ─────────────────────────────────────────────── */
 .contact { text-align: center; }
@@ -445,13 +519,46 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--bg-deep); border-top: 1px solid var(--line); padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start; }
-.footer-inner > img { height: 72px; width: auto; }
+.footer-logo { font-size: 1.45rem; }
 .footer-cols { display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 4rem); }
 .footer-col .mono { display: block; margin-bottom: .5rem; }
 .footer-col p, .footer-col a { font-size: 14.5px; color: var(--ink); }
 .footer-col a { display: block; text-decoration: none; padding: 2px 0; }
 .footer-col a:hover { color: var(--accent); }
 .footer-note { width: 100%; margin-top: 1rem; padding-top: 1.4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+/* ── Feinschliff: Rückmeldung, Bewegung, Zugänglichkeit ─────
+   Orientiert an Apples Gestaltungsprinzipien (Designing Fluid Interfaces) */
+html { -webkit-tap-highlight-color: transparent; }
+a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touchgeräten */
+/* Rückmeldung sofort beim Drücken, nicht erst beim Loslassen */
+.btn:active, .header-cta:active, .seg-tab:active, .copy-btn:active, .nav-toggle:active,
+.ev-nav button:active:not(:disabled) { transform: scale(.97); transition: transform .1s ease-out; }
+.video-facade:active .play { transform: scale(.94); transition: transform .1s ease-out; }
+
+/* Register: Inhalt kommt aus der Richtung, in die geklickt wurde */
+.js .seg-panel { transition: opacity .26s ease, transform .4s cubic-bezier(.2,.9,.25,1); }
+.js .seg-panel.from-right { opacity: 0; transform: translateX(22px); transition: none; }
+.js .seg-panel.from-left  { opacity: 0; transform: translateX(-22px); transition: none; }
+
+/* Rückblick: mit der Maus greifbar */
+@media (hover: hover) and (pointer: fine) {
+  .js .ev-past { cursor: grab; }
+  .js .ev-past.dragging { cursor: grabbing; user-select: none; }
+}
+.ev-past img { -webkit-user-drag: none; user-select: none; }
+
+/* Weniger Transparenz bzw. mehr Kontrast, wenn im System eingestellt */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  :root { --muted: #3b4560; --line: rgba(20,33,61,.45); }
+  .site-header { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 0 var(--ink-2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .seg-panel.from-right, .js .seg-panel.from-left { transform: none; }
+  .js .main-nav { transform: none; filter: none; }
+}
 </style>
 </head>
 <body>
@@ -459,8 +566,9 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo-link" href="#" aria-label="ComposerMeet — Startseite">Composer<em>Meet</em></a>
+    <a class="logo-link" href="#" aria-label="ComposerMeet, zur Startseite"><img src="assets/signet.svg" alt="" width="45" height="36">Composer<em>Meet</em></a>
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="#aktuell">Aktuell</a>
       <a href="#konzept">Konzept</a>
       <a href="#haeuser">Für Ihr Haus</a>
       <a href="#ueber">Über</a>
@@ -483,20 +591,20 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal">
-        <span class="eyebrow">Ein neues Kapitel in der Musikvermittlung</span>
+        <span class="eyebrow">Musikvermittlung mit KI und historischen Quellen</span>
         <h1>
           Im Dialog mit <em>der&nbsp;Vergangenheit.</em>
-          <span class="small">Live · Faktenbasiert · Auf Augenhöhe</span>
+          <span class="small">Ein Vermittlungsprojekt von Célest Lang</span>
         </h1>
-        <p class="hero-sub">Das Publikum stellt eine Frage — und eine historische Komponistin antwortet als sprechender Video-Avatar, in Echtzeit, mit Stimme und Untertitel. Faktenbasiert, partizipativ und ästhetisch.</p>
+        <p class="hero-sub">Das Publikum stellt eine Frage, und eine historische Persönlichkeit antwortet als Video-Avatar, mit Stimme und Untertiteln. Komponist*innen ebenso wie Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen, auf Grundlage ihrer Briefe, Tagebücher und weiterer Quellen.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:lang.celest@gmail.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
           <a class="btn btn-ghost" href="#video">Video ansehen</a>
         </div>
       </div>
 
-      <div class="reveal" aria-hidden="true">
-        <div class="avatar-stage speaking" id="avatar-demo">
+      <div class="reveal">
+        <div class="avatar-stage speaking" id="avatar-demo" aria-hidden="true">
           <div class="as-head">
             <span class="wdot"></span><span class="wdot"></span><span class="wdot"></span>
             <span class="as-name">Fanny Hensel · live</span>
@@ -516,6 +624,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
             <p class="as-caption-text" id="as-caption-text">Welche Bewandtnis hatte es mit den Sonntagsmusiken auf sich?</p>
           </div>
         </div>
+        <p class="as-note">KI-generierter Avatar von Fanny Hensel, nach dem Gemälde von Moritz Daniel Oppenheim (1842).</p>
       </div>
     </div>
   </section>
@@ -531,6 +640,108 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
     </div>
   </div>
 
+  <!-- Aktuell & Rückblick
+       Termine mit data-end wandern nach Ablauf automatisch (per JS) in den Rückblick.
+       Platzhalter (.ev-media--placeholder) durch <img> bzw. <video> ersetzen, sobald Material da ist. -->
+  <section class="section" id="aktuell">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Aktuell</span>
+        <h2>Wo ComposerMeet <em>zu erleben ist.</em></h2>
+      </div>
+
+      <div class="ev-upcoming reveal" id="ev-upcoming">
+        <article class="ev-card">
+          <div class="ev-media">
+            <img src="assets/asc-lange-nacht.jpg" alt="Die Installation Virtual Arnold im Arnold Schönberg Center: der KI-Avatar von Arnold Schönberg auf der Leinwand" width="1000" height="562" style="object-position: 50% 22%">
+            <span class="ev-badge"><i></i>Läuft jetzt</span>
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta">Seit 3. Oktober 2026 · Wien</p>
+            <h3>Virtual Arnold</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Die Schönberg-Installation von ComposerMeet wurde in der Langen Nacht der Museen eröffnet und ist weiterhin im Haus zu erleben.</p>
+            <p class="ev-credit">Foto: Arnold Schönberg Center</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-10-24" data-end="2026-10-24">
+          <div class="ev-media ev-media--date" aria-hidden="true">
+            <span class="day">24</span><span class="mon">Oktober<br>2026</span>
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-24">24. Oktober 2026</time> · München</p>
+            <h3>Xplorer Day</h3>
+            <p class="ev-place">Deutsches Museum Verkehrszentrum</p>
+            <p>Mit ComposerMeet beim Xplorer Day des XR Hub in München.</p>
+          </div>
+        </article>
+      </div>
+      <p class="ev-empty" id="ev-empty" hidden>Derzeit keine öffentlichen Termine. Anfragen gern per E-Mail.</p>
+
+      <div class="ev-past-head reveal">
+        <h3>Rückblick</h3>
+        <div class="ev-nav" id="ev-nav" hidden>
+          <button type="button" id="ev-prev" aria-label="Zurück">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+          </button>
+          <button type="button" id="ev-next" aria-label="Weiter">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ev-past reveal" id="ev-past" tabindex="0" aria-label="Rückblick: vergangene Stationen">
+        <article class="ev-card" data-date="2026-10-03">
+          <div class="ev-media"><img src="assets/asc-lange-nacht.jpg" alt="Célest Lang präsentiert ComposerMeet im Arnold Schönberg Center, dahinter der KI-Avatar von Arnold Schönberg" loading="lazy" width="1000" height="562" style="object-position: 55% 50%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-03T22:00">3. Oktober 2026, 22 Uhr</time> · Wien</p>
+            <h3>Lange Nacht der Museen</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation „Virtual Arnold“. Die Eröffnung war ein überragender Publikumserfolg.</p>
+            <p class="ev-credit">Foto: Arnold Schönberg Center</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-11">
+          <div class="ev-media ev-media--duo"><img src="assets/imbra-roundtable.jpg" alt="Célest Lang beim Roundtable der IMBRA-Konferenz" loading="lazy" width="900" height="419" style="object-position: 50% 35%"><img src="assets/imbra-vortrag.jpg" alt="Célest Lang bei seinem Vortrag auf der IMBRA-Konferenz im Gasteig" loading="lazy" width="826" height="900" style="object-position: 72% 22%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-11">11. September 2026</time> · München</p>
+            <h3>IMBRA-Konferenz</h3>
+            <p class="ev-place">17. International Music Business Research Days</p>
+            <p>Célest Lang als Speaker und beim Roundtable zum Thema „Music and Entrepreneurship“.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-09">
+          <div class="ev-media ev-media--duo"><img src="assets/linz-festivalpass.jpg" alt="Festivalpass der Ars Electronica 2026 und Ausweis der Cross-Innovation-Reise von Bayern Innovativ, beide auf den Namen Célest Lang" loading="lazy" width="800" height="837" style="object-position: 55% 40%"><img src="assets/linz-poster.jpg" alt="Poster von Célest Lang zu ComposerMeet bei der Ars Electronica 2026" loading="lazy" width="800" height="778" style="object-position: 30% 0%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-09">9. und 10. September 2026</time> · Linz</p>
+            <h3>Ars Electronica 2026</h3>
+            <p class="ev-place">Cross-Innovation-Reise</p>
+            <p>Mit ComposerMeet Teil der Cross-Innovation-Reise von Bayern Innovativ zur Ars Electronica.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-04-01">
+          <div class="ev-media"><img src="assets/award-ceremony.jpg" alt="Verleihung der Honorable Mention bei „The next THING“" loading="lazy" style="object-position: 50% 30%"></div>
+          <div class="ev-body">
+            <p class="ev-meta">April 2026</p>
+            <h3>„The next THING“</h3>
+            <p class="ev-place">Venture Team Kultur</p>
+            <p>Honorable Mention für ein quellenfundiertes, KI-basiertes Vermittlungsformat.</p>
+            <p class="ev-credit">Foto: Venture Team Kultur (Yolanda Castillo-Kuchenbecker)</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-02-01">
+          <div class="ev-media"><img src="assets/video-poster.jpg" alt="Pilotfolge mit Fanny Hensel an der HMTM München" loading="lazy"></div>
+          <div class="ev-body">
+            <p class="ev-meta">Februar 2026 · München</p>
+            <h3>Pilotfolge Fanny Hensel</h3>
+            <p class="ev-place">Hochschule für Musik und Theater München</p>
+            <p>Die erste Live-Umsetzung von ComposerMeet im Rahmen von XPLORE, dem Wettbewerb der HMTM für neue Konzertformate: ein Konzert, in dem das Publikum mit Fanny Hensel ins Gespräch kam.</p>
+            <p class="ev-credit">Foto: Jakob Schad</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Video -->
   <section class="section" id="video">
     <div class="container">
@@ -545,13 +756,13 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
               <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
             </span>
             <span class="vf-title">Publikumsdialog mit Fanny Hensel</span>
-            <span class="vf-note">Video abspielen — dabei wird eine Verbindung zu YouTube hergestellt.</span>
+            <span class="vf-note">Video abspielen. Dabei wird eine Verbindung zu YouTube hergestellt.</span>
           </button>
           <noscript>
-            <iframe src="https://www.youtube-nocookie.com/embed/RFo1mFihDnw?rel=0" title="ComposerMeet — Publikumsdialog mit Fanny Hensel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/RFo1mFihDnw?rel=0" title="ComposerMeet: Publikumsdialog mit Fanny Hensel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </noscript>
         </div>
-        <p class="video-caption mono">Publikumsdialog mit Fanny Hensel — HMTM München, 2026</p>
+        <p class="video-caption mono">Publikumsdialog mit Fanny Hensel (KI-Avatar), HMTM München 2026</p>
       </div>
     </div>
   </section>
@@ -564,32 +775,32 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         <h2>Was ist <em>ComposerMeet?</em></h2>
       </div>
       <div class="reveal">
-        <p class="concept-lead">Jemand aus dem Publikum spricht eine Frage aus — und auf der Leinwand wendet sich eine historische Komponistin zu und antwortet in ihrer Stimme, mit Untertiteln, in Echtzeit.</p>
+        <p class="concept-lead">Jemand im Publikum stellt eine Frage. Auf der Leinwand antwortet eine historische Persönlichkeit in Echtzeit, mit Stimme und Untertiteln.</p>
         <div class="concept-cols">
-          <p>Grundlage sind kuratierte Quellen — Briefe, Tagebücher, wissenschaftliche Analysen, zeitgenössische Berichte. Ein KI-System verknüpft sie zu einer im historischen Stil formulierten Antwort und gibt die Quellen an. Während der wenigen Sekunden bis zur Antwort wird der Prozess für das Publikum sichtbar gemacht — transparent statt Blackbox.</p>
-          <p>Das Format ist partizipativ: Aus stillen Zuhörenden werden aktiv Fragende. Musikvermittlung wird zum unmittelbaren Erlebnis — spielerisch, faktenbasiert und auf Augenhöhe, nicht belehrend.</p>
+          <p>Grundlage sind ausgewählte Quellen: Briefe, Tagebücher, wissenschaftliche Analysen und zeitgenössische Berichte. Ein KI-System formuliert daraus eine Antwort im Stil der Zeit und nennt die Quellen. Bis die Antwort kommt, vergehen ein paar Sekunden. In dieser Zeit sieht das Publikum, wie das System arbeitet.</p>
+          <p>Das Publikum hört nicht nur zu, es fragt selbst. Aus einer Werkeinführung wird so ein Gespräch, das neugierig macht und trotzdem auf Fakten beruht.</p>
         </div>
         <div class="bespoke">
-          <span class="b-lead">Jede Figur wird eigens für ein Projekt entwickelt.</span>
-          <span class="b-item"><span class="b-dot done"></span>Fanny Hensel — umgesetzt</span>
-          <span class="b-item"><span class="b-dot wip"></span>Arnold Schönberg — in Arbeit</span>
+          <span class="b-lead">Nicht nur Musik: Jede gut dokumentierte Persönlichkeit lässt sich umsetzen, aus Malerei, Literatur, Philosophie oder Politik. Jede Figur wird eigens für ein Projekt entwickelt.</span>
+          <span class="b-item"><span class="b-dot done"></span>Fanny Hensel: Pilotfolge an der HMTM München</span>
+          <span class="b-item"><span class="b-dot done"></span>Arnold Schönberg: Installation „Virtual Arnold“ im Arnold Schönberg Center Wien</span>
         </div>
       </div>
       <div class="pillars">
         <div class="pillar reveal">
           <span class="n">01</span>
           <h3>Faktenbasiert</h3>
-          <p>Antworten beruhen auf dokumentierten Quellenbeständen. Dank Quellenangaben sind die Antworten transparent und nachvollziehbar.</p>
+          <p>Jede Antwort beruht auf dokumentierten Quellen und nennt sie. So lässt sich nachprüfen, woher eine Aussage stammt.</p>
         </div>
         <div class="pillar reveal">
           <span class="n">02</span>
           <h3>Interaktiv</h3>
-          <p>Das Publikum stellt Fragen, der Avatar reagiert dynamisch und situativ — Begegnungen auf Augenhöhe, nicht belehrend.</p>
+          <p>Das Publikum stellt Fragen, und der Avatar geht darauf ein. Er antwortet auf Augenhöhe und doziert nicht.</p>
         </div>
         <div class="pillar reveal">
           <span class="n">03</span>
           <h3>Kontextualisiert</h3>
-          <p>Musik erscheint im Gefüge ihrer sozialen und historischen Bedingungen. Spekulative Passagen werden transparent markiert.</p>
+          <p>Werk und Leben werden in ihrer Zeit verortet, mit ihren sozialen und historischen Bedingungen. Wo eine Antwort über die Quellen hinausgeht, wird das gekennzeichnet.</p>
         </div>
       </div>
     </div>
@@ -600,8 +811,8 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">System</span>
-        <h2>Frage. Quelle. Stimme. <em>Avatar.</em></h2>
-        <p>Von der gesprochenen Frage bis zur Antwort des Avatars. Dieser Weg wird dem Publikum live sichtbar gemacht — als Transparenz und um die kurze Wartezeit zu überbrücken.</p>
+        <h2>So entsteht <em>eine Antwort.</em></h2>
+        <p>Von der gesprochenen Frage bis zur Antwort des Avatars. Das Publikum sieht diesen Ablauf live auf dem Bildschirm. Das macht das System nachvollziehbar und überbrückt die kurze Wartezeit.</p>
       </div>
       <div class="pipe-row reveal">
         <div class="pipe-node"><span class="n">01</span><h3>Frage</h3><p>Audio-Eingabe aus dem Publikum</p></div>
@@ -611,27 +822,13 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         <div class="pipe-node"><span class="n">05</span><h3>Avatar</h3><p>Spricht die Antwort mit Stimme und Mimik</p></div>
       </div>
       <div class="pipe-foot reveal">
-        <span>Quellenangaben automatisch</span><span>·</span>
-        <span>Prozess für das Publikum sichtbar</span><span>·</span>
-        <span>auf Redundanz ausgelegt — Ausfälle einzelner Komponenten werden kompensiert</span>
+        <span>Mit Quellenangaben</span><span>·</span>
+        <span>Ablauf für das Publikum sichtbar</span><span>·</span>
+        <span>Redundant aufgebaut und dadurch ausfallsicher</span>
       </div>
     </div>
   </section>
 
-  <!-- Pilot -->
-  <section class="section">
-    <div class="container pilot-grid">
-      <div class="reveal">
-        <span class="eyebrow">Pilotfolge</span>
-        <h2>Auf der Bühne.<br><em>In Echtzeit.</em></h2>
-        <p class="pilot-caption">Erstmals umgesetzt mit Fanny Hensel — als Live-Konzert mit interaktivem Publikumsdialog an der <strong>Hochschule für Musik und Theater München</strong>, Februar 2026.</p>
-        <span class="credit">Foto: Jakob Schad</span>
-      </div>
-      <div class="pilot-img-wrap reveal">
-        <img src="assets/pilot-fanny-hensel.jpg" alt="Live-Konzert der Pilotfolge an der HMTM München: Bühne mit interaktivem Dialog mit dem Avatar von Fanny Hensel" width="1067" height="1600" loading="lazy">
-      </div>
-    </div>
-  </section>
 
   <!-- Praxis -->
   <section class="section section-alt" id="praxis">
@@ -644,22 +841,22 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         <div class="benefit reveal">
           <span class="n">01</span>
           <h3>Stabil &amp; unbeaufsichtigt</h3>
-          <p>Läuft zuverlässig im Dauerbetrieb — auf Redundanz ausgelegt, sodass der Ausfall einzelner Komponenten kompensiert wird.</p>
+          <p>Läuft zuverlässig im Dauerbetrieb. Das System ist redundant aufgebaut und gleicht den Ausfall einzelner Komponenten aus.</p>
         </div>
         <div class="benefit reveal">
           <span class="n">02</span>
           <h3>Eigens entwickelt</h3>
-          <p>Komponist*in, Stil, Länge und Quellen werden für jedes Projekt individuell abgestimmt — kein Baukasten von der Stange.</p>
+          <p>Komponist*in, Stil, Länge und Quellen werden für jedes Projekt einzeln abgestimmt. Einen Baukasten von der Stange gibt es nicht.</p>
         </div>
         <div class="benefit reveal">
           <span class="n">03</span>
           <h3>Minimale Technik</h3>
-          <p>Rechner, Bildschirm, Mikrofon und Lautsprecher — mehr braucht es nicht. Fügt sich in bestehende Räume ein.</p>
+          <p>Rechner, Bildschirm, Mikrofon und Lautsprecher. Mehr braucht es nicht, und alles passt in bestehende Räume.</p>
         </div>
         <div class="benefit reveal">
           <span class="n">04</span>
           <h3>Transparent &amp; barrierefrei</h3>
-          <p>Untertitel sind vorhanden, Quellen werden angegeben, der Prozess wird sichtbar gemacht.</p>
+          <p>Es gibt Untertitel, die Quellen werden genannt, und der Ablauf ist für alle sichtbar.</p>
         </div>
       </div>
     </div>
@@ -675,61 +872,62 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 
       <div class="reveal">
         <div class="seg-tabs" role="tablist" aria-label="Einsatzbereiche nach Institution">
-          <button class="seg-tab" role="tab" id="tab-museen" aria-controls="panel-museen" aria-selected="true">Museen &amp; Ausstellungen</button>
+          <button class="seg-tab" role="tab" id="tab-museen" aria-controls="panel-museen" aria-selected="true">Museen &amp; Gedenkorte</button>
           <button class="seg-tab" role="tab" id="tab-orchester" aria-controls="panel-orchester" aria-selected="false">Orchester &amp; Konzerthäuser</button>
           <button class="seg-tab" role="tab" id="tab-festivals" aria-controls="panel-festivals" aria-selected="false">Festivals</button>
-          <button class="seg-tab" role="tab" id="tab-unterricht" aria-controls="panel-unterricht" aria-selected="false">Musikunterricht</button>
+          <button class="seg-tab" role="tab" id="tab-unterricht" aria-controls="panel-unterricht" aria-selected="false">Schule &amp; Unterricht</button>
         </div>
 
         <div class="seg-panel" role="tabpanel" id="panel-museen" aria-labelledby="tab-museen">
-          <h3 class="seg-panel-title">Museen &amp; Ausstellungen</h3>
+          <h3 class="seg-panel-title">Museen &amp; Gedenkorte</h3>
           <div class="seg-scene">
-            <h3>Eine historische Figur, die den ganzen Tag Rede und Antwort steht.</h3>
-            <p>Als interaktive Installation oder Langzeitpräsentation — Besucher*innen treten selbst in den Dialog, in Ausstellung, Foyer oder öffentlichem Raum.</p>
+            <h3>Eine historische Persönlichkeit, die den ganzen Tag Rede und Antwort steht.</h3>
+            <p>Als Installation in Ausstellung, Foyer oder Gedenkstätte. Ob Malerin im Kunstmuseum, Dichter im Literaturhaus oder Staatsmann im Geschichtsmuseum: Die Besucher*innen kommen selbst mit ihnen ins Gespräch.</p>
           </div>
           <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Im Museum im Einsatz.</b> Aktuell als Installation im Arnold Schönberg Center Wien.</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Stabil &amp; unbeaufsichtigt</b> im Dauerbetrieb.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Untertitel &amp; sichtbarer Prozess</b> — barrierefrei und transparent.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Untertitel und sichtbarer Ablauf.</b> Barrierefrei und nachvollziehbar.</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Minimale Technik</b>, fügt sich in bestehende Räume ein.</span></li>
           </ul>
         </div>
 
-        <div class="seg-panel" role="tabpanel" id="panel-orchester" aria-labelledby="tab-orchester" hidden>
+        <div class="seg-panel" role="tabpanel" id="panel-orchester" aria-labelledby="tab-orchester">
           <h3 class="seg-panel-title">Orchester &amp; Konzerthäuser</h3>
           <div class="seg-scene">
-            <h3>Die Komponistin des Abends — live vor dem Konzert.</h3>
-            <p>Als dialogische Werkeinführung oder Konzertmoderation, 20 bis 30 Minuten. Das Publikum fragt, die historische Perspektive antwortet.</p>
+            <h3>Die Komponistin des Abends, live vor dem Konzert.</h3>
+            <p>Als dialogische Werkeinführung oder Konzertmoderation, 20 bis 30 Minuten. Das Publikum fragt, die Komponistin antwortet.</p>
           </div>
           <ul class="seg-assure">
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Inhalte &amp; Quellen pro Projekt abgestimmt</b> — Sie behalten die redaktionelle Kontrolle.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Auf Redundanz ausgelegt</b> — ausfallsicher auch live auf der Bühne.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Erprobt</b> — erstmals an der HMTM München umgesetzt.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Inhalte und Quellen werden pro Projekt abgestimmt.</b> Sie behalten die redaktionelle Kontrolle.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Redundant aufgebaut.</b> Damit ist das System auch live auf der Bühne ausfallsicher.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Erprobt.</b> Erstmals umgesetzt an der HMTM München.</span></li>
           </ul>
         </div>
 
-        <div class="seg-panel" role="tabpanel" id="panel-festivals" aria-labelledby="tab-festivals" hidden>
+        <div class="seg-panel" role="tabpanel" id="panel-festivals" aria-labelledby="tab-festivals">
           <h3 class="seg-panel-title">Festivals</h3>
           <div class="seg-scene">
             <h3>Ein Programmpunkt, über den gesprochen wird.</h3>
-            <p>Ein partizipativer Publikumsmoment mit Gesprächswert — auch hybrid, mit Fragen aus dem Saal und für dezentrales Publikum per Livestream.</p>
+            <p>Für Musik-, Literatur-, Kunst- oder Geschichtsfestivals: ein Moment, in dem das Publikum mitmacht und über den man danach spricht. Auch hybrid möglich, mit Fragen aus dem Saal und per Livestream.</p>
           </div>
           <ul class="seg-assure">
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Beteiligung statt Zuschauen</b> — das Publikum gestaltet mit.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Hybrid &amp; Livestream</b> — auch für dezentrales Publikum.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Eigens kuratierbar</b> — auf Thema und Festivalprofil zugeschnitten.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Mitmachen statt Zuschauen.</b> Das Publikum gestaltet das Gespräch.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Hybrid und per Livestream.</b> Auch für Publikum, das nicht vor Ort ist.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Auf das Festival zugeschnitten.</b> Persönlichkeit und Thema passen zum Programm.</span></li>
           </ul>
         </div>
 
-        <div class="seg-panel" role="tabpanel" id="panel-unterricht" aria-labelledby="tab-unterricht" hidden>
-          <h3 class="seg-panel-title">Musikunterricht</h3>
+        <div class="seg-panel" role="tabpanel" id="panel-unterricht" aria-labelledby="tab-unterricht">
+          <h3 class="seg-panel-title">Schule &amp; Unterricht</h3>
           <div class="seg-scene">
             <h3>Geschichte, mit der man ins Gespräch kommt.</h3>
-            <p>Spielerische Auseinandersetzung mit Werk, Weltsicht und Biografie — und zugleich ein Anlass, KI, Autorschaft und historische Narrative kritisch zu reflektieren.</p>
+            <p>In Musik, Geschichte, Deutsch, Kunst oder Philosophie: Schüler*innen befragen eine historische Persönlichkeit zu Werk, Weltsicht und Biografie. Zugleich gibt das Format Anlass, über KI, Autorschaft und historische Erzählungen nachzudenken.</p>
           </div>
           <ul class="seg-assure">
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Quellenarbeit erlebbar</b> — Primär- und Sekundärquellen im Dialog.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Medienkompetenz</b> — der KI-Charakter wird transparent gemacht.</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Anpassbar</b> an Alter, Werk und Unterrichtsziel.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Quellenarbeit zum Erleben.</b> Primär- und Sekundärquellen im Dialog.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Medienkompetenz.</b> Dass hier eine KI antwortet, wird offen gezeigt.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Anpassbar</b> an Alter, Fach und Unterrichtsziel.</span></li>
           </ul>
         </div>
       </div>
@@ -741,7 +939,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
     <div class="container reveal">
       <span class="eyebrow">Haltung</span>
       <p class="quote">Keine Replikation, sondern eine <em>Interpretation.</em></p>
-      <p>Es geht um Vermittlung — um die spielerische Auseinandersetzung mit Geschichte und ihren Quellen. Dass die Antworten aus einem KI-System stammen, wird transparent gemacht; die zugrunde liegenden Quellen werden angegeben. ComposerMeet erweckt niemanden zum Leben — es lädt zum Nachdenken ein.</p>
+      <p>Es geht um Vermittlung, um die spielerische Auseinandersetzung mit Geschichte und ihren Quellen. Dass die Antworten aus einem KI-System stammen, wird offen gesagt, und die Quellen werden genannt. ComposerMeet erweckt niemanden zum Leben. Es lädt zum Nachdenken ein.</p>
     </div>
   </section>
 
@@ -752,7 +950,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         <span class="eyebrow">Auszeichnung</span>
         <h2>Honorable <em>Mention.</em></h2>
         <blockquote class="award-citation">„Auszeichnung für ein faszinierendes und quellenfundiertes, KI-basiertes Vermittlungsformat mit hoher Skalierbarkeit und einem innovativen Zugang zu musikalischer Bildung und Interaktion.“</blockquote>
-        <p class="award-meta">Verliehen bei „The next THING“ — Venture Team Kultur, April 2026.</p>
+        <p class="award-meta">Verliehen bei „The next THING“ von Venture Team Kultur, April 2026.</p>
       </div>
       <div class="reveal">
         <div class="award-photo-wrap">
@@ -770,13 +968,17 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
         <img src="assets/portrait-celest-lang.jpg" alt="Porträt von Célest Lang" width="1167" height="832" loading="lazy">
       </div>
       <div class="about-text reveal">
-        <span class="eyebrow">Über den Initiator</span>
+        <span class="eyebrow">Über den Gründer</span>
         <h2>Célest <em>Lang.</em></h2>
-        <p>Pianist und Musikvermittler mit Schwerpunkt auf innovativen Konzertformaten. Seine Arbeit verbindet künstlerische Praxis, technologische Neugier und eine quellenkritische Haltung gegenüber historischen Narrativen — an der Schnittstelle von Musik, KI und Kulturvermittlung.</p>
+        <p>Pianist und Musikvermittler mit Schwerpunkt auf neuen Konzertformaten. Seine Arbeit verbindet künstlerische Praxis mit technischer Neugier und einem kritischen Blick auf historische Quellen. ComposerMeet ist an dieser Schnittstelle von Musik, KI und Kulturvermittlung entstanden und wächst seither über die Musik hinaus.</p>
+        <p style="margin-top: 1rem">Den Prototyp entwickelte er für XPLORE, den Wettbewerb der HMTM München für neue Konzertformate. Seit 2025 wird ComposerMeet vom Venture Team Kultur in Bayern gefördert.</p>
         <ul class="about-list">
-          <li><span class="n">01</span>Künstlerische Praxis</li>
-          <li><span class="n">02</span>Technologische Neugier</li>
-          <li><span class="n">03</span>Quellenkritische Haltung</li>
+          <li><span class="n" aria-hidden="true"></span>Klavierstudium an der HMTM München und der mdw Wien</li>
+          <li><span class="n" aria-hidden="true"></span>Gründer von ComposerMeet</li>
+          <li><span class="n" aria-hidden="true"></span>Mitgründer des Accento Orchesters München</li>
+          <li><span class="n" aria-hidden="true"></span>Mitgründer des Festivals SchERZo (in Gründung)</li>
+          <li><span class="n" aria-hidden="true"></span>Forschung zu Schönberg und Kandinsky, vorgestellt bei NaMu2025 (ÖAW)</li>
+          <li><span class="n" aria-hidden="true"></span>Akademist der Tonali Bühnenakademie (seit Oktober 2026)</li>
         </ul>
       </div>
     </div>
@@ -805,7 +1007,7 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <img src="assets/logo.svg" alt="ComposerMeet" width="288" height="72">
+    <a class="logo-link footer-logo" href="#" aria-label="ComposerMeet, nach oben"><img src="assets/signet.svg" alt="" width="45" height="36">Composer<em>Meet</em></a>
     <div class="footer-cols">
       <div class="footer-col">
         <span class="mono">© 2026</span>
@@ -828,22 +1030,46 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 <script>
 document.documentElement.classList.add('js');
 
-// Mobile Navigation
+// Mobile Navigation: öffnet aus dem Menü-Knopf, schließt per Knopf, Escape oder Klick daneben
 (function () {
   var toggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('main-nav');
   toggle.hidden = false;
-  toggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  toggle.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
+  document.addEventListener('click', function (e) {
+    if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false);
   });
-  nav.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); toggle.focus(); }
   });
+})();
+
+// Header: weiche Kante erst, wenn Inhalt darunter liegt; Navigation zeigt den aktuellen Abschnitt
+(function () {
+  var header = document.querySelector('.site-header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 4); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (!('IntersectionObserver' in window)) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.main-nav a[href^="#"]'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      links.forEach(function (a) { a.removeAttribute('aria-current'); });
+      var a = byId[entry.target.id];
+      if (a) a.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
 })();
 
 // Scroll-Reveal
@@ -873,9 +1099,9 @@ document.documentElement.classList.add('js');
   var caption = document.getElementById('as-caption-text');
   var lines = [
     { mode: 'ask',   who: 'Frage aus dem Publikum', text: 'Welche Bewandtnis hatte es mit den Sonntagsmusiken auf sich?' },
-    { mode: 'speak', who: 'Fanny Hensel spricht',   text: 'An Sonntagen versammelten wir die besten Musiker Berlins — meine „Sonntagsmusiken“ waren Salon und Probebühne zugleich.' },
+    { mode: 'speak', who: 'Fanny Hensel spricht',   text: 'An Sonntagen versammelten wir die besten Musiker Berlins. Meine „Sonntagsmusiken“ waren Salon und Probebühne zugleich.' },
     { mode: 'ask',   who: 'Frage aus dem Publikum', text: 'Wer war Ihr strengster Kritiker?' },
-    { mode: 'speak', who: 'Fanny Hensel spricht',   text: 'Mein Vater. Er schrieb mir, Musik dürfe nur „Zierat“ meines Lebens sein — nicht Beruf.' }
+    { mode: 'speak', who: 'Fanny Hensel spricht',   text: 'Mein Vater. Er schrieb mir, Musik dürfe nur „Zierat“ meines Lebens sein, nicht Beruf.' }
   ];
   function render(i) {
     var l = lines[i];
@@ -892,17 +1118,29 @@ document.documentElement.classList.add('js');
   setInterval(function () { i = (i + 1) % lines.length; render(i); }, 3200);
 })();
 
-// „Für Ihr Haus“ — Reiter umschalten (ohne JS bleiben alle Panels sichtbar)
+// „Für Ihr Haus“: Reiter umschalten (ohne JS bleiben alle Panels sichtbar)
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.seg-tab'));
   if (!tabs.length) return;
+  var current = -1;
   function select(tab) {
+    var idx = tabs.indexOf(tab);
     tabs.forEach(function (t) {
       var on = t === tab;
       t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
       var panel = document.getElementById(t.getAttribute('aria-controls'));
-      if (panel) panel.hidden = !on;
+      if (!panel) return;
+      panel.hidden = !on;
+      // Neuer Inhalt gleitet aus der Richtung, in die geklickt wurde
+      if (on && current !== -1 && idx !== current) {
+        var dir = idx > current ? 'from-right' : 'from-left';
+        panel.classList.add(dir);
+        void panel.offsetWidth;
+        panel.classList.remove(dir);
+      }
     });
+    current = idx;
   }
   tabs.forEach(function (tab, idx) {
     tab.addEventListener('click', function () { select(tab); });
@@ -913,6 +1151,157 @@ document.documentElement.classList.add('js');
       tabs[next].focus(); select(tabs[next]);
     });
   });
+  select(tabs[0]);
+})();
+
+// Aktuell: abgelaufene Termine (data-end) automatisch in den Rückblick verschieben
+(function () {
+  var upcoming = document.getElementById('ev-upcoming');
+  var past = document.getElementById('ev-past');
+  if (!upcoming || !past) return;
+  var now = new Date();
+  Array.prototype.slice.call(upcoming.querySelectorAll('.ev-card[data-end]')).forEach(function (card) {
+    if (new Date(card.getAttribute('data-end') + 'T23:59:59') >= now) return;
+    // nach Datum absteigend einsortieren
+    var d = card.getAttribute('data-date');
+    var before = Array.prototype.find.call(past.children, function (c) {
+      return (c.getAttribute('data-date') || '') < d;
+    });
+    past.insertBefore(card, before || null);
+  });
+  if (!upcoming.children.length) {
+    upcoming.hidden = true;
+    document.getElementById('ev-empty').hidden = false;
+  }
+})();
+
+// Rückblick-Karussell
+// Touch nutzt das native Scrollen. Mit der Maus lässt sich der Streifen greifen: er folgt 1:1,
+// gleitet nach dem Loslassen mit dem Schwung der Bewegung weiter, rastet am nächsten Bild ein
+// und federt an den Rändern sanft zurück. Jede Bewegung kann jederzeit neu gegriffen werden.
+(function () {
+  var track = document.getElementById('ev-past');
+  var nav = document.getElementById('ev-nav');
+  if (!track || !nav) return;
+  var prev = document.getElementById('ev-prev');
+  var next = document.getElementById('ev-next');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  nav.hidden = false;
+
+  // Kritisch gedämpfte Feder (keine Überschwinger), Ansprechzeit 0,4 s, startet mit der Geschwindigkeit der Geste
+  function spring(from, to, v0, set, done) {
+    if (reduce) { set(to); if (done) done(); return function () {}; }
+    var w = 2 * Math.PI / 0.4, x0 = from - to, t0 = performance.now(), id;
+    function frame(now) {
+      var t = (now - t0) / 1000, e = Math.exp(-w * t);
+      var x = (x0 + (v0 + w * x0) * t) * e;
+      var v = (v0 - w * (v0 + w * x0) * t) * e;
+      if (Math.abs(x) < 0.5 && Math.abs(v) < 10) { set(to); if (done) done(); return; }
+      set(to + x);
+      id = requestAnimationFrame(frame);
+    }
+    id = requestAnimationFrame(frame);
+    return function () { cancelAnimationFrame(id); };
+  }
+
+  var stopScroll = null, stopBand = null, band = 0;
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+  function setScroll(v) { track.scrollLeft = v; }
+  function setBand(v) { band = v; track.style.transform = v ? 'translateX(' + v + 'px)' : ''; }
+  function snapPoints() {
+    var max = maxScroll();
+    var pts = Array.prototype.map.call(track.children, function (c) { return Math.min(c.offsetLeft, max); });
+    pts.push(max);
+    return pts;
+  }
+  function nearest(x) {
+    return snapPoints().reduce(function (best, p) { return Math.abs(p - x) < Math.abs(best - x) ? p : best; }, 0);
+  }
+  function glideTo(target, velocity) {
+    if (stopScroll) stopScroll();
+    track.style.scrollSnapType = 'none';
+    stopScroll = spring(track.scrollLeft, target, velocity || 0, setScroll, function () {
+      stopScroll = null;
+      track.style.scrollSnapType = '';
+      update();
+    });
+  }
+  // Wurfweite aus der Geschwindigkeit, wie beim Ausrollen eines Scrollvorgangs
+  function project(v) { var d = 0.998; return (v / 1000) * d / (1 - d); }
+  // Gummiband: je weiter über den Rand, desto weniger folgt der Streifen
+  function rubber(over, dim) { var c = 0.55; return (over * dim * c) / (dim + c * Math.abs(over)); }
+
+  function update() {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= maxScroll() - 4;
+  }
+  prev.addEventListener('click', function () {
+    var pts = snapPoints(), x = track.scrollLeft;
+    var t = pts.filter(function (p) { return p < x - 4; }).pop();
+    glideTo(t === undefined ? 0 : t, 0);
+  });
+  next.addEventListener('click', function () {
+    var pts = snapPoints(), x = track.scrollLeft;
+    var t = pts.filter(function (p) { return p > x + 4; })[0];
+    glideTo(t === undefined ? maxScroll() : t, 0);
+  });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  // Greifen mit der Maus
+  var drag = null, suppressClick = false;
+  track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    // Laufende Bewegung anhalten und vom aktuellen Stand aus weitermachen
+    if (stopScroll) { stopScroll(); stopScroll = null; }
+    if (stopBand) { stopBand(); stopBand = null; }
+    drag = { id: e.pointerId, x: e.clientX, origin: track.scrollLeft - band, moved: false,
+             hist: [{ x: e.clientX, t: e.timeStamp }] };
+  });
+  track.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x;
+    if (!drag.moved) {
+      if (Math.abs(dx) < 8) return;          // kleine Schwelle, damit Klicks Klicks bleiben
+      drag.moved = true;
+      drag.x += dx > 0 ? 8 : -8;             // ohne Sprung weiter
+      dx = e.clientX - drag.x;
+      track.setPointerCapture(e.pointerId);
+      track.classList.add('dragging');
+      track.style.scrollSnapType = 'none';
+    }
+    drag.hist.push({ x: e.clientX, t: e.timeStamp });
+    if (drag.hist.length > 6) drag.hist.shift();
+    var want = drag.origin - dx, max = maxScroll(), dim = track.clientWidth;
+    if (want < 0) { setScroll(0); setBand(rubber(-want, dim)); }
+    else if (want > max) { setScroll(max); setBand(-rubber(want - max, dim)); }
+    else { setScroll(want); setBand(0); }
+  });
+  function release(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag; drag = null;
+    if (!d.moved) return;
+    suppressClick = true;
+    track.classList.remove('dragging');
+    var h = d.hist, first = h[0], last = h[h.length - 1];
+    var dt = (last.t - first.t) / 1000;
+    var pv = dt > 0 && e.timeStamp - last.t < 80 ? (last.x - first.x) / dt : 0;  // Zeigergeschwindigkeit
+    if (band) {
+      stopBand = spring(band, 0, pv, setBand, function () { stopBand = null; track.style.scrollSnapType = ''; update(); });
+      return;
+    }
+    var sv = -pv;                                  // Scroll läuft entgegen der Zeigerbewegung
+    var target = nearest(Math.max(0, Math.min(maxScroll(), track.scrollLeft + project(sv))));
+    glideTo(target, sv);
+  }
+  track.addEventListener('pointerup', release);
+  track.addEventListener('pointercancel', release);
+  // Nach dem Ziehen keinen versehentlichen Klick auf ein Bild auslösen
+  track.addEventListener('click', function (e) {
+    if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
+  }, true);
 })();
 
 // E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)
@@ -940,7 +1329,7 @@ document.documentElement.classList.add('js');
   facade.addEventListener('click', function () {
     var iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube-nocookie.com/embed/RFo1mFihDnw?rel=0&autoplay=1';
-    iframe.title = 'ComposerMeet — Publikumsdialog mit Fanny Hensel';
+    iframe.title = 'ComposerMeet: Publikumsdialog mit Fanny Hensel';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.setAttribute('allowfullscreen', '');
     facade.replaceWith(iframe);
