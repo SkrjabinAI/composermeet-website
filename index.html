@@ -124,7 +124,11 @@ a { color: inherit; }
 .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; }
 
 h1, h2, h3 { line-height: 1.12; font-weight: 400; }
-h1, h2 { font-family: var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); }
+h1, h2 { font-family: var(--font-display); color: var(--ink-2); }
+/* Laufweite abhängig von der Größe: große Grade enger, Lesetext neutral */
+h1 { letter-spacing: -0.02em; }
+h2 { letter-spacing: -0.015em; }
+h3 { letter-spacing: -0.005em; }
 h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
 h2 em, h1 em { font-style: italic; color: var(--accent); }
 
@@ -157,10 +161,12 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 /* ── Header ──────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(239, 233, 223, .88);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(239, 233, 223, .82);
+  backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+  transition: box-shadow .25s ease;
 }
+/* Statt fester Linie: weiche Kante, sobald Inhalt unter den Header läuft */
+.site-header.scrolled { box-shadow: 0 1px 0 var(--line), 0 10px 24px -16px rgba(20,33,61,.35); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 1rem; }
 .logo-link {
   display: inline-flex; align-items: baseline; text-decoration: none;
@@ -182,6 +188,8 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
   transition: color .15s ease, border-color .15s ease;
 }
 .main-nav a:hover { color: var(--accent); border-color: var(--accent-2); }
+/* Wo bin ich? Aktiver Abschnitt in der Navigation */
+.main-nav a[aria-current="true"] { color: var(--accent); border-color: var(--accent-2); }
 .header-cta {
   display: inline-flex; align-items: center; gap: 9px;
   padding: 10px 20px; border-radius: 999px; text-decoration: none;
@@ -200,13 +208,21 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 @media (max-width: 840px) {
   .nav-toggle { display: inline-flex; }
   .js .main-nav {
-    display: none; position: absolute; top: 76px; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 0;
-    background: var(--bg-elev); border-bottom: 1px solid var(--line);
-    padding: .5rem 0;
+    display: flex; position: absolute; top: calc(100% + 8px); right: clamp(1.25rem, 4vw, 2rem);
+    width: min(300px, calc(100vw - 2.5rem));
+    flex-direction: column; align-items: stretch; gap: 0; padding: .4rem 0;
+    background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 24px 48px -20px rgba(20,33,61,.4);
+    transform-origin: top right;
+    opacity: 0; transform: scale(.94) translateY(-6px); filter: blur(4px);
+    visibility: hidden; pointer-events: none;
+    transition: opacity .2s ease, transform .32s cubic-bezier(.2,.9,.25,1), filter .2s ease, visibility 0s linear .32s;
   }
-  .js .main-nav.open { display: flex; }
-  .js .main-nav a { padding: 14px clamp(1.25rem, 4vw, 2rem); border-bottom: none; }
+  .js .main-nav.open {
+    opacity: 1; transform: none; filter: none; visibility: visible; pointer-events: auto;
+    transition: opacity .2s ease, transform .32s cubic-bezier(.2,.9,.25,1), filter .2s ease, visibility 0s;
+  }
+  .js .main-nav a { padding: 13px 20px; border-bottom: none; }
   /* Ohne JS: Navigation als umbrechende Zeile statt Dropdown */
   html:not(.js) .header-inner { height: auto; flex-wrap: wrap; padding: 10px 0; }
   html:not(.js) .main-nav { flex-wrap: wrap; gap: 1rem; width: 100%; order: 3; padding-bottom: 6px; }
@@ -307,7 +323,7 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .ev-nav button:disabled { opacity: .35; cursor: default; }
 .ev-past {
   display: flex; gap: clamp(1rem, 2vw, 1.25rem); overflow-x: auto; scroll-snap-type: x mandatory;
-  scroll-behavior: smooth; padding-bottom: 12px; align-items: stretch;
+  position: relative; padding-bottom: 12px; align-items: stretch;
   scrollbar-width: thin; scrollbar-color: rgba(20,33,61,.2) transparent;
 }
 .ev-past .ev-card { flex: 0 0 clamp(250px, 30%, 330px); scroll-snap-align: start; }
@@ -507,6 +523,39 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 .footer-col a { display: block; text-decoration: none; padding: 2px 0; }
 .footer-col a:hover { color: var(--accent); }
 .footer-note { width: 100%; margin-top: 1rem; padding-top: 1.4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+/* ── Feinschliff: Rückmeldung, Bewegung, Zugänglichkeit ─────
+   Orientiert an Apples Gestaltungsprinzipien (Designing Fluid Interfaces) */
+html { -webkit-tap-highlight-color: transparent; }
+a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touchgeräten */
+/* Rückmeldung sofort beim Drücken, nicht erst beim Loslassen */
+.btn:active, .header-cta:active, .seg-tab:active, .copy-btn:active, .nav-toggle:active,
+.ev-nav button:active:not(:disabled) { transform: scale(.97); transition: transform .1s ease-out; }
+.video-facade:active .play { transform: scale(.94); transition: transform .1s ease-out; }
+
+/* Register: Inhalt kommt aus der Richtung, in die geklickt wurde */
+.js .seg-panel { transition: opacity .26s ease, transform .4s cubic-bezier(.2,.9,.25,1); }
+.js .seg-panel.from-right { opacity: 0; transform: translateX(22px); transition: none; }
+.js .seg-panel.from-left  { opacity: 0; transform: translateX(-22px); transition: none; }
+
+/* Rückblick: mit der Maus greifbar */
+@media (hover: hover) and (pointer: fine) {
+  .js .ev-past { cursor: grab; }
+  .js .ev-past.dragging { cursor: grabbing; user-select: none; }
+}
+.ev-past img { -webkit-user-drag: none; user-select: none; }
+
+/* Weniger Transparenz bzw. mehr Kontrast, wenn im System eingestellt */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  :root { --muted: #3b4560; --line: rgba(20,33,61,.45); }
+  .site-header { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 0 var(--ink-2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .seg-panel.from-right, .js .seg-panel.from-left { transform: none; }
+  .js .main-nav { transform: none; filter: none; }
+}
 </style>
 </head>
 <body>
@@ -972,22 +1021,46 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 <script>
 document.documentElement.classList.add('js');
 
-// Mobile Navigation
+// Mobile Navigation: öffnet aus dem Menü-Knopf, schließt per Knopf, Escape oder Klick daneben
 (function () {
   var toggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('main-nav');
   toggle.hidden = false;
-  toggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  toggle.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
+  document.addEventListener('click', function (e) {
+    if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false);
   });
-  nav.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); toggle.focus(); }
   });
+})();
+
+// Header: weiche Kante erst, wenn Inhalt darunter liegt; Navigation zeigt den aktuellen Abschnitt
+(function () {
+  var header = document.querySelector('.site-header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 4); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (!('IntersectionObserver' in window)) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.main-nav a[href^="#"]'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      links.forEach(function (a) { a.removeAttribute('aria-current'); });
+      var a = byId[entry.target.id];
+      if (a) a.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
 })();
 
 // Scroll-Reveal
@@ -1040,13 +1113,25 @@ document.documentElement.classList.add('js');
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.seg-tab'));
   if (!tabs.length) return;
+  var current = -1;
   function select(tab) {
+    var idx = tabs.indexOf(tab);
     tabs.forEach(function (t) {
       var on = t === tab;
       t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
       var panel = document.getElementById(t.getAttribute('aria-controls'));
-      if (panel) panel.hidden = !on;
+      if (!panel) return;
+      panel.hidden = !on;
+      // Neuer Inhalt gleitet aus der Richtung, in die geklickt wurde
+      if (on && current !== -1 && idx !== current) {
+        var dir = idx > current ? 'from-right' : 'from-left';
+        panel.classList.add(dir);
+        void panel.offsetWidth;
+        panel.classList.remove(dir);
+      }
     });
+    current = idx;
   }
   tabs.forEach(function (tab, idx) {
     tab.addEventListener('click', function () { select(tab); });
@@ -1081,28 +1166,133 @@ document.documentElement.classList.add('js');
   }
 })();
 
-// Rückblick-Karussell: Pfeiltasten (ohne JS bleibt es horizontal scrollbar)
+// Rückblick-Karussell
+// Touch nutzt das native Scrollen. Mit der Maus lässt sich der Streifen greifen: er folgt 1:1,
+// gleitet nach dem Loslassen mit dem Schwung der Bewegung weiter, rastet am nächsten Bild ein
+// und federt an den Rändern sanft zurück. Jede Bewegung kann jederzeit neu gegriffen werden.
 (function () {
   var track = document.getElementById('ev-past');
   var nav = document.getElementById('ev-nav');
   if (!track || !nav) return;
   var prev = document.getElementById('ev-prev');
   var next = document.getElementById('ev-next');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   nav.hidden = false;
-  function step() {
-    var card = track.querySelector('.ev-card');
-    var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
-    return card ? card.getBoundingClientRect().width + gap : 300;
+
+  // Kritisch gedämpfte Feder (keine Überschwinger), Ansprechzeit 0,4 s, startet mit der Geschwindigkeit der Geste
+  function spring(from, to, v0, set, done) {
+    if (reduce) { set(to); if (done) done(); return function () {}; }
+    var w = 2 * Math.PI / 0.4, x0 = from - to, t0 = performance.now(), id;
+    function frame(now) {
+      var t = (now - t0) / 1000, e = Math.exp(-w * t);
+      var x = (x0 + (v0 + w * x0) * t) * e;
+      var v = (v0 - w * (v0 + w * x0) * t) * e;
+      if (Math.abs(x) < 0.5 && Math.abs(v) < 10) { set(to); if (done) done(); return; }
+      set(to + x);
+      id = requestAnimationFrame(frame);
+    }
+    id = requestAnimationFrame(frame);
+    return function () { cancelAnimationFrame(id); };
   }
+
+  var stopScroll = null, stopBand = null, band = 0;
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+  function setScroll(v) { track.scrollLeft = v; }
+  function setBand(v) { band = v; track.style.transform = v ? 'translateX(' + v + 'px)' : ''; }
+  function snapPoints() {
+    var max = maxScroll();
+    var pts = Array.prototype.map.call(track.children, function (c) { return Math.min(c.offsetLeft, max); });
+    pts.push(max);
+    return pts;
+  }
+  function nearest(x) {
+    return snapPoints().reduce(function (best, p) { return Math.abs(p - x) < Math.abs(best - x) ? p : best; }, 0);
+  }
+  function glideTo(target, velocity) {
+    if (stopScroll) stopScroll();
+    track.style.scrollSnapType = 'none';
+    stopScroll = spring(track.scrollLeft, target, velocity || 0, setScroll, function () {
+      stopScroll = null;
+      track.style.scrollSnapType = '';
+      update();
+    });
+  }
+  // Wurfweite aus der Geschwindigkeit, wie beim Ausrollen eines Scrollvorgangs
+  function project(v) { var d = 0.998; return (v / 1000) * d / (1 - d); }
+  // Gummiband: je weiter über den Rand, desto weniger folgt der Streifen
+  function rubber(over, dim) { var c = 0.55; return (over * dim * c) / (dim + c * Math.abs(over)); }
+
   function update() {
     prev.disabled = track.scrollLeft <= 4;
-    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    next.disabled = track.scrollLeft >= maxScroll() - 4;
   }
-  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  prev.addEventListener('click', function () {
+    var pts = snapPoints(), x = track.scrollLeft;
+    var t = pts.filter(function (p) { return p < x - 4; }).pop();
+    glideTo(t === undefined ? 0 : t, 0);
+  });
+  next.addEventListener('click', function () {
+    var pts = snapPoints(), x = track.scrollLeft;
+    var t = pts.filter(function (p) { return p > x + 4; })[0];
+    glideTo(t === undefined ? maxScroll() : t, 0);
+  });
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update();
+
+  // Greifen mit der Maus
+  var drag = null, suppressClick = false;
+  track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    // Laufende Bewegung anhalten und vom aktuellen Stand aus weitermachen
+    if (stopScroll) { stopScroll(); stopScroll = null; }
+    if (stopBand) { stopBand(); stopBand = null; }
+    drag = { id: e.pointerId, x: e.clientX, origin: track.scrollLeft - band, moved: false,
+             hist: [{ x: e.clientX, t: e.timeStamp }] };
+  });
+  track.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x;
+    if (!drag.moved) {
+      if (Math.abs(dx) < 8) return;          // kleine Schwelle, damit Klicks Klicks bleiben
+      drag.moved = true;
+      drag.x += dx > 0 ? 8 : -8;             // ohne Sprung weiter
+      dx = e.clientX - drag.x;
+      track.setPointerCapture(e.pointerId);
+      track.classList.add('dragging');
+      track.style.scrollSnapType = 'none';
+    }
+    drag.hist.push({ x: e.clientX, t: e.timeStamp });
+    if (drag.hist.length > 6) drag.hist.shift();
+    var want = drag.origin - dx, max = maxScroll(), dim = track.clientWidth;
+    if (want < 0) { setScroll(0); setBand(rubber(-want, dim)); }
+    else if (want > max) { setScroll(max); setBand(-rubber(want - max, dim)); }
+    else { setScroll(want); setBand(0); }
+  });
+  function release(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag; drag = null;
+    if (!d.moved) return;
+    suppressClick = true;
+    track.classList.remove('dragging');
+    var h = d.hist, first = h[0], last = h[h.length - 1];
+    var dt = (last.t - first.t) / 1000;
+    var pv = dt > 0 && e.timeStamp - last.t < 80 ? (last.x - first.x) / dt : 0;  // Zeigergeschwindigkeit
+    if (band) {
+      stopBand = spring(band, 0, pv, setBand, function () { stopBand = null; track.style.scrollSnapType = ''; update(); });
+      return;
+    }
+    var sv = -pv;                                  // Scroll läuft entgegen der Zeigerbewegung
+    var target = nearest(Math.max(0, Math.min(maxScroll(), track.scrollLeft + project(sv))));
+    glideTo(target, sv);
+  }
+  track.addEventListener('pointerup', release);
+  track.addEventListener('pointercancel', release);
+  // Nach dem Ziehen keinen versehentlichen Klick auf ein Bild auslösen
+  track.addEventListener('click', function (e) {
+    if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
+  }, true);
 })();
 
 // E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)
