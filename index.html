@@ -286,6 +286,9 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 }
 .ev-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink-2); }
 .ev-media img, .ev-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Zwei Fotos nebeneinander in einer Karte */
+.ev-media--duo { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--bg-elev); }
+.ev-media--duo img { min-width: 0; }
 /* Platzhalter, bis Fotos/Videos geliefert sind */
 .ev-media--placeholder {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
@@ -696,7 +699,7 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
           </div>
         </article>
         <article class="ev-card" data-date="2026-09-11">
-          <div class="ev-media ev-media--placeholder"><img src="assets/signet.svg" alt=""><span>Fotos folgen</span></div>
+          <div class="ev-media ev-media--duo"><img src="assets/imbra-roundtable.jpg" alt="Célest Lang beim Roundtable der IMBRA-Konferenz" loading="lazy" width="900" height="419" style="object-position: 50% 35%"><img src="assets/imbra-vortrag.jpg" alt="Célest Lang bei seinem Vortrag auf der IMBRA-Konferenz im Gasteig" loading="lazy" width="826" height="900" style="object-position: 72% 22%"></div>
           <div class="ev-body">
             <p class="ev-meta"><time datetime="2026-09-11">11. September 2026</time> · München</p>
             <h3>IMBRA-Konferenz</h3>
