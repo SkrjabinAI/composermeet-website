@@ -487,9 +487,9 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
 .about-portrait { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(20,33,61,.16); }
 .about-text h2 { margin: 1rem 0 1.2rem; }
 .about-text > p { color: var(--muted); max-width: 38em; }
-.about-list { list-style: none; margin-top: 1.8rem; display: flex; flex-direction: column; gap: .7rem; }
-.about-list li { display: flex; align-items: baseline; gap: 14px; font-weight: 550; color: var(--ink-2); }
-.about-list .n { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
+.about-list { list-style: none; margin-top: 1.6rem; display: flex; flex-direction: column; gap: .55rem; }
+.about-list li { display: flex; align-items: baseline; gap: 14px; font-weight: 500; color: var(--ink-2); }
+.about-list .n { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; transform: translateY(-2px); }
 
 /* ── Kontakt ─────────────────────────────────────────────── */
 .contact { text-align: center; }
@@ -971,10 +971,14 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
         <span class="eyebrow">Über den Gründer</span>
         <h2>Célest <em>Lang.</em></h2>
         <p>Pianist und Musikvermittler mit Schwerpunkt auf neuen Konzertformaten. Seine Arbeit verbindet künstlerische Praxis mit technischer Neugier und einem kritischen Blick auf historische Quellen. ComposerMeet ist an dieser Schnittstelle von Musik, KI und Kulturvermittlung entstanden und wächst seither über die Musik hinaus.</p>
+        <p style="margin-top: 1rem">Den Prototyp entwickelte er für XPLORE, den Wettbewerb der HMTM München für neue Konzertformate. Seit 2025 wird ComposerMeet vom Venture Team Kultur in Bayern gefördert.</p>
         <ul class="about-list">
-          <li><span class="n">01</span>Künstlerische Praxis</li>
-          <li><span class="n">02</span>Technologische Neugier</li>
-          <li><span class="n">03</span>Quellenkritische Haltung</li>
+          <li><span class="n" aria-hidden="true"></span>Klavierstudium an der HMTM München und der mdw Wien</li>
+          <li><span class="n" aria-hidden="true"></span>Gründer von ComposerMeet</li>
+          <li><span class="n" aria-hidden="true"></span>Mitgründer des Accento Orchesters München</li>
+          <li><span class="n" aria-hidden="true"></span>Mitgründer des Festivals SchERZo (in Gründung)</li>
+          <li><span class="n" aria-hidden="true"></span>Forschung zu Schönberg und Kandinsky, vorgestellt bei NaMu2025 (ÖAW)</li>
+          <li><span class="n" aria-hidden="true"></span>Akademist der Tonali Bühnenakademie (seit Oktober 2026)</li>
         </ul>
       </div>
     </div>
