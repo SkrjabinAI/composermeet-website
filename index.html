@@ -26,7 +26,7 @@
   "url": "https://composermeet.com/",
   "logo": "https://composermeet.com/assets/signet.svg",
   "description": "Live-Dialoge mit historischen Persönlichkeiten im Museum, auf der Bühne und im Unterricht. Die Antworten beruhen auf historischen Quellen.",
-  "email": "lang.celest@gmail.com",
+  "email": "celest@composermeet.com",
   "founder": {
     "@type": "Person",
     "name": "Célest Lang",
@@ -380,7 +380,7 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 .pipeline-band { background: var(--ink-2); color: var(--cream); padding: clamp(4rem, 8vw, 6.5rem) 0; }
 .pipeline-band h2 { color: var(--cream); }
 /* Auf dunklem Grund: helles Logo-Gold statt dunklem Gold */
-.pipeline-band h2 em, .award-section h2 em { color: var(--accent-2); }
+.pipeline-band h2 em { color: var(--accent-2); }
 .pipeline-band .eyebrow { color: var(--accent-2); }
 .pipeline-band .section-head p { color: rgba(239,233,223,.65); margin-top: 1rem; }
 .pipe-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
@@ -464,22 +464,6 @@ html:not(.js) .seg-panel-title { display: block; font-family: var(--font-display
   color: var(--muted); max-width: 44em; margin: 0 auto;
 }
 .statement p strong { color: var(--ink-2); font-weight: 600; }
-
-/* ── Auszeichnung ────────────────────────────────────────── */
-.award-section { background: var(--ink-2); color: var(--cream); padding: clamp(4rem, 8vw, 7rem) 0; }
-.award-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-@media (max-width: 840px) { .award-grid { grid-template-columns: 1fr; } }
-.award-section .eyebrow { color: var(--accent-2); }
-.award-section h2 { color: var(--cream); margin: 1rem 0 1.5rem; }
-.award-citation {
-  font-family: var(--font-display); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-style: italic;
-  line-height: 1.5; color: rgba(239,233,223,.9);
-  border-left: 3px solid var(--accent-2); padding-left: 1.4rem; margin-bottom: 1.4rem;
-}
-.award-meta { color: rgba(239,233,223,.6); font-size: 15px; }
-.award-photo-wrap { border-radius: 18px; overflow: hidden; border: 1px solid rgba(239,233,223,.2); max-width: 340px; margin-left: auto; }
-@media (max-width: 840px) { .award-photo-wrap { margin: 0 auto; } }
-.award-photo-credit { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .05em; color: rgba(239,233,223,.5); margin-top: .7rem; text-align: center; }
 
 /* ── Über ────────────────────────────────────────────────── */
 .about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
@@ -575,7 +559,7 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
-      <a class="header-cta" href="mailto:lang.celest@gmail.com?subject=Interesse%20an%20ComposerMeet"><span class="dot" aria-hidden="true"></span>Anfragen</a>
+      <a class="header-cta" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet"><span class="dot" aria-hidden="true"></span>Anfragen</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen" hidden>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
@@ -598,7 +582,7 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
         </h1>
         <p class="hero-sub">Das Publikum stellt eine Frage, und eine historische Persönlichkeit antwortet als Video-Avatar, mit Stimme und Untertiteln. Komponist*innen ebenso wie Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen, auf Grundlage ihrer Briefe, Tagebücher und weiterer Quellen.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:lang.celest@gmail.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
+          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
           <a class="btn btn-ghost" href="#video">Video ansehen</a>
         </div>
       </div>
@@ -943,23 +927,6 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
     </div>
   </section>
 
-  <!-- Auszeichnung -->
-  <section class="award-section">
-    <div class="container award-grid">
-      <div class="reveal">
-        <span class="eyebrow">Auszeichnung</span>
-        <h2>Honorable <em>Mention.</em></h2>
-        <blockquote class="award-citation">„Auszeichnung für ein faszinierendes und quellenfundiertes, KI-basiertes Vermittlungsformat mit hoher Skalierbarkeit und einem innovativen Zugang zu musikalischer Bildung und Interaktion.“</blockquote>
-        <p class="award-meta">Verliehen bei „The next THING“ von Venture Team Kultur, April 2026.</p>
-      </div>
-      <div class="reveal">
-        <div class="award-photo-wrap">
-          <img src="assets/award-ceremony.jpg" alt="Verleihung der Honorable Mention bei „The next THING“, April 2026" width="342" height="512" loading="lazy">
-        </div>
-        <p class="award-photo-credit">Foto: Venture Team Kultur (Yolanda Castillo-Kuchenbecker)</p>
-      </div>
-    </div>
-  </section>
 
   <!-- Über -->
   <section class="section" id="ueber">
@@ -990,14 +957,14 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
       <span class="eyebrow">Kontakt</span>
       <h2>Interesse? <em>Sprechen Sie uns an.</em></h2>
       <div class="contact-email-row">
-        <a class="contact-email" href="mailto:lang.celest@gmail.com">lang.celest@gmail.com</a>
+        <a class="contact-email" href="mailto:celest@composermeet.com">celest@composermeet.com</a>
         <button class="copy-btn" id="copy-email" type="button" hidden>
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2H3.5A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
           <span>Kopieren</span>
         </button>
       </div>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:lang.celest@gmail.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
+        <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
         <a class="btn btn-ghost" href="assets/ComposerMeet_Infosheet.pdf" download>Informations-PDF laden</a>
       </div>
     </div>
@@ -1311,7 +1278,7 @@ document.documentElement.classList.add('js');
   btn.hidden = false;
   var label = btn.querySelector('span');
   btn.addEventListener('click', function () {
-    navigator.clipboard.writeText('lang.celest@gmail.com').then(function () {
+    navigator.clipboard.writeText('celest@composermeet.com').then(function () {
       btn.classList.add('copied');
       label.textContent = 'Kopiert ✓';
       setTimeout(function () {
