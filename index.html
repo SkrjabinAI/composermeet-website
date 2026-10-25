@@ -278,6 +278,14 @@ h2 em, h1 em { font-style: italic; color: var(--accent); }
 
 /* ── Aktuell & Rückblick ─────────────────────────────────── */
 .ev-upcoming .ev-media { aspect-ratio: 2 / 1; }
+/* Nur ein aktueller Termin: Karte über die volle Breite, Bild und Text nebeneinander */
+.ev-upcoming > .ev-card:only-child { grid-column: 1 / -1; flex-direction: row; }
+.ev-upcoming > .ev-card:only-child .ev-media { flex: 0 0 56%; aspect-ratio: 16 / 9; }
+.ev-upcoming > .ev-card:only-child .ev-body { align-self: center; padding: 1.6rem 2rem; }
+@media (max-width: 720px) {
+  .ev-upcoming > .ev-card:only-child { flex-direction: column; }
+  .ev-upcoming > .ev-card:only-child .ev-body { padding: 1.2rem 1.3rem 1.4rem; }
+}
 .ev-upcoming { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.5rem); }
 @media (max-width: 720px) { .ev-upcoming { grid-template-columns: 1fr; } }
 .ev-card {
@@ -648,17 +656,6 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
             <p class="ev-credit">Foto: Arnold Schönberg Center</p>
           </div>
         </article>
-        <article class="ev-card" data-date="2026-10-24" data-end="2026-10-24">
-          <div class="ev-media ev-media--date" aria-hidden="true">
-            <span class="day">24</span><span class="mon">Oktober<br>2026</span>
-          </div>
-          <div class="ev-body">
-            <p class="ev-meta"><time datetime="2026-10-24">24. Oktober 2026</time> · München</p>
-            <h3>Xplorer Day</h3>
-            <p class="ev-place">Deutsches Museum Verkehrszentrum</p>
-            <p>Mit ComposerMeet beim Xplorer Day des XR Hub in München.</p>
-          </div>
-        </article>
       </div>
       <p class="ev-empty" id="ev-empty" hidden>Derzeit keine öffentlichen Termine. Anfragen gern per E-Mail.</p>
 
@@ -674,6 +671,15 @@ a, button { touch-action: manipulation; }   /* keine Tipp-Verzögerung auf Touch
         </div>
       </div>
       <div class="ev-past reveal" id="ev-past" tabindex="0" aria-label="Rückblick: vergangene Stationen">
+        <article class="ev-card" data-date="2026-10-24">
+          <div class="ev-media ev-media--duo"><img src="assets/xplorer-poster.jpg" alt="Poster von ComposerMeet beim Xplorer Day: historische Persönlichkeiten als KI-Avatare, die Fragen von Schüler*innen beantworten" loading="lazy" width="800" height="797" style="object-position: 50% 30%"><img src="assets/xplorer-halle.jpg" alt="Namensschild von Célest Lang für ComposerMeet beim Xplorer Day im Deutschen Museum Verkehrszentrum" loading="lazy" width="800" height="739" style="object-position: 30% 70%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-24">24. Oktober 2026</time> · München</p>
+            <h3>Xplorer Day</h3>
+            <p class="ev-place">Deutsches Museum Verkehrszentrum</p>
+            <p>ComposerMeet zum Selbstausprobieren beim Xplorer Day des XR Hub, mit dem Schwerpunkt auf dem Einsatz in Schule und Bildung.</p>
+          </div>
+        </article>
         <article class="ev-card" data-date="2026-10-03">
           <div class="ev-media"><img src="assets/asc-lange-nacht.jpg" alt="Célest Lang präsentiert ComposerMeet im Arnold Schönberg Center, dahinter der KI-Avatar von Arnold Schönberg" loading="lazy" width="1000" height="562" style="object-position: 55% 50%"></div>
           <div class="ev-body">
