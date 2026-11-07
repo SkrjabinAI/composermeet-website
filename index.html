@@ -410,6 +410,8 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 
   .section-head h2, .section-head--split h2, .section-head .lead { grid-column: 1 / -1; }
   .ev-upcoming > .ev-card { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); }
+  .ev-upcoming > .ev-card[data-persona] { row-gap: 0; }
+  .ev-upcoming > .ev-card[data-persona] .ev-body { padding: var(--space-lg); }
   .concept-lead, .concept-cols, .b-lead, .b-list { grid-column: 1 / -1; }
   .concept-cols { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
   .bespoke { padding: var(--space-lg); }
