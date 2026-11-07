@@ -6,7 +6,7 @@
 <title>ComposerMeet | Im Dialog mit historischen Persönlichkeiten</title>
 <meta name="description" content="ComposerMeet ermöglicht Live-Dialoge mit historischen Persönlichkeiten: Komponist*innen, Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen. Im Museum, auf der Bühne und im Unterricht, auf Grundlage historischer Quellen.">
 <link rel="canonical" href="https://composermeet.com/">
-<meta name="theme-color" content="#0f1a31">
+<meta name="theme-color" content="#ece8e1">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
 <meta property="og:type" content="website">
@@ -38,12 +38,11 @@
 
 <style>
 /* Hallmark · shape: Narrative Workflow · genre: atmospheric · theme: brand · redesign: full
- * paper: oklch(19% 0.045 264) · accent: oklch(78% 0.115 82) · display: Mona Sans 300 at 108% width · body: Mona Sans · hero: Stage · nav: edge bar, links and the enquiry at the right edge · footer: mast · signature: the avatar as a film still with live subtitles, bleeding off the right edge
- * axes: dark/grotesk-sans/warm · posture: committed · job: hire · contrast: pass · fold: pass · v2.0.0 */
+ * paper: oklch(93% 0.006 85) · accent: oklch(50% 0.17 28) · display: Mona Sans 300 at 108% width · body: Mona Sans · hero: Stage · nav: edge bar, links and the enquiry at the right edge · footer: mast · signature: each persona carries the colour of its own source, Hensel the umber of Oppenheim's painting, Schönberg a patinated blue green
+ * axes: light/grotesk-sans/warm · posture: full palette (paper and iron gall ink, sealing wax red as the one signal, one field colour per persona) · job: hire · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · waive 39b · the video facade is the poster frame itself, one play control drawn inside it at 72px · the whole Fanny Hensel still is the click target */
 /* Hallmark · dismissed 49 · the long label is the video facade, a full-width poster button whose title wraps by design */
 /* Hallmark · dismissed 59 · eleven sections carry the owner's own topics, each a different composition, two of them bands */
-/* Hallmark · dropped signet.svg in the page chrome · replaced by signet-light.svg, the same signet with the navy clef in cream for the dark ground */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: P, the page argues one idea (history answers back, from its sources) and leads with the avatar itself rather than a claim about it */
 
 @font-face {
@@ -70,7 +69,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
   --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
   --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.5rem, 4.2vw + 1rem, 4.75rem);
@@ -82,16 +81,20 @@
   --nav-height: 72px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
 
-  /* Marke: das Navy des Signets als Grund, Creme als Schrift, Gold als einziges Signal */
-  --color-paper: oklch(19% 0.045 264); --color-paper-2: oklch(23% 0.05 264); --color-paper-3: oklch(27.5% 0.055 264);
-  --color-ink: oklch(94% 0.014 82); --color-ink-2: oklch(86% 0.02 82); --color-muted: oklch(76% 0.025 264);
-  --color-rule: oklch(33% 0.045 264); --color-rule-2: oklch(46% 0.05 264);
-  --color-accent: oklch(78% 0.115 82); --color-accent-hover: oklch(84% 0.105 84); --color-accent-ink: oklch(19% 0.045 264); --color-focus: oklch(84% 0.15 84);
-  --color-scrim: oklch(13% 0.04 264 / 0.82); --color-scrim-0: oklch(13% 0.04 264 / 0);
+  /* Briefpapier, Eisengallustinte, Siegellack. Dazu je Persönlichkeit die Farbe ihrer Quelle. */
+  --color-paper: oklch(93% 0.006 85); --color-paper-2: oklch(89.5% 0.008 80); --color-paper-3: oklch(86% 0.01 78);
+  --color-ink: oklch(23% 0.022 55); --color-ink-2: oklch(34% 0.02 55); --color-muted: oklch(46% 0.016 60);
+  --color-rule: oklch(83% 0.01 75); --color-rule-2: oklch(68% 0.012 70);
+  --color-accent: oklch(50% 0.17 28); --color-accent-hover: oklch(44% 0.16 28); --color-accent-ink: oklch(97% 0.005 85); --color-focus: oklch(52% 0.2 28);
+  --color-brand: oklch(52% 0.09 78);
+  --color-on-dark: oklch(95% 0.006 85); --color-on-dark-2: oklch(85% 0.012 80); --color-rule-dark: oklch(60% 0.02 70 / 0.6);
+  --color-persona-hensel: oklch(38% 0.055 60); --color-persona-hensel-light: oklch(82% 0.06 68);
+  --color-persona-schoenberg: oklch(40% 0.06 205); --color-persona-schoenberg-light: oklch(84% 0.05 200);
+  --color-scrim: oklch(16% 0.025 55 / 0.82); --color-scrim-0: oklch(16% 0.025 55 / 0);
   --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-body: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-outlier: "Instrument Serif", Georgia, serif;
   --display-weight: 300; --display-stretch: 108%;
   --radius-card: 2px; --radius-control: 2px; --radius-round: 50%; --rule-hair: 1px;
-  --shadow-card: 0 24px 48px -24px oklch(8% 0.04 264 / 0.7);
+  --shadow-card: 0 12px 32px -16px oklch(23% 0.022 55 / 0.35);
   --tracking-display: -0.02em;
 }
 
@@ -144,7 +147,7 @@ button { color: inherit; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: var(--nav-height); }
 .logo-link { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-outlier); font-size: var(--text-xl); line-height: 1; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
 .logo-link img { width: 40px; height: auto; flex-shrink: 0; }
-.logo-link em { color: var(--color-accent); }
+.logo-link em { color: var(--color-brand); }
 .header-end { display: flex; align-items: center; gap: var(--space-xl); }
 .main-nav { display: flex; gap: var(--space-lg); }
 .main-nav a { padding-block: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); text-decoration: none; border-bottom: var(--rule-hair) solid transparent; transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
@@ -166,18 +169,18 @@ button { color: inherit; }
 @keyframes settle { from { opacity: 0.6; } }
 
 .hero-figure { grid-column: vis-start / full-end; position: relative; }
-.as-stage { position: relative; height: min(72dvh, 680px); min-height: 440px; overflow: hidden; background: var(--color-paper-2); }
+.as-stage { position: relative; color: var(--color-on-dark); height: min(72dvh, 680px); min-height: 440px; overflow: hidden; background: var(--color-persona-hensel); }
 .as-screen, .as-video { width: 100%; height: 100%; }
 .as-video { object-fit: cover; object-position: 50% 26%; }
 .as-caption { position: absolute; inset-inline: 0; bottom: 0; padding: var(--space-3xl) var(--space-xl) var(--space-lg); background: linear-gradient(to top, var(--color-scrim) 45%, var(--color-scrim-0)); text-align: center; }
-.as-caption-label { display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); font-weight: 600; color: var(--color-accent); }
+.as-caption-label { display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); font-weight: 600; color: var(--color-persona-hensel-light); }
 .as-caption-label .ic-speak { display: none; }
 .as-caption-label[data-mode="speak"] .ic-mic { display: none; }
 .as-caption-label[data-mode="speak"] .ic-speak { display: block; }
-.as-caption-text { max-width: 38ch; margin: var(--space-xs) auto 0; font-size: var(--text-lead); line-height: 1.4; color: var(--color-ink); min-height: 2.8em; }
-.as-pause { position: absolute; top: var(--space-md); left: var(--space-md); z-index: var(--z-raised); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: var(--space-xs) var(--space-md); border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-control); background: var(--color-scrim); color: var(--color-ink); font-size: var(--text-sm); font-weight: 600; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
-.as-pause:hover { background: var(--color-paper-3); }
-.as-pause:active { background: var(--color-paper-2); }
+.as-caption-text { max-width: 38ch; margin: var(--space-xs) auto 0; font-size: var(--text-lead); line-height: 1.4; color: var(--color-on-dark); min-height: 2.8em; }
+.as-pause { position: absolute; top: var(--space-md); left: var(--space-md); z-index: var(--z-raised); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: var(--space-xs) var(--space-md); border: var(--rule-hair) solid var(--color-rule-dark); border-radius: var(--radius-control); background: var(--color-scrim); color: var(--color-on-dark); font-size: var(--text-sm); font-weight: 600; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.as-pause:hover { background: var(--color-persona-hensel); }
+.as-pause:active { background: var(--color-ink); }
 .as-pause .ic-play { display: none; }
 .as-pause[aria-pressed="true"] .ic-pause { display: none; }
 .as-pause[aria-pressed="true"] .ic-play { display: block; }
@@ -214,6 +217,16 @@ button { color: inherit; }
 .ev-empty { color: var(--color-muted); font-size: var(--text-lead); }
 
 .ev-upcoming > .ev-card { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--space-2xl); align-items: center; }
+.ev-upcoming > .ev-card[data-persona] { column-gap: 0; align-items: stretch; }
+.ev-upcoming > .ev-card[data-persona] .ev-body { align-content: center; padding: var(--space-xl); }
+.ev-card[data-persona] { --persona: var(--color-rule-2); --persona-light: var(--color-on-dark-2); }
+.ev-card[data-persona="hensel"] { --persona: var(--color-persona-hensel); --persona-light: var(--color-persona-hensel-light); }
+.ev-card[data-persona="schoenberg"] { --persona: var(--color-persona-schoenberg); --persona-light: var(--color-persona-schoenberg-light); }
+.ev-upcoming .ev-card[data-persona] .ev-body { background: var(--persona); color: var(--color-on-dark); }
+.ev-upcoming .ev-card[data-persona] .ev-meta, .ev-upcoming .ev-card[data-persona] .ev-credit { color: var(--persona-light); }
+.ev-upcoming .ev-card[data-persona] .ev-meta > * + *::before { background: var(--persona-light); }
+.ev-upcoming .ev-card[data-persona] .ev-place, .ev-upcoming .ev-card[data-persona] .ev-body p:not(.ev-meta):not(.ev-place):not(.ev-credit) { color: var(--color-on-dark); }
+.ev-past .ev-card[data-persona] .ev-media { border-bottom: 4px solid var(--persona); }
 .ev-upcoming .ev-media { aspect-ratio: 3 / 2; }
 .ev-upcoming .ev-body { gap: var(--space-sm); }
 .ev-upcoming .ev-body h3 { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); font-size: var(--text-display-s); line-height: 1.05; margin-top: var(--space-xs); }
@@ -242,6 +255,8 @@ button { color: inherit; }
 .b-list li { display: grid; gap: var(--space-2xs); padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule-2); }
 .b-list li:first-child { border-top: 0; padding-top: 0; }
 .b-list b { font-weight: 600; color: var(--color-ink); }
+.b-list .p-hensel { color: var(--color-persona-hensel); }
+.b-list .p-schoenberg { color: var(--color-persona-schoenberg); }
 .b-list span { color: var(--color-ink-2); }
 .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); margin-top: var(--space-3xl); }
 .pillar { display: grid; gap: var(--space-sm); align-content: start; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); }
@@ -252,13 +267,13 @@ button { color: inherit; }
 #video { padding-top: var(--section-gap-l); }
 .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--color-paper-2); }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.video-facade { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; gap: var(--space-lg); padding: var(--space-xl); border: 0; text-align: left; color: var(--color-ink); cursor: pointer; background: linear-gradient(to top, var(--color-scrim) 15%, var(--color-scrim-0) 60%), url("assets/video-poster.jpg") center / cover no-repeat, var(--color-paper-2); }
+.video-facade { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; gap: var(--space-lg); padding: var(--space-xl); border: 0; text-align: left; color: var(--color-on-dark); cursor: pointer; background: linear-gradient(to top, var(--color-scrim) 15%, var(--color-scrim-0) 60%), url("assets/video-poster.jpg") center / cover no-repeat, var(--color-persona-hensel); }
 .video-facade .play { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 72px; height: 72px; border-radius: var(--radius-round); background: var(--color-accent); color: var(--color-accent-ink); transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
 .video-facade:hover .play { background: var(--color-accent-hover); }
 .video-facade:active .play { transform: scale(0.96); }
 .vf-text { display: grid; gap: var(--space-2xs); }
 .video-facade .vf-title { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); font-size: var(--text-2xl); line-height: 1.15; }
-.video-facade .vf-note { font-size: var(--text-sm); color: var(--color-ink-2); }
+.video-facade .vf-note { font-size: var(--text-sm); color: var(--color-on-dark-2); }
 .video-caption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
 
 /* So entsteht eine Antwort */
@@ -318,11 +333,17 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 .about-list li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
 
 /* Kontakt */
+.contact.band { background: var(--color-ink); color: var(--color-on-dark); }
+.contact .btn:not(.btn-primary), .contact .copy-btn { color: var(--color-on-dark); border-color: var(--color-rule-dark); }
+.contact .btn:not(.btn-primary):hover, .contact .copy-btn:hover { background: var(--color-ink-2); }
+.contact .copy-btn:active { background: var(--color-ink); }
+.contact :focus-visible, .as-pause:focus-visible { outline-color: var(--color-on-dark); }
+.contact .copy-btn.copied { color: var(--color-persona-schoenberg-light); border-color: var(--color-persona-schoenberg-light); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: end; }
 .contact-main { display: grid; gap: var(--space-xl); }
 .contact-email-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); }
-.contact-email { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); font-size: clamp(1.5rem, 2.2vw + 0.75rem, 2.75rem); line-height: 1.1; letter-spacing: -0.01em; text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; overflow-wrap: break-word; min-width: 0; transition: text-decoration-color var(--dur-short) var(--ease-out); }
-.contact-email:hover { text-decoration-color: var(--color-accent); }
+.contact-email { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); font-size: clamp(1.5rem, 2.2vw + 0.75rem, 2.75rem); line-height: 1.1; letter-spacing: -0.01em; text-decoration: underline; text-decoration-color: var(--color-rule-dark); text-underline-offset: 0.2em; overflow-wrap: break-word; min-width: 0; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.contact-email:hover { text-decoration-color: var(--color-on-dark); }
 .copy-btn { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: var(--space-xs) var(--space-md); border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-control); background: transparent; font-size: var(--text-sm); font-weight: 600; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
 .copy-btn:hover { background: var(--color-paper-3); }
 .copy-btn:active { background: var(--color-paper); }
@@ -413,7 +434,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo-link" href="#" aria-label="ComposerMeet, zur Startseite"><img src="assets/signet-light.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
+    <a class="logo-link" href="#" aria-label="ComposerMeet, zur Startseite"><img src="assets/signet.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
     <div class="header-end">
       <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
         <a href="#aktuell">Aktuell</a>
@@ -495,7 +516,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       </div>
 
       <div class="ev-upcoming reveal" id="ev-upcoming">
-        <article class="ev-card">
+        <article class="ev-card" data-persona="schoenberg">
           <div class="ev-media">
             <img src="assets/asc-lange-nacht.jpg" alt="Die Installation Virtual Arnold im Arnold Schönberg Center: der KI-Avatar von Arnold Schönberg auf der Leinwand" width="1000" height="562" style="object-position: 50% 22%">
             <span class="ev-badge">Läuft jetzt</span>
@@ -532,7 +553,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <p>ComposerMeet zum Selbstausprobieren beim Xplorer Day des XR Hub, mit dem Schwerpunkt auf dem Einsatz in Schule und Bildung.</p>
           </div>
         </article>
-        <article class="ev-card" data-date="2026-10-03">
+        <article class="ev-card" data-date="2026-10-03" data-persona="schoenberg">
           <div class="ev-media"><img src="assets/asc-lange-nacht.jpg" alt="Célest Lang präsentiert ComposerMeet im Arnold Schönberg Center, dahinter der KI-Avatar von Arnold Schönberg" loading="lazy" width="1000" height="562" style="object-position: 55% 50%"></div>
           <div class="ev-body">
             <p class="ev-meta"><time datetime="2026-10-03T22:00">3. Oktober 2026, 22 Uhr</time><span>Wien</span></p>
@@ -570,7 +591,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <p class="ev-credit">Foto: Venture Team Kultur (Yolanda Castillo-Kuchenbecker)</p>
           </div>
         </article>
-        <article class="ev-card" data-date="2026-02-01">
+        <article class="ev-card" data-date="2026-02-01" data-persona="hensel">
           <div class="ev-media"><img src="assets/video-poster.jpg" alt="Pilotfolge mit Fanny Hensel an der HMTM München" loading="lazy" width="1067" height="600"></div>
           <div class="ev-body">
             <p class="ev-meta"><span>Februar 2026</span><span>München</span></p>
@@ -600,8 +621,8 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       <div class="bespoke reveal">
         <p class="b-lead">Nicht nur Musik: Jede gut dokumentierte Persönlichkeit lässt sich umsetzen, aus Malerei, Literatur, Philosophie oder Politik. Jede Figur wird eigens für ein Projekt entwickelt.</p>
         <ul class="b-list">
-          <li><b>Fanny Hensel</b><span>Pilotfolge an der HMTM München</span></li>
-          <li><b>Arnold Schönberg</b><span>Installation „Virtual Arnold“ im Arnold Schönberg Center Wien</span></li>
+          <li><b class="p-hensel">Fanny Hensel</b><span>Pilotfolge an der HMTM München</span></li>
+          <li><b class="p-schoenberg">Arnold Schönberg</b><span>Installation „Virtual Arnold“ im Arnold Schönberg Center Wien</span></li>
         </ul>
       </div>
       <div class="pillars">
@@ -821,7 +842,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <a class="logo-link footer-logo" href="#" aria-label="ComposerMeet, nach oben"><img src="assets/signet-light.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
+    <a class="logo-link footer-logo" href="#" aria-label="ComposerMeet, nach oben"><img src="assets/signet.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
     <div class="footer-cols">
       <div class="footer-col">
         <span class="footer-label">© 2026</span>
