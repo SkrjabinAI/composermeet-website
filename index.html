@@ -7,6 +7,7 @@
 <meta name="description" content="ComposerMeet ermöglicht Live-Dialoge mit historischen Persönlichkeiten: Komponist*innen, Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen. Im Museum, auf der Bühne und im Unterricht, auf Grundlage historischer Quellen.">
 <link rel="canonical" href="https://composermeet.com/">
 <meta name="theme-color" content="#ece8e1">
+<meta name="tdm-reservation" content="1">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
 <meta property="og:type" content="website">
@@ -43,7 +44,7 @@
 /* Hallmark · waive 39b · the video facade is the poster frame itself, one play control drawn inside it at 72px · the whole Fanny Hensel still is the click target */
 /* Hallmark · dismissed 49 · the long label is the video facade, a full-width poster button whose title wraps by design */
 /* Hallmark · dismissed 59 · eleven sections carry the owner's own topics, each a different composition, two of them bands */
-/* Hallmark · dropped Virtual Arnold · the installation has ended and the user moved it to the past; its facts now sit in the Lange Nacht card */
+/* Hallmark · reworded "Virtual Arnold" to "Schönberg-Installation" · the user renamed the installation */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: P, the page argues one idea (history answers back, from its sources) and leads with the avatar itself rather than a claim about it */
 
 @font-face {
@@ -215,6 +216,8 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-media img { width: 100%; height: 100%; object-fit: cover; }
 .ev-media--duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3xs); }
 .ev-badge { position: absolute; top: var(--space-md); left: var(--space-md); padding: var(--space-xs) var(--space-sm); background: var(--color-accent); color: var(--color-accent-ink); font-size: var(--text-sm); font-weight: 600; line-height: 1.2; }
+.ev-media--lead { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.ev-badge--past { background: var(--color-paper); color: var(--color-ink); }
 .ev-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs) var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
 .ev-meta > * + *::before { content: ""; display: inline-block; width: 1px; height: 0.9em; margin-right: var(--space-sm); background: var(--color-rule-2); vertical-align: -0.1em; }
 .ev-body { display: grid; gap: var(--space-xs); align-content: start; }
@@ -240,6 +243,7 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-date-day { font-size: clamp(6rem, 14vw, 13rem); font-variant-numeric: tabular-nums; }
 .ev-date-month { font-size: var(--text-section); margin-top: var(--space-xs); }
 .ev-upcoming:has(> .ev-card--text) { gap: 0; }
+.ev-pinned { margin-bottom: var(--space-2xl); }
 .ev-upcoming > .ev-card--text { align-items: end; padding-block: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
 .ev-upcoming > .ev-card--text:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
 .ev-link a { font-weight: 600; text-decoration-color: var(--color-accent); }
@@ -407,6 +411,8 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 
   .section-head h2, .section-head--split h2, .section-head .lead { grid-column: 1 / -1; }
   .ev-upcoming > .ev-card { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); }
+  .ev-upcoming > .ev-card[data-persona] { row-gap: 0; }
+  .ev-upcoming > .ev-card[data-persona] .ev-body { padding: var(--space-lg); }
   .concept-lead, .concept-cols, .b-lead, .b-list { grid-column: 1 / -1; }
   .concept-cols { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
   .bespoke { padding: var(--space-lg); }
@@ -535,6 +541,23 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         <h2>Wo ComposerMeet zu erleben ist.</h2>
       </div>
 
+      <!-- Angepinnt: die wichtigste Referenz bleibt immer an erster Stelle (wird vom Skript nicht verschoben) -->
+      <div class="ev-upcoming ev-pinned reveal">
+        <article class="ev-card" data-persona="schoenberg">
+          <div class="ev-media ev-media--duo ev-media--lead">
+            <img src="assets/schoenberg-installation.jpg" alt="Die Schönberg-Installation im Arnold Schönberg Center: Bildschirm mit dem KI-Avatar von Arnold Schönberg, davor die Sprechtaste, daneben ein Notenpult mit der Einladung „Sprechen Sie mit Arnold Schönberg!“" width="1400" height="788" style="object-position: 35% 50%">
+            <img src="assets/schoenberg-installation-besuch.jpg" alt="Ein Kind mit Kopfhörern, von hinten gesehen, im Gespräch mit dem KI-Avatar von Arnold Schönberg" width="700" height="1060" loading="lazy" style="object-position: 60% 30%">
+            <span class="ev-badge ev-badge--past">Rückblick</span>
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta"><span>2026</span><span>Wien</span></p>
+            <h3>Schönberg-Installation</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Die Schönberg-Installation von ComposerMeet: Im Haus kamen die Besucher*innen mit dem KI-Avatar von Arnold Schönberg ins Gespräch. Eröffnet wurde sie in der Langen Nacht der Museen.</p>
+          </div>
+        </article>
+      </div>
+
       <div class="ev-upcoming reveal" id="ev-upcoming">
         <!-- Kommende Termine als <article class="ev-card" data-date="JJJJ-MM-TT" data-end="JJJJ-MM-TT">; ohne Foto mit der Klasse ev-card--text -->
         <article class="ev-card ev-card--text" data-date="2026-11-25" data-end="2026-11-25">
@@ -585,7 +608,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <p class="ev-meta"><time datetime="2026-10-03T22:00">3. Oktober 2026, 22 Uhr</time><span>Wien</span></p>
             <h3>Lange Nacht der Museen</h3>
             <p class="ev-place">Arnold Schönberg Center</p>
-            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation „Virtual Arnold“. Die Eröffnung war ein überragender Publikumserfolg. Anschließend war die Installation weiter im Haus zu erleben.</p>
+            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation. Die Eröffnung war ein überragender Publikumserfolg.</p>
             <p class="ev-credit">Foto: Arnold Schönberg Center</p>
           </div>
         </article>
@@ -648,7 +671,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         <p class="b-lead">Nicht nur Musik: Jede gut dokumentierte Persönlichkeit lässt sich umsetzen, aus Malerei, Literatur, Philosophie oder Politik. Jede Figur wird eigens für ein Projekt entwickelt.</p>
         <ul class="b-list">
           <li><b class="p-hensel">Fanny Hensel</b><span>Pilotfolge an der HMTM München</span></li>
-          <li><b class="p-schoenberg">Arnold Schönberg</b><span>Installation „Virtual Arnold“ im Arnold Schönberg Center Wien</span></li>
+          <li><b class="p-schoenberg">Arnold Schönberg</b><span>Schönberg-Installation im Arnold Schönberg Center Wien</span></li>
         </ul>
       </div>
       <div class="pillars">
