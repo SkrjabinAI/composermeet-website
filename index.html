@@ -43,6 +43,7 @@
 /* Hallmark · waive 39b · the video facade is the poster frame itself, one play control drawn inside it at 72px · the whole Fanny Hensel still is the click target */
 /* Hallmark · dismissed 49 · the long label is the video facade, a full-width poster button whose title wraps by design */
 /* Hallmark · dismissed 59 · eleven sections carry the owner's own topics, each a different composition, two of them bands */
+/* Hallmark · dropped Virtual Arnold · the installation has ended and the user moved it to the past; its facts now sit in the Lange Nacht card */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: P, the page argues one idea (history answers back, from its sources) and leads with the avatar itself rather than a claim about it */
 
 @font-face {
@@ -234,6 +235,15 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-upcoming .ev-card[data-persona] .ev-meta > * + *::before { background: var(--persona-light); }
 .ev-upcoming .ev-card[data-persona] .ev-place, .ev-upcoming .ev-card[data-persona] .ev-body p:not(.ev-meta):not(.ev-place):not(.ev-credit) { color: var(--color-on-dark); }
 .ev-past .ev-card[data-persona] .ev-media { border-bottom: 4px solid var(--persona); }
+.ev-date { margin: 0; display: grid; align-content: end; font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 0.95; }
+.ev-date-day { font-size: clamp(6rem, 14vw, 13rem); font-variant-numeric: tabular-nums; }
+.ev-date-month { font-size: var(--text-section); margin-top: var(--space-xs); }
+.ev-upcoming > .ev-card--text { align-items: end; padding-block: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.ev-link a { font-weight: 600; text-decoration-color: var(--color-accent); }
+.ev-link a:hover { color: var(--color-accent); }
+.ev-past .ev-card--text .ev-date { aspect-ratio: 4 / 3; align-content: center; padding: var(--space-lg); background: var(--color-paper-2); }
+.ev-past .ev-card--text .ev-date-day { font-size: var(--text-display); }
+.ev-past .ev-card--text .ev-date-month { font-size: var(--text-xl); }
 .ev-upcoming .ev-media { aspect-ratio: 3 / 2; }
 .ev-upcoming .ev-body { gap: var(--space-sm); }
 .ev-upcoming .ev-body h3 { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); font-size: var(--text-display-s); line-height: 1.05; margin-top: var(--space-xs); }
@@ -523,7 +533,17 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       </div>
 
       <div class="ev-upcoming reveal" id="ev-upcoming">
-        <!-- Kommende Termine hier als <article class="ev-card" data-date="JJJJ-MM-TT" data-end="JJJJ-MM-TT"> einfügen -->
+        <!-- Kommende Termine als <article class="ev-card" data-date="JJJJ-MM-TT" data-end="JJJJ-MM-TT">; ohne Foto mit der Klasse ev-card--text -->
+        <article class="ev-card ev-card--text" data-date="2026-11-25" data-end="2026-11-25">
+          <p class="ev-date"><span class="ev-date-day">25.</span><span class="ev-date-month">November 2026</span></p>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-11-25T18:00">ab 18 Uhr</time><span>München</span></p>
+            <h3>Projektstart LIL-ECHOES</h3>
+            <p class="ev-place">XR LAB im Forum der Zukunft, Museumsinsel 1</p>
+            <p>Auf Einladung des XR HUB Bavaria wird ComposerMeet beim Auftakt des Horizon-Europe-Projekts LIL-ECHOES vorgestellt. Auf dem Programm stehen Projekte aus dem Forschungskonsortium, ein Panel, VR-Showcases und Networking.</p>
+            <p class="ev-link"><a href="https://xrhub-bavaria.de/2026/10/20/herzliche-einladung-kultur-erleben-in-virtuellen-welten-entdecken-sie-das-projekt-lil-echoes/" rel="noopener">Einladung beim XR HUB Bavaria</a></p>
+          </div>
+        </article>
       </div>
       <p class="ev-empty" id="ev-empty" hidden>Derzeit keine öffentlichen Termine. Anfragen gern per E-Mail.</p>
 
