@@ -216,6 +216,7 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-media img { width: 100%; height: 100%; object-fit: cover; }
 .ev-media--duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3xs); }
 .ev-badge { position: absolute; top: var(--space-md); left: var(--space-md); padding: var(--space-xs) var(--space-sm); background: var(--color-accent); color: var(--color-accent-ink); font-size: var(--text-sm); font-weight: 600; line-height: 1.2; }
+.ev-media--lead { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 .ev-badge--past { background: var(--color-paper); color: var(--color-ink); }
 .ev-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs) var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
 .ev-meta > * + *::before { content: ""; display: inline-block; width: 1px; height: 0.9em; margin-right: var(--space-sm); background: var(--color-rule-2); vertical-align: -0.1em; }
@@ -543,8 +544,9 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       <!-- Angepinnt: die wichtigste Referenz bleibt immer an erster Stelle (wird vom Skript nicht verschoben) -->
       <div class="ev-upcoming ev-pinned reveal">
         <article class="ev-card" data-persona="schoenberg">
-          <div class="ev-media">
-            <img src="assets/asc-lange-nacht.jpg" alt="Die Schönberg-Installation im Arnold Schönberg Center: der KI-Avatar von Arnold Schönberg auf der Leinwand" width="1000" height="562" style="object-position: 50% 22%">
+          <div class="ev-media ev-media--duo ev-media--lead">
+            <img src="assets/schoenberg-installation.jpg" alt="Die Schönberg-Installation im Arnold Schönberg Center: Bildschirm mit dem KI-Avatar von Arnold Schönberg, davor die Sprechtaste, daneben ein Notenpult mit der Einladung „Sprechen Sie mit Arnold Schönberg!“" width="1400" height="788" style="object-position: 35% 50%">
+            <img src="assets/schoenberg-installation-besuch.jpg" alt="Ein Kind mit Kopfhörern, von hinten gesehen, im Gespräch mit dem KI-Avatar von Arnold Schönberg" width="700" height="1060" loading="lazy" style="object-position: 60% 30%">
             <span class="ev-badge ev-badge--past">Rückblick</span>
           </div>
           <div class="ev-body">
@@ -552,7 +554,6 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <h3>Schönberg-Installation</h3>
             <p class="ev-place">Arnold Schönberg Center</p>
             <p>Die Schönberg-Installation von ComposerMeet: Im Haus kamen die Besucher*innen mit dem KI-Avatar von Arnold Schönberg ins Gespräch. Eröffnet wurde sie in der Langen Nacht der Museen.</p>
-            <p class="ev-credit">Foto: Arnold Schönberg Center</p>
           </div>
         </article>
       </div>
