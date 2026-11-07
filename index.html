@@ -7,6 +7,7 @@
 <meta name="description" content="ComposerMeet ermöglicht Live-Dialoge mit historischen Persönlichkeiten: Komponist*innen, Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen. Im Museum, auf der Bühne und im Unterricht, auf Grundlage historischer Quellen.">
 <link rel="canonical" href="https://composermeet.com/">
 <meta name="theme-color" content="#ece8e1">
+<meta name="tdm-reservation" content="1">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
 <meta property="og:type" content="website">
@@ -43,7 +44,6 @@
 /* Hallmark · waive 39b · the video facade is the poster frame itself, one play control drawn inside it at 72px · the whole Fanny Hensel still is the click target */
 /* Hallmark · dismissed 49 · the long label is the video facade, a full-width poster button whose title wraps by design */
 /* Hallmark · dismissed 59 · eleven sections carry the owner's own topics, each a different composition, two of them bands */
-/* Hallmark · dropped Virtual Arnold · the installation has ended and the user moved it to the past; its facts now sit in the Lange Nacht card */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: P, the page argues one idea (history answers back, from its sources) and leads with the avatar itself rather than a claim about it */
 
 @font-face {
@@ -240,6 +240,7 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-date-day { font-size: clamp(6rem, 14vw, 13rem); font-variant-numeric: tabular-nums; }
 .ev-date-month { font-size: var(--text-section); margin-top: var(--space-xs); }
 .ev-upcoming:has(> .ev-card--text) { gap: 0; }
+.ev-pinned { margin-bottom: var(--space-2xl); }
 .ev-upcoming > .ev-card--text { align-items: end; padding-block: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
 .ev-upcoming > .ev-card--text:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
 .ev-link a { font-weight: 600; text-decoration-color: var(--color-accent); }
@@ -535,6 +536,22 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         <h2>Wo ComposerMeet zu erleben ist.</h2>
       </div>
 
+      <!-- Angepinnt: die wichtigste Referenz bleibt immer an erster Stelle (wird vom Skript nicht verschoben) -->
+      <div class="ev-upcoming ev-pinned reveal">
+        <article class="ev-card" data-persona="schoenberg">
+          <div class="ev-media">
+            <img src="assets/asc-lange-nacht.jpg" alt="Die Installation Virtual Arnold im Arnold Schönberg Center: der KI-Avatar von Arnold Schönberg auf der Leinwand" width="1000" height="562" style="object-position: 50% 22%">
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta"><span>Oktober 2026</span><span>Wien</span></p>
+            <h3>Virtual Arnold</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Die Schönberg-Installation von ComposerMeet: Im Haus kamen die Besucher*innen mit dem KI-Avatar von Arnold Schönberg ins Gespräch. Eröffnet wurde sie in der Langen Nacht der Museen.</p>
+            <p class="ev-credit">Foto: Arnold Schönberg Center</p>
+          </div>
+        </article>
+      </div>
+
       <div class="ev-upcoming reveal" id="ev-upcoming">
         <!-- Kommende Termine als <article class="ev-card" data-date="JJJJ-MM-TT" data-end="JJJJ-MM-TT">; ohne Foto mit der Klasse ev-card--text -->
         <article class="ev-card ev-card--text" data-date="2026-11-25" data-end="2026-11-25">
@@ -585,7 +602,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <p class="ev-meta"><time datetime="2026-10-03T22:00">3. Oktober 2026, 22 Uhr</time><span>Wien</span></p>
             <h3>Lange Nacht der Museen</h3>
             <p class="ev-place">Arnold Schönberg Center</p>
-            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation „Virtual Arnold“. Die Eröffnung war ein überragender Publikumserfolg. Anschließend war die Installation weiter im Haus zu erleben.</p>
+            <p>Präsentation von ComposerMeet und Start der Schönberg-Installation „Virtual Arnold“. Die Eröffnung war ein überragender Publikumserfolg.</p>
             <p class="ev-credit">Foto: Arnold Schönberg Center</p>
           </div>
         </article>
