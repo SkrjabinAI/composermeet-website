@@ -39,7 +39,7 @@
 <style>
 /* Hallmark · shape: Narrative Workflow · genre: atmospheric · theme: brand · redesign: full
  * paper: oklch(93% 0.006 85) · accent: oklch(50% 0.17 28) · display: Mona Sans 300 at 108% width · body: Mona Sans · hero: Stage · nav: edge bar, links and the enquiry at the right edge · footer: mast · signature: each persona carries the colour of its own source, Hensel the umber of Oppenheim's painting, Schönberg a patinated blue green
- * axes: light/grotesk-sans/warm · posture: full palette (paper and iron gall ink, sealing wax red as the one signal, one field colour per persona) · job: hire · contrast: pass · fold: pass · v2.0.0 */
+ * axes: light/grotesk-sans/warm · texture: paper grain and fibre, one family · posture: full palette (paper and iron gall ink, sealing wax red as the one signal, one field colour per persona) · job: hire · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · waive 39b · the video facade is the poster frame itself, one play control drawn inside it at 72px · the whole Fanny Hensel still is the click target */
 /* Hallmark · dismissed 49 · the long label is the video facade, a full-width poster button whose title wraps by design */
 /* Hallmark · dismissed 59 · eleven sections carry the owner's own topics, each a different composition, two of them bands */
@@ -94,6 +94,10 @@
   --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-body: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-outlier: "Instrument Serif", Georgia, serif;
   --display-weight: 300; --display-stretch: 108%;
   --radius-card: 2px; --radius-control: 2px; --radius-round: 50%; --rule-hair: 1px;
+  /* Papierstruktur: feines Korn und Fasern, Deckkraft im SVG festgelegt (Korn höchstens 0.07, Fasern höchstens 0.1), unbewegt */
+  --texture-opacity: 0.07;
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.12  0 0 0 0 0.09  0 0 0 0.630 -0.322'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --texture-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.06' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.3  0 0 0 0 0.24  0 0 0 0.220 -0.105'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
   --shadow-card: 0 12px 32px -16px oklch(23% 0.022 55 / 0.35);
   --tracking-display: -0.02em;
 }
@@ -121,6 +125,9 @@ svg { display: block; }
 button, input, select, textarea { font: inherit; }
 button { color: inherit; }
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* Papier: nur auf den hellen Flächen, Fotos, Avatar und das Tintenband bleiben glatt */
+body, .site-header, .band:not(.contact), .bespoke { background-image: var(--texture-grain), var(--texture-fibre); background-size: 220px 220px, 640px 640px; }
 
 /* Skip-Link */
 .skip-link { position: absolute; left: var(--space-md); top: var(--space-md); z-index: var(--z-modal); padding: var(--space-sm) var(--space-md); background: var(--color-accent); color: var(--color-accent-ink); font-weight: 600; text-decoration: none; transform: translateY(-300%); }
