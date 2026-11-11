@@ -243,7 +243,7 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-date { margin: 0; display: grid; align-content: end; font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 0.95; }
 .ev-date-day { font-size: clamp(6rem, 14vw, 13rem); font-variant-numeric: tabular-nums; }
 .ev-date-month { font-size: var(--text-section); margin-top: var(--space-xs); }
-.ev-upcoming:has(> .ev-card--text) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); }
+.ev-upcoming:has(> .ev-card--text) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--gap-columns); }
 .ev-pinned { margin-bottom: var(--space-xl); }
 .ev-upcoming > .ev-card--text { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: start; row-gap: var(--space-md); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-ink); }
 .ev-upcoming .ev-card--text .ev-date { align-content: start; }
@@ -597,12 +597,19 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener">Zum Programm</a></p>
           </div>
         </article>
+        <article class="ev-card ev-card--text" data-date="2026-12-03" data-end="2026-12-03">
+          <p class="ev-date"><time datetime="2026-12-03"><span class="ev-date-day">3.</span><span class="ev-date-month">Dezember 2026</span></time></p>
+          <div class="ev-body">
+            <h3>Präsentation an der HFF München</h3>
+            <p class="ev-place">Hochschule für Fernsehen und Film München</p>
+          </div>
+        </article>
         <article class="ev-card ev-card--text" data-date="2026-12-17" data-end="2026-12-17">
           <p class="ev-date"><time datetime="2026-12-17"><span class="ev-date-day">17.</span><span class="ev-date-month">Dezember 2026</span></time></p>
           <div class="ev-body">
-            <h3>XR-Ausstellung am Gymnasium</h3>
-            <p class="ev-place">Gymnasium in Schwandorf</p>
-            <p>Eine große XR-Ausstellung mit 20 Stationen: Die Klassen kommen nacheinander und probieren unterschiedliche Experiences aus, darunter ComposerMeet.</p>
+            <h3>ComposerMeet an der Schule</h3>
+            <p class="ev-place">Schwandorf</p>
+            <p>Bei einer großen XR-Ausstellung mit 20 Stationen probieren die Klassen nacheinander unterschiedliche Experiences aus, darunter ComposerMeet.</p>
           </div>
         </article>
       </div>
