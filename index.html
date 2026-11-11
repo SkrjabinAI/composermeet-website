@@ -80,7 +80,7 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --color-error: oklch(70% 0.15 27); --color-success: oklch(78% 0.12 150);
-  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 96px; --section-gap: 120px; --section-gap-l: 144px;
   --nav-height: 72px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
 
@@ -243,21 +243,27 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-date { margin: 0; display: grid; align-content: end; font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 0.95; }
 .ev-date-day { font-size: clamp(6rem, 14vw, 13rem); font-variant-numeric: tabular-nums; }
 .ev-date-month { font-size: var(--text-section); margin-top: var(--space-xs); }
-.ev-upcoming:has(> .ev-card--text) { gap: 0; }
-.ev-pinned { margin-bottom: var(--space-2xl); }
-.ev-upcoming > .ev-card--text { align-items: end; padding-block: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
-.ev-upcoming > .ev-card--text:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.ev-upcoming:has(> .ev-card--text) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); }
+.ev-pinned { margin-bottom: var(--space-xl); }
+.ev-upcoming > .ev-card--text { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: start; row-gap: var(--space-md); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-ink); }
+.ev-upcoming .ev-card--text .ev-date { align-content: start; }
+.ev-upcoming .ev-card--text .ev-date time { display: flex; align-items: baseline; gap: var(--space-sm); flex-wrap: wrap; }
+.ev-upcoming .ev-card--text .ev-date-day { font-size: var(--text-display-s); line-height: 1; }
+.ev-upcoming .ev-card--text .ev-date-month { font-size: var(--text-lg); margin-top: 0; }
+.ev-upcoming .ev-card--text .ev-body h3 { font-size: var(--text-2xl); }
+.ev-upcoming .ev-card--text .ev-place { font-size: var(--text-md); }
 .ev-link a { font-weight: 600; text-decoration-color: var(--color-accent); }
 .ev-link a:hover { color: var(--color-accent); }
 .ev-past .ev-card--text .ev-date { aspect-ratio: 4 / 3; align-content: center; padding: var(--space-lg); background: var(--color-paper-2); }
 .ev-past .ev-card--text .ev-date-day { font-size: var(--text-display-s); }
 .ev-past .ev-card--text .ev-date-month { font-size: var(--text-xl); }
 .ev-upcoming .ev-media { aspect-ratio: 3 / 2; }
+.ev-pinned .ev-media { aspect-ratio: auto; min-height: 340px; }
 .ev-upcoming .ev-body { gap: var(--space-sm); }
 .ev-upcoming .ev-body h3 { font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); font-size: var(--text-display-s); line-height: 1.05; margin-top: var(--space-xs); }
 .ev-upcoming .ev-place { font-size: var(--text-lead); }
 
-.ev-past-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-3xl); margin-bottom: var(--space-lg); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.ev-past-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); margin-bottom: var(--space-lg); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
 .ev-past-head h3 { font-size: var(--text-2xl); }
 .ev-nav { display: flex; gap: var(--space-xs); }
 .ev-nav button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-control); background: transparent; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); }
@@ -415,6 +421,10 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
   .section-head h2, .section-head--split h2, .section-head .lead { grid-column: 1 / -1; }
   .ev-upcoming > .ev-card { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); }
   .ev-upcoming > .ev-card[data-persona] { row-gap: 0; }
+  .ev-pinned .ev-media { aspect-ratio: 3 / 2; min-height: 0; }
+  .ev-upcoming:has(> .ev-card--text) { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); }
+  .ev-upcoming:has(> .ev-card--text)::-webkit-scrollbar { display: none; }
+  .ev-upcoming > .ev-card--text { scroll-snap-align: start; }
   .ev-upcoming > .ev-card[data-persona] .ev-body { padding: var(--space-lg); }
   .concept-lead, .concept-cols, .b-lead, .b-list { grid-column: 1 / -1; }
   .concept-cols { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
@@ -437,7 +447,13 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
   .as-caption-text { font-size: var(--text-md); }
   .as-pause { top: var(--space-xs); left: var(--space-xs); }
   .pipe-row { grid-template-columns: minmax(0, 1fr); }
-  .concept-lead { font-size: var(--text-xl); line-height: 1.35; }
+  .concept-lead { font-size: var(--text-lg); line-height: 1.4; }
+  .pipe-row { row-gap: 0; }
+  .pipe-node { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: var(--space-sm); row-gap: var(--space-2xs); padding-block: var(--space-md); }
+  .pipe-node::before { grid-row: 1 / span 2; margin-bottom: 0; font-size: var(--text-2xl); }
+  .pipe-node h3, .pipe-node p { grid-column: 2; }
+  .ev-upcoming:has(> .ev-card--text) { gap: var(--space-lg); }
+  .ev-upcoming .ev-card--text .ev-date-day { font-size: var(--text-3xl); }
   .pipe-foot { flex-direction: column; }
   .pipe-foot li + li::before { display: none; }
   .benefit { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
@@ -569,7 +585,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <h3>Projektstart LIL-ECHOES</h3>
             <p class="ev-place">XR LAB im Forum der Zukunft, Museumsinsel 1</p>
             <p>Auf Einladung des XR HUB Bavaria wird ComposerMeet beim Auftakt des Horizon-Europe-Projekts LIL-ECHOES vorgestellt. Auf dem Programm stehen Projekte aus dem Forschungskonsortium, ein Panel, VR-Showcases und Networking.</p>
-            <p class="ev-link"><a href="https://xrhub-bavaria.de/2026/10/20/herzliche-einladung-kultur-erleben-in-virtuellen-welten-entdecken-sie-das-projekt-lil-echoes/" rel="noopener">Einladung beim XR HUB Bavaria</a></p>
+            <p class="ev-link"><a href="https://xrhub-bavaria.de/2026/10/20/herzliche-einladung-kultur-erleben-in-virtuellen-welten-entdecken-sie-das-projekt-lil-echoes/" rel="noopener">Zur Einladung</a></p>
           </div>
         </article>
         <article class="ev-card ev-card--text" data-date="2026-12-01" data-end="2026-12-01">
@@ -578,7 +594,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <h3>DARIAH-CH Study Day 2026</h3>
             <p class="ev-place">Universität Genf</p>
             <p>Vorstellung von ComposerMeet beim fünften Study Day des Schweizer Konsortiums DARIAH-CH. Thema ist KI in den Digital Humanities, in Lehre, Forschung und Datenmanagement.</p>
-            <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener">Programm bei DARIAH-CH</a></p>
+            <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener">Zum Programm</a></p>
           </div>
         </article>
         <article class="ev-card ev-card--text" data-date="2026-12-17" data-end="2026-12-17">
