@@ -531,7 +531,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       <figure class="hero-figure">
         <div class="as-stage avatar-stage speaking" id="avatar-demo" aria-hidden="true">
           <div class="as-screen">
-            <video class="as-video" id="as-video" poster="assets/hensel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true">
+            <video class="as-video" id="as-video" poster="assets/hensel-poster.jpg" muted autoplay loop playsinline preload="auto" aria-hidden="true">
               <source src="assets/hensel-avatar.mp4" type="video/mp4">
             </video>
           </div>
@@ -1058,32 +1058,64 @@ document.documentElement.classList.add('js');
     caption.textContent = l.text;
   }
   render(0);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (video) { video.removeAttribute('autoplay'); video.pause(); }
+    return;
+  }
 
   var i = 0, timer = null;
-  var stopped = false, hovered = false, onScreen = true;
+  var userPaused = false, hovered = false, onScreen = true;
   function tick() { i = (i + 1) % lines.length; render(i); }
+
+  // Der Knopf zeigt immer den echten Zustand des Videos
+  function showState() {
+    var paused = video ? video.paused : userPaused;
+    pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    pauseText.textContent = paused ? 'Abspielen' : 'Anhalten';
+  }
+  function tryPlay() {
+    if (!video) return;
+    var p = video.play();
+    if (p && p.then) p.then(showState, showState);
+  }
   function sync() {
-    var captionsRun = !stopped && !hovered && onScreen;
+    var captionsRun = !userPaused && !hovered && onScreen;
     if (captionsRun && !timer) timer = setInterval(tick, 3200);
     if (!captionsRun && timer) { clearInterval(timer); timer = null; }
     if (video) {
-      if (!stopped && onScreen) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-      else video.pause();
+      if (!userPaused && onScreen) tryPlay(); else video.pause();
     }
+    showState();
   }
-  if (video) video.muted = true;
+  if (video) {
+    video.muted = true;
+    video.addEventListener('play', showState);
+    video.addEventListener('pause', showState);
+    video.addEventListener('canplay', function () { if (!userPaused && onScreen && video.paused) tryPlay(); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) sync(); });
+  }
 
   pauseBtn.hidden = false;
   pauseBtn.addEventListener('click', function () {
-    stopped = !stopped;
-    pauseBtn.setAttribute('aria-pressed', stopped ? 'true' : 'false');
-    pauseText.textContent = stopped ? 'Abspielen' : 'Anhalten';
+    var wantPause = video ? !video.paused : !userPaused;
+    userPaused = wantPause;
     sync();
   });
-  figure.addEventListener('mouseenter', function () { hovered = true; sync(); });
-  figure.addEventListener('mouseleave', function () { hovered = false; sync(); });
-  figure.addEventListener('focusin', function () { hovered = true; sync(); });
+
+  // Blockiert der Browser den Autostart (Energiesparmodus, Datensparer), startet das Video bei der ersten Berührung der Seite
+  function firstGesture() { if (video && video.paused && !userPaused && onScreen) tryPlay(); }
+  ['pointerdown', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, firstGesture, { once: true, passive: true });
+  });
+
+  // Untertitel halten nur bei echter Maus oder Tastaturfokus an, nie durch das künstliche Maus-Ereignis beim Tippen
+  figure.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hovered = true; sync(); } });
+  figure.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hovered = false; sync(); } });
+  figure.addEventListener('focusin', function (e) {
+    var keyboard = true;
+    try { keyboard = e.target.matches(':focus-visible'); } catch (err) {}
+    if (keyboard) { hovered = true; sync(); }
+  });
   figure.addEventListener('focusout', function () { hovered = false; sync(); });
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
