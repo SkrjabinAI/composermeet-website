@@ -501,7 +501,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         <a href="#ueber">Über</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <a class="btn header-cta" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet">Anfragen</a>
+      <a class="btn header-cta" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="kopfzeile">Anfragen</a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen" hidden>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
           <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
@@ -523,7 +523,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         </h1>
         <p class="hero-sub">Das Publikum stellt eine Frage, und eine historische Persönlichkeit antwortet als Video-Avatar, mit Stimme und Untertiteln. Komponist*innen ebenso wie Maler*innen, Schriftsteller*innen, Philosoph*innen oder Politiker*innen, auf Grundlage ihrer Briefe, Tagebücher und weiterer Quellen.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
+          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="hero">Projekt anfragen</a>
           <a class="btn btn-ghost" href="#video">Video ansehen</a>
         </div>
       </div>
@@ -599,7 +599,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <h3>Projektstart LIL-ECHOES</h3>
             <p class="ev-place">XR LAB im Forum der Zukunft, Museumsinsel 1</p>
             <p>Auf Einladung des XR HUB Bavaria wird ComposerMeet beim Auftakt des Horizon-Europe-Projekts LIL-ECHOES vorgestellt. Auf dem Programm stehen Projekte aus dem Forschungskonsortium, ein Panel, VR-Showcases und Networking.</p>
-            <p class="ev-link"><a href="https://xrhub-bavaria.de/2026/10/20/herzliche-einladung-kultur-erleben-in-virtuellen-welten-entdecken-sie-das-projekt-lil-echoes/" rel="noopener">Zur Einladung</a></p>
+            <p class="ev-link"><a href="https://xrhub-bavaria.de/2026/10/20/herzliche-einladung-kultur-erleben-in-virtuellen-welten-entdecken-sie-das-projekt-lil-echoes/" rel="noopener" data-umami-event="termin-link" data-umami-event-termin="lil-echoes">Zur Einladung</a></p>
           </div>
         </article>
         <article class="ev-card ev-card--text" data-date="2026-12-01" data-end="2026-12-01">
@@ -608,7 +608,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
             <h3>DARIAH-CH Study Day 2026</h3>
             <p class="ev-place">Universität Genf</p>
             <p>Vorstellung von ComposerMeet beim fünften Study Day des Schweizer Konsortiums DARIAH-CH. Thema ist KI in den Digital Humanities, in Lehre, Forschung und Datenmanagement.</p>
-            <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener">Zum Programm</a></p>
+            <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener" data-umami-event="termin-link" data-umami-event-termin="dariah-study-day">Zum Programm</a></p>
           </div>
         </article>
         <article class="ev-card ev-card--text" data-date="2026-12-03" data-end="2026-12-03">
@@ -755,7 +755,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       </div>
       <figure class="reveal">
         <div class="video-frame" id="video-frame">
-          <button class="video-facade" id="video-facade" type="button" hidden>
+          <button class="video-facade" id="video-facade" type="button" data-umami-event="video-gestartet" hidden>
             <span class="play" aria-hidden="true">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
             </span>
@@ -831,10 +831,10 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 
       <div class="reveal">
         <div class="seg-tabs" role="tablist" aria-label="Einsatzbereiche nach Institution">
-          <button class="seg-tab" type="button" role="tab" id="tab-museen" aria-controls="panel-museen" aria-selected="true">Museen &amp; Gedenkorte</button>
-          <button class="seg-tab" type="button" role="tab" id="tab-orchester" aria-controls="panel-orchester" aria-selected="false">Orchester &amp; Konzerthäuser</button>
-          <button class="seg-tab" type="button" role="tab" id="tab-festivals" aria-controls="panel-festivals" aria-selected="false">Festivals</button>
-          <button class="seg-tab" type="button" role="tab" id="tab-unterricht" aria-controls="panel-unterricht" aria-selected="false">Schule &amp; Unterricht</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-museen" data-umami-event="haus-reiter" data-umami-event-bereich="museen" aria-controls="panel-museen" aria-selected="true">Museen &amp; Gedenkorte</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-orchester" data-umami-event="haus-reiter" data-umami-event-bereich="orchester" aria-controls="panel-orchester" aria-selected="false">Orchester &amp; Konzerthäuser</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-festivals" data-umami-event="haus-reiter" data-umami-event-bereich="festivals" aria-controls="panel-festivals" aria-selected="false">Festivals</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-unterricht" data-umami-event="haus-reiter" data-umami-event-bereich="unterricht" aria-controls="panel-unterricht" aria-selected="false">Schule &amp; Unterricht</button>
         </div>
 
         <div class="seg-panel" role="tabpanel" id="panel-museen" aria-labelledby="tab-museen">
@@ -932,15 +932,15 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       <h2>Interesse? Sprechen Sie uns an.</h2>
       <div class="contact-main">
         <div class="contact-email-row">
-          <a class="contact-email" href="mailto:celest@composermeet.com">celest@composermeet.com</a>
-          <button class="copy-btn" id="copy-email" type="button" hidden>
+          <a class="contact-email" href="mailto:celest@composermeet.com" data-umami-event="anfrage" data-umami-event-ort="kontakt-adresse">celest@composermeet.com</a>
+          <button class="copy-btn" id="copy-email" type="button" data-umami-event="email-kopiert" hidden>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2H3.5A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
             <span>Kopieren</span>
           </button>
         </div>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet">Projekt anfragen</a>
-          <a class="btn btn-ghost" href="assets/ComposerMeet_Infosheet.pdf" download>Informations-PDF laden</a>
+          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Interesse%20an%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="kontakt">Projekt anfragen</a>
+          <a class="btn btn-ghost" href="assets/ComposerMeet_Infosheet.pdf" download data-umami-event="pdf-geladen">Informations-PDF laden</a>
         </div>
       </div>
     </div>
@@ -1124,6 +1124,7 @@ document.documentElement.classList.add('js');
       e.preventDefault();
       var next = (idx + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
       tabs[next].focus(); select(tabs[next]);
+      if (window.umami && window.umami.track) window.umami.track('haus-reiter', { bereich: tabs[next].getAttribute('data-umami-event-bereich') });
     });
   });
   select(tabs[0]);
@@ -1290,6 +1291,25 @@ document.documentElement.classList.add('js');
   }
   sync();
   if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
+})();
+
+// Statistik: Abschnitt gesehen (einmal je Abschnitt und Besuch, ohne Personenbezug)
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var seen = {};
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var id = entry.target.id;
+      if (!entry.isIntersecting || seen[id]) return;
+      if (!(window.umami && window.umami.track)) return;
+      seen[id] = true;
+      window.umami.track('abschnitt-gesehen', { abschnitt: id });
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+  ['aktuell', 'konzept', 'video', 'haeuser', 'ueber', 'kontakt'].forEach(function (id) {
+    var el = document.getElementById(id); if (el) io.observe(el);
+  });
 })();
 
 // E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)
