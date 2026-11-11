@@ -359,7 +359,10 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
 .about-text { display: grid; gap: var(--space-md); align-content: start; }
 .about-text h2 { margin-bottom: var(--space-xs); }
 .about-text p { color: var(--color-ink-2); }
-.about-list { margin-top: var(--space-md); }
+.about-more { margin-top: var(--space-md); }
+.about-more > summary { display: none; list-style: none; cursor: pointer; }
+.about-more > summary::-webkit-details-marker { display: none; }
+.about-list { margin-top: 0; }
 .about-list li { padding-block: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-ink); }
 .about-list li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
 
@@ -429,7 +432,17 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
   .concept-lead, .concept-cols, .b-lead, .b-list { grid-column: 1 / -1; }
   .concept-cols { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
   .bespoke { padding: var(--space-lg); }
-  .pillars { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .pillars { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(82%, 360px); gap: var(--space-lg); overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); margin-top: var(--space-xl); }
+  .pillars::-webkit-scrollbar { display: none; }
+  .pillar { scroll-snap-align: start; }
+  .about-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding-block: var(--space-xs); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); font-weight: 600; transition: background-color var(--dur-short) var(--ease-out); }
+  .about-more > summary:hover { background: var(--color-paper-2); }
+  .about-more > summary:active { background: var(--color-paper-3); }
+  .about-more > summary::after { content: ""; width: 8px; height: 8px; margin-right: var(--space-xs); border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform var(--dur-short) var(--ease-out); }
+  .about-more[open] > summary::after { transform: rotate(-135deg); }
+  .about-more[open] > summary { border-bottom-color: transparent; }
+  .seg-scene h3 { font-size: var(--text-2xl); }
+  .seg-scene p { font-size: var(--text-md); }
   .pipe-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-xl); }
   .praxis-grid .section-head, .benefits { grid-column: 1 / -1; }
   .praxis-grid .section-head { margin-bottom: var(--space-xl); }
@@ -716,7 +729,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
           <li><b class="p-schoenberg">Arnold Schönberg</b><span>Schönberg-Installation im Arnold Schönberg Center Wien</span></li>
         </ul>
       </div>
-      <div class="pillars">
+      <div class="pillars" id="pillars" role="group" aria-label="Drei Grundsätze">
         <div class="pillar reveal">
           <h3>Faktenbasiert</h3>
           <p>Jede Antwort beruht auf dokumentierten Quellen und nennt sie. So lässt sich nachprüfen, woher eine Aussage stammt.</p>
@@ -897,6 +910,8 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
         <h2>Célest Lang.</h2>
         <p>Pianist und Musikvermittler mit Schwerpunkt auf neuen Konzertformaten. Seine Arbeit verbindet künstlerische Praxis mit technischer Neugier und einem kritischen Blick auf historische Quellen. ComposerMeet ist an dieser Schnittstelle von Musik, KI und Kulturvermittlung entstanden und wächst seither über die Musik hinaus.</p>
         <p>Den Prototyp entwickelte er für XPLORE, den Wettbewerb der HMTM München für neue Konzertformate. Seit 2025 wird ComposerMeet vom Venture Team Kultur in Bayern gefördert.</p>
+        <details class="about-more" id="about-more" open>
+        <summary>Werdegang</summary>
         <ul class="about-list">
           <li>Klavierstudium an der HMTM München und der mdw Wien</li>
           <li>Gründer von ComposerMeet</li>
@@ -905,6 +920,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
           <li>Forschung zu Schönberg und Kandinsky, vorgestellt bei NaMu2025 (ÖAW)</li>
           <li>Akademist der Tonali Bühnenakademie (seit Oktober 2026)</li>
         </ul>
+        </details>
       </div>
     </div>
   </section>
@@ -1260,6 +1276,19 @@ document.documentElement.classList.add('js');
   track.addEventListener('click', function (e) {
     if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
   }, true);
+})();
+
+// Handy: Werdegang zugeklappt, Säulen als Wischleiste (per Tastatur erreichbar). Desktop: alles offen.
+(function () {
+  var more = document.getElementById('about-more');
+  var pillars = document.getElementById('pillars');
+  var mq = window.matchMedia('(max-width: 60rem)');
+  function sync() {
+    if (more) more.open = !mq.matches;
+    if (pillars) { if (mq.matches) pillars.setAttribute('tabindex', '0'); else pillars.removeAttribute('tabindex'); }
+  }
+  sync();
+  if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
 })();
 
 // E-Mail-Adresse kopieren (Fallback für fehlende Mailprogramme)
