@@ -50,6 +50,11 @@ p { margin: 0; text-wrap: pretty; }
 .lg-back { display: inline-flex; align-items: center; min-height: 44px; padding: var(--space-xs) var(--space-md); border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-control); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; transition: background-color var(--dur-short) var(--ease-out); }
 .lg-back:hover { background: var(--color-paper-2); }
 .lg-back:active { background: var(--color-rule); }
+.lg-header-end { display: flex; align-items: center; gap: var(--space-md); }
+.lg-lang { padding-block: var(--space-xs); font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; }
+.lg-lang:hover { color: var(--color-accent); text-decoration: underline; }
+.lg-note { padding: var(--space-sm) var(--space-md); border-left: 2px solid var(--color-accent); background: var(--color-paper-2); color: var(--color-ink-2); }
+.lg-todo { padding: 2px var(--space-xs); background: color-mix(in oklab, var(--color-accent) 18%, transparent); font-weight: 600; }
 
 .lg-hero { padding-block: var(--space-3xl) var(--space-xl); }
 .lg-title { font-size: var(--text-display); max-width: 14ch; }

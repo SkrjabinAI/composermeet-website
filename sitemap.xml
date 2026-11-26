@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://composermeet.com/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://composermeet.com/impressum.html</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://composermeet.com/datenschutz.html</loc><lastmod>2026-10-08</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://composermeet.com/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/"/>
+  </url>
+  <url>
+    <loc>https://composermeet.com/en/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/"/>
+  </url>
+  <url>
+    <loc>https://composermeet.com/impressum.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/impressum.html"/>
+  </url>
+  <url>
+    <loc>https://composermeet.com/en/impressum.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/impressum.html"/>
+  </url>
+  <url>
+    <loc>https://composermeet.com/datenschutz.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://composermeet.com/en/privacy.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://composermeet.com/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://composermeet.com/en/privacy.html"/>
+  </url>
 </urlset>

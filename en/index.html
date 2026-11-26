@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComposerMeet | In dialogue with historical figures</title>
+<meta name="description" content="Source-based AI avatars of historical figures for museums, concert halls, festivals, literature houses, archives and schools. Every answer cites what it is based on.">
+<link rel="canonical" href="https://composermeet.com/en/">
+<link rel="alternate" hreflang="de" href="https://composermeet.com/">
+<link rel="alternate" hreflang="en" href="https://composermeet.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://composermeet.com/">
+<meta name="theme-color" content="#ece8e1">
+<meta name="tdm-reservation" content="1">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ComposerMeet">
+<meta property="og:title" content="ComposerMeet | In dialogue with historical figures">
+<meta property="og:description" content="Source-based AI avatars of historical figures. For museums, concert halls, festivals, literature houses, archives and schools.">
+<meta property="og:url" content="https://composermeet.com/en/">
+<meta property="og:image" content="https://composermeet.com/assets/hensel-poster.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ComposerMeet",
+  "url": "https://composermeet.com/en/",
+  "logo": "https://composermeet.com/assets/signet.svg",
+  "description": "Source-based AI avatars of historical figures for museums, concert halls, festivals, literature houses, archives and schools.",
+  "email": "celest@composermeet.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Célest Lang",
+    "jobTitle": "Pianist and music communicator"
+  },
+  "award": "Honorable Mention, “The next THING”, Venture Team Kultur, April 2026"
+}
+</script>
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add('js');</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f8e57901-327e-4e88-80ad-6790bf449156" data-do-not-track="true"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo-link" href="#" aria-label="ComposerMeet, to the home page"><img src="../assets/signet.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
+    <div class="header-end">
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#referenz">Reference</a>
+        <a href="#konzept">Concept</a>
+        <a href="#haeuser">For your institution</a>
+        <a href="#angebot">Offer</a>
+        <a href="#termine">Events</a>
+        <a href="#ueber">About</a>
+        <a href="#kontakt">Contact</a>
+        <a class="lang-switch" href="../" hreflang="de" lang="de" aria-label="Deutsche Version" data-umami-event="sprache" data-umami-event-ziel="de">DE</a>
+      </nav>
+      <a class="btn header-cta" href="mailto:celest@composermeet.com?subject=Enquiry%20about%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="kopfzeile">Enquire</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu" hidden>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>In dialogue with the past.</h1>
+        <p class="hero-tagline">Source-based AI avatars of historical figures. For museums, concert halls, festivals, literature houses, archives and schools.</p>
+        <p class="hero-sub">Your visitors and audiences ask questions, and a historical figure answers as a video avatar, with voice and subtitles. The answers draw on their letters, diaries, writings and other sources. Every answer cites what it is based on.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Enquiry%20about%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="hero">Enquire about a project</a>
+          <a class="btn btn-ghost" href="#video">Watch the video</a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <div class="as-stage avatar-stage speaking" id="avatar-demo" aria-hidden="true">
+          <div class="as-screen">
+            <video class="as-video" id="as-video" poster="../assets/hensel-poster.jpg" muted autoplay loop playsinline preload="auto" aria-hidden="true">
+              <source src="../assets/hensel-avatar.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="as-caption">
+            <span class="as-caption-label" id="as-label" data-mode="ask">
+              <svg class="ic-mic" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="2" width="4" height="8" rx="2"/><path d="M4 8a4 4 0 0 0 8 0"/><line x1="8" y1="12" x2="8" y2="14"/></svg>
+              <svg class="ic-speak" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6v4h2.5L9 13V3L5.5 6H3z"/><path d="M11.5 6.5a2.5 2.5 0 0 1 0 3"/></svg>
+              <span id="as-label-text">Question from the audience</span>
+            </span>
+            <p class="as-caption-text" id="as-caption-text">What was the story behind the Sunday concerts?</p>
+          </div>
+        </div>
+        <button class="as-pause" id="as-pause" type="button" aria-pressed="false" hidden>
+          <svg class="ic-pause" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10"/><rect x="9.5" y="3" width="3" height="10"/></svg>
+          <svg class="ic-play" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 2.5v11l9-5.5z"/></svg>
+          <span id="as-pause-text">Pause</span>
+        </button>
+        <figcaption class="as-note">AI-generated avatar of Fanny Hensel, based on the painting by Moritz Daniel Oppenheim (1842).</figcaption>
+      </figure>
+    </div>
+
+    <div class="award-strip container">
+      <div class="award-strip-inner">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 L7 22 L12 19 L17 22 L15.5 14.5"/>
+        </svg>
+        <b>Honorable Mention</b>
+        <span>“The next THING”, Venture Team Kultur, April 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1a. Name cloud -->
+  <section class="section names" id="namen" aria-labelledby="namen-titel">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="namen-titel">Who would your visitors like to talk to?</h2>
+      </div>
+      <div class="reveal">
+        <div class="nm-wrap">
+          <ul class="nm-cloud" id="nm-cloud" aria-label="Names of historical figures">
+            <li><span class="nm nm--l" data-persona="schoenberg"><span class="nm-name">Arnold Schönberg<span class="nm-done" aria-hidden="true"></span></span><span class="nm-field">Music · realised</span></span></li>
+            <li><button class="nm nm--l" type="button" data-key="curie" data-q="What was it like to do research in Paris as a woman?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="curie"><span class="nm-name">Marie Curie</span><span class="nm-field">Science</span></button></li>
+            <li><button class="nm nm--l" type="button" data-key="goethe" data-q="What changed you so much in Italy?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="goethe"><span class="nm-name">Johann Wolfgang von Goethe</span><span class="nm-field">Literature</span></button></li>
+            <li><span class="nm nm--s"><span class="nm-name">Bertha von Suttner</span><span class="nm-field">Politics</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Albrecht Dürer</span><span class="nm-field">Art</span></span></li>
+            <li><span class="nm nm--l" data-persona="hensel"><span class="nm-name">Fanny Hensel<span class="nm-done" aria-hidden="true"></span></span><span class="nm-field">Music · realised</span></span></li>
+            <li><button class="nm nm--m" type="button" data-key="kant" data-q="What is enlightenment?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="kant"><span class="nm-name">Immanuel Kant</span><span class="nm-field">Philosophy</span></button></li>
+            <li><span class="nm nm--s"><span class="nm-name">Rabindranath Tagore</span><span class="nm-field">Literature</span></span></li>
+            <li><button class="nm nm--m" type="button" data-key="edison" data-q="How often did you fail before it worked?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="edison"><span class="nm-name">Thomas Edison</span><span class="nm-field">Invention</span></button></li>
+            <li><span class="nm nm--m"><span class="nm-name">Clara Schumann</span><span class="nm-field">Music</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Ada Lovelace</span><span class="nm-field">Science</span></span></li>
+            <li><button class="nm nm--m" type="button" data-key="bismarck" data-q="Why did you introduce social insurance?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="bismarck"><span class="nm-name">Otto von Bismarck</span><span class="nm-field">Politics</span></button></li>
+            <li><span class="nm nm--s"><span class="nm-name">Paula Modersohn-Becker</span><span class="nm-field">Art</span></span></li>
+            <li><button class="nm nm--m" type="button" data-key="brahms" data-q="Why did you take so long over your first symphony?" aria-pressed="false" aria-controls="nm-question" data-umami-event="name-angetippt" data-umami-event-name="brahms"><span class="nm-name">Johannes Brahms</span><span class="nm-field">Music</span></button></li>
+            <li><span class="nm nm--s"><span class="nm-name">Mary Wollstonecraft</span><span class="nm-field">Philosophy</span></span></li>
+            <li><span class="nm nm--l"><span class="nm-name">Albert Einstein</span><span class="nm-field">Science</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Annette von Droste-Hülshoff</span><span class="nm-field">Literature</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Mahatma Gandhi</span><span class="nm-field">Politics</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Hildegard von Bingen</span><span class="nm-field">Music</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Alexander von Humboldt</span><span class="nm-field">Science</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Käthe Kollwitz</span><span class="nm-field">Art</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Franz Kafka</span><span class="nm-field">Literature</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Nikola Tesla</span><span class="nm-field">Invention</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Rosa Luxemburg</span><span class="nm-field">Politics</span></span></li>
+            <li><span class="nm nm--l"><span class="nm-name">Ludwig van Beethoven</span><span class="nm-field">Music</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Emmy Noether</span><span class="nm-field">Science</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Heinrich Heine</span><span class="nm-field">Literature</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Baruch de Spinoza</span><span class="nm-field">Philosophy</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Leonardo da Vinci</span><span class="nm-field">Art</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Ida Pfeiffer</span><span class="nm-field">Exploration</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Abraham Lincoln</span><span class="nm-field">Politics</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Jane Austen</span><span class="nm-field">Literature</span></span></li>
+            <li><span class="nm nm--m"><span class="nm-name">Charles Darwin</span><span class="nm-field">Science</span></span></li>
+            <li><span class="nm nm--s"><span class="nm-name">Gustav Mahler</span><span class="nm-field">Music</span></span></li>
+          </ul>
+        </div>
+        <button class="nm-band-ctrl" id="nm-band-ctrl" type="button" aria-pressed="false" aria-controls="nm-cloud" hidden>
+          <svg class="ic-pause" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10"/><rect x="9.5" y="3" width="3" height="10"/></svg>
+          <svg class="ic-play" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 2.5v11l9-5.5z"/></svg>
+          <span>Pause names</span>
+        </button>
+        <p class="nm-question" id="nm-question" aria-live="polite"><span class="nm-who"></span><span class="nm-text"></span></p>
+        <div class="nm-foot">
+          <p><span class="nm-done" aria-hidden="true"></span><b>Realised: Arnold Schönberg and Fanny Hensel.</b> All other names are examples. The possibilities are endless: any figure whose life and thought are well documented can join the conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Reference -->
+  <section class="section" id="referenz">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Tailor-made for the Arnold Schönberg Center Vienna.</h2>
+      </div>
+      <div class="ev-upcoming ev-pinned reveal">
+        <article class="ev-card" data-persona="schoenberg">
+          <div class="ev-media ev-media--duo ev-media--lead">
+            <img src="../assets/schoenberg-installation.jpg" alt="The Schönberg installation at the Arnold Schönberg Center: a screen showing the AI avatar of Arnold Schönberg, a push-to-talk button in front, and a music stand with the invitation “Talk to Arnold Schönberg!”" width="1400" height="788" style="object-position: 35% 50%">
+            <img src="../assets/schoenberg-installation-besuch.jpg" alt="A child wearing headphones, seen from behind, talking with the AI avatar of Arnold Schönberg" width="700" height="1060" loading="lazy" style="object-position: 60% 30%">
+          </div>
+          <div class="ev-body">
+            <p class="ev-meta"><span>2026</span><span>Vienna</span></p>
+            <h3>Schönberg installation</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>The ComposerMeet Schönberg installation: at the Center, visitors entered into conversation with the AI avatar of Arnold Schönberg. It opened during the Long Night of Museums.</p>
+            <p class="ref-add">Developed together with the Arnold Schönberg Center, based on its archive of around 200,000 pages of letters and writings.</p>
+          </div>
+        </article>
+      </div>
+      <div class="ref-proof reveal">
+        <p>All visitors surveyed at the installation would like to see ComposerMeet in other museums too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Concept -->
+  <section class="section" id="konzept">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>What is ComposerMeet?</h2>
+      </div>
+      <div class="concept reveal">
+        <p class="concept-lead">Your visitors or audience ask a question. On screen, a historical figure answers in real time, with voice and subtitles. In the exhibition, in the concert hall, at a reading or in the classroom.</p>
+        <div class="concept-cols">
+          <p>The answers are based on selected sources: letters, diaries, writings, scholarly analyses and contemporary accounts. An AI system turns them into an answer in the style of the period and cites its sources. The answer takes a few seconds. Meanwhile, everyone can see how the system works.</p>
+          <p>This turns knowledge into conversation. Nobody just listens, everyone can ask, and the answers stay close to the sources.</p>
+        </div>
+      </div>
+      <div class="bespoke reveal">
+        <p class="b-lead">Not just music. Goethe on his Italian journey, Marie Curie on research, Kant on the Enlightenment, Bismarck on the founding of the German Empire, Edison on inventing: any well-documented figure can be brought into the conversation.</p>
+        <ul class="b-list">
+          <li><b class="p-hensel">Fanny Hensel</b><span>Pilot episode at HMTM Munich</span></li>
+          <li><b class="p-schoenberg">Arnold Schönberg</b><span>Schönberg installation at the Arnold Schönberg Center Vienna</span></li>
+        </ul>
+      </div>
+      <div class="pillars" id="pillars" role="group" aria-label="Three principles">
+        <div class="pillar reveal">
+          <h3>Fact-based</h3>
+          <p>Every answer is based on documented sources and cites them, so you can check where a statement comes from.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Interactive</h3>
+          <p>Your visitors ask questions, and the avatar responds. It talks with them, not at them.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Contextualised</h3>
+          <p>Life and work are placed in their time, with its social and historical conditions. Where an answer goes beyond the sources, this is flagged.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. For your institution -->
+  <section class="section" id="haeuser">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Find your use case.</h2>
+      </div>
+
+      <div class="reveal">
+        <div class="seg-tabs" role="tablist" aria-label="Use cases by institution">
+          <button class="seg-tab" type="button" role="tab" id="tab-museen" data-umami-event="haus-reiter" data-umami-event-bereich="museen" aria-controls="panel-museen" aria-selected="true">Museums</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-orchester" data-umami-event="haus-reiter" data-umami-event-bereich="orchester" aria-controls="panel-orchester" aria-selected="false">Concert halls &amp; orchestras</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-festivals" data-umami-event="haus-reiter" data-umami-event-bereich="festivals" aria-controls="panel-festivals" aria-selected="false">Festivals</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-literatur" data-umami-event="haus-reiter" data-umami-event-bereich="literatur" aria-controls="panel-literatur" aria-selected="false">Literature houses</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-archive" data-umami-event="haus-reiter" data-umami-event-bereich="archive" aria-controls="panel-archive" aria-selected="false">Archives &amp; libraries</button>
+          <button class="seg-tab" type="button" role="tab" id="tab-unterricht" data-umami-event="haus-reiter" data-umami-event-bereich="unterricht" aria-controls="panel-unterricht" aria-selected="false">Schools &amp; teaching</button>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-museen" aria-labelledby="tab-museen">
+          <h3 class="seg-panel-title">Museums</h3>
+          <div class="seg-scene">
+            <h3>A historical figure who answers questions all day long.</h3>
+            <p>As an installation in an exhibition or foyer. Whether a painter in an art museum, a naturalist in a natural history museum or an inventor in a science museum: visitors talk to them directly.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Proven in a museum:</b> a tailor-made installation at the Arnold Schönberg Center Vienna.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Designed for continuous operation</b>, runs unattended.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Subtitles and a visible process.</b> Accessible and transparent.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Minimal hardware</b>, fits into existing spaces.</span></li>
+          </ul>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-orchester" aria-labelledby="tab-orchester">
+          <h3 class="seg-panel-title">Concert halls &amp; orchestras</h3>
+          <div class="seg-scene">
+            <h3>The composer of the evening, live before the concert.</h3>
+            <p>As a conversational concert introduction or moderation of 20 to 30 minutes. The audience asks, Brahms or Clara Schumann answers.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Content aligned with your programming.</b></span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Your institution keeps editorial control.</b></span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Redundant set-up</b>, ready for the stage.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>First tested live</b> at the University of Music and Performing Arts Munich (HMTM).</span></li>
+          </ul>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-festivals" aria-labelledby="tab-festivals">
+          <h3 class="seg-panel-title">Festivals</h3>
+          <div class="seg-scene">
+            <h3>A programme item where the audience has its say.</h3>
+            <p>Live on stage, as an installation throughout the festival or hybrid with a livestream. The figure fits your festival theme, be it an anniversary, an era or a question.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>The audience shapes the conversation.</b></span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Stage, installation or livestream.</b></span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Tailored to your festival theme.</b></span></li>
+          </ul>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-literatur" aria-labelledby="tab-literatur">
+          <h3 class="seg-panel-title">Literature houses</h3>
+          <div class="seg-scene">
+            <h3>The poet doesn’t just read. He answers.</h3>
+            <p>At readings, in exhibitions or at literature festivals, audiences ask writers about their work, their time and their writing. Goethe on Faust, on Weimar, on his travels.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Answers from letters, diaries and works</b>, with sources.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>As a programme item or an installation.</b></span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Complements readings and talks</b>, does not replace them.</span></li>
+          </ul>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-archive" aria-labelledby="tab-archive">
+          <h3 class="seg-panel-title">Archives &amp; libraries</h3>
+          <div class="seg-scene">
+            <h3>A collection that answers back.</h3>
+            <p>Letters, papers and writings become something visitors can question. The figure answers from your collection and cites the reference. This way an archive reaches people who would never set foot in a reading room.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Proven with the archive of the Arnold Schönberg Center</b>, around 200,000 pages of documents.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>From 1,000 to 500,000 pages:</b> also for figures with little surviving material.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Every answer cited</b> and verifiable.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>For exhibitions, anniversaries, teaching</b> and digital humanities projects.</span></li>
+          </ul>
+        </div>
+
+        <div class="seg-panel" role="tabpanel" id="panel-unterricht" aria-labelledby="tab-unterricht">
+          <h3 class="seg-panel-title">Schools &amp; teaching</h3>
+          <div class="seg-scene">
+            <h3>History you can talk to.</h3>
+            <p>Students question figures about their work, worldview and life: Kant on the Enlightenment, Curie on research, Goethe on poetry. It is also a starting point for thinking about AI.</p>
+          </div>
+          <ul class="seg-assure">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Working with sources:</b> where does a statement come from?</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Media literacy:</b> the AI is shown openly and questioned.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Adaptable</b> to age, subject and learning goal.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5"/></svg><span><b>Tested</b> at Xplorer Day at the Deutsches Museum Verkehrszentrum.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Two ways to your figure -->
+  <section class="section" id="angebot">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Catalogue figure or tailor-made.</h2>
+      </div>
+      <div class="ways reveal">
+        <div class="way">
+          <h3>Catalogue figures</h3>
+          <p>Ready-made figures, available right away. A quick start for an evening, an exhibition or a school day. Currently available: Arnold Schönberg. More figures are in the works.</p>
+        </div>
+        <div class="way">
+          <h3>Tailor-made</h3>
+          <p>A figure developed specifically for your institution. Personality, sources, tone and focus are agreed with you.</p>
+        </div>
+      </div>
+      <div class="ways-notes reveal">
+        <div>
+          <h3>No archive needed</h3>
+          <p>We compile the sources ourselves, work with your collection, or combine both.</p>
+        </div>
+        <div>
+          <h3>Formats</h3>
+          <p>A single event, a touring installation or longer-term operation. The model depends on your project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Video -->
+  <section class="section" id="video">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>See ComposerMeet in action.</h2>
+      </div>
+      <figure class="reveal">
+        <div class="video-frame" id="video-frame">
+          <button class="video-facade" id="video-facade" type="button" data-umami-event="video-gestartet" aria-describedby="vf-consent" hidden>
+            <span class="play" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="vf-text">
+              <span class="vf-title">Audience dialogue with Fanny Hensel</span>
+            </span>
+          </button>
+          <p class="vf-consent" id="vf-consent">Clicking will load the video from YouTube. Data will be transferred to Google. See our <a href="privacy.html#youtube">privacy policy</a> for details.</p>
+          <noscript>
+            <iframe src="https://www.youtube-nocookie.com/embed/RFo1mFihDnw?rel=0" title="ComposerMeet: Audience dialogue with Fanny Hensel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </noscript>
+        </div>
+        <figcaption class="video-caption">Audience dialogue with Fanny Hensel (AI avatar), HMTM Munich 2026</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 7. How an answer is created -->
+  <section class="pipeline-band band">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <h2>How an answer is created.</h2>
+        <p class="lead">From the spoken question to the avatar’s answer. The audience sees this process live on screen. This makes the system transparent and bridges the short wait.</p>
+      </div>
+      <ol class="pipe-row reveal">
+        <li class="pipe-node"><h3>Question</h3><p>Audio input from the audience</p></li>
+        <li class="pipe-node"><h3>Transcription</h3><p>The question is turned into text</p></li>
+        <li class="pipe-node"><h3>Source search</h3><p>Letters, diaries, writings and analyses are searched</p></li>
+        <li class="pipe-node"><h3>Answer</h3><p>Written in the style of the period, with sources</p></li>
+        <li class="pipe-node"><h3>Avatar</h3><p>Speaks the answer with voice and facial expression</p></li>
+      </ol>
+      <ul class="pipe-foot reveal">
+        <li>With sources</li>
+        <li>Process visible to the audience</li>
+        <li>Redundant set-up, therefore fail-safe</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. In operation -->
+  <section class="section" id="praxis">
+    <div class="container praxis-grid">
+      <div class="section-head reveal">
+        <h2>In operation.</h2>
+      </div>
+      <div class="benefits reveal">
+        <div class="benefit">
+          <h3>Stable &amp; unattended</h3>
+          <p>Designed for continuous operation. The system has a redundant set-up and compensates for the failure of individual components.</p>
+        </div>
+        <div class="benefit">
+          <h3>Tailored</h3>
+          <p>Length, tone and format are adapted to your project.</p>
+        </div>
+        <div class="benefit">
+          <h3>Minimal hardware</h3>
+          <p>A computer, a screen, a microphone and speakers. That’s all it takes, and it fits into existing spaces.</p>
+        </div>
+        <div class="benefit">
+          <h3>Transparent &amp; accessible</h3>
+          <p>Subtitles, cited sources and a process everyone can see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Data protection & copyright -->
+  <section class="band" id="rechte">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>GDPR-compliant and copyright-compliant.</h2>
+      </div>
+      <div class="rights-grid reveal">
+        <div class="right">
+          <h3>Data protection</h3>
+          <p>Our system does not store any conversations. The AI services we use do not train on the input. We conclude a data processing agreement under the GDPR with your institution.</p>
+        </div>
+        <div class="right">
+          <h3>Local version</h3>
+          <p>On request, a local version in which your sources and data never leave your institution.</p>
+        </div>
+        <div class="right">
+          <h3>Copyright</h3>
+          <p>Sources, image and voice are used in compliance with copyright law. The implementation has been legally reviewed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Approach -->
+  <section class="statement" aria-label="Approach">
+    <div class="container reveal">
+      <p class="quote">Not a replica, but an interpretation.</p>
+      <p class="statement-text">This is about engaging people with knowledge: knowledge that sparks curiosity, and a closer look at history and its sources. We say openly that the answers come from an AI system, and we cite the sources. ComposerMeet does not bring anyone back to life. It invites reflection.</p>
+    </div>
+  </section>
+
+  <!-- 11. Events: upcoming & past
+       Events with data-end move to Past automatically (via JS) once they are over. -->
+  <section class="section" id="termine">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Where to experience ComposerMeet.</h2>
+      </div>
+
+      <div class="ev-upcoming-head reveal">
+        <h3>Upcoming</h3>
+      </div>
+      <div class="ev-upcoming reveal" id="ev-upcoming">
+        <article class="ev-card ev-card--text" data-date="2026-12-01" data-end="2026-12-01">
+          <p class="ev-date"><time datetime="2026-12-01"><span class="ev-date-day">1</span><span class="ev-date-month">December 2026</span></time></p>
+          <div class="ev-body">
+            <h3>DARIAH-CH Study Day 2026</h3>
+            <p class="ev-place">University of Geneva</p>
+            <p>ComposerMeet is presented at the fifth Study Day of the Swiss consortium DARIAH-CH. The theme is AI in the digital humanities: in teaching, research and data management.</p>
+            <p class="ev-link"><a href="https://www.dariah.ch/study-day-2026" rel="noopener" data-umami-event="termin-link" data-umami-event-termin="dariah-study-day">Programme</a></p>
+          </div>
+        </article>
+        <article class="ev-card ev-card--text" data-date="2026-12-03" data-end="2026-12-03">
+          <p class="ev-date"><time datetime="2026-12-03"><span class="ev-date-day">3</span><span class="ev-date-month">December 2026</span></time></p>
+          <div class="ev-body">
+            <h3>Presentation at the HFF Munich</h3>
+            <p class="ev-place">University of Television and Film Munich</p>
+            <p class="ev-todo">TODO: text to follow.</p>
+          </div>
+        </article>
+        <article class="ev-card ev-card--text" data-date="2026-12-17" data-end="2026-12-17">
+          <p class="ev-date"><time datetime="2026-12-17"><span class="ev-date-day">17</span><span class="ev-date-month">December 2026</span></time></p>
+          <div class="ev-body">
+            <h3>ComposerMeet at school</h3>
+            <p class="ev-place">Schwandorf</p>
+            <p>At a large XR exhibition with 20 stations, classes take turns trying out different experiences, including ComposerMeet.</p>
+          </div>
+        </article>
+      </div>
+      <p class="ev-empty" id="ev-empty" hidden>No public events at the moment. Enquiries are welcome by email.</p>
+
+      <div class="ev-past-head reveal">
+        <h3>Past</h3>
+        <div class="ev-nav" id="ev-nav" hidden>
+          <button type="button" id="ev-prev" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+          </button>
+          <button type="button" id="ev-next" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ev-past reveal" id="ev-past" tabindex="0" aria-label="Past events">
+        <article class="ev-card ev-card--pinned" data-date="2026-10-03" data-persona="schoenberg" data-pinned>
+          <div class="ev-media"><span class="ev-badge ev-badge--pin"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M10.5 1.5l4 4-1.6.6-2.6 2.6.4 3.6-1.3 1.3-2.8-2.8L2.3 15 1 13.7l4.2-4.3-2.8-2.8 1.3-1.3 3.6.4 2.6-2.6z"/></svg>Pinned</span><img src="../assets/asc-lange-nacht.jpg" alt="Célest Lang presenting ComposerMeet at the Arnold Schönberg Center, with the AI avatar of Arnold Schönberg behind him" loading="lazy" width="1000" height="562" style="object-position: 55% 50%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-03T22:00">3 October 2026, 10 pm</time><span>Vienna</span></p>
+            <h3>Long Night of Museums</h3>
+            <p class="ev-place">Arnold Schönberg Center</p>
+            <p>Presentation of ComposerMeet and launch of the Schönberg installation.</p>
+            <p class="ev-credit">Photo: Arnold Schönberg Center</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-11-25" data-end="2026-11-25">
+          <div class="ev-media ev-media--stack"><img src="../assets/lil-echoes-slide.jpg" alt="Slide from the ComposerMeet presentation at the LIL-ECHOES launch, with ComposerMeet text, a stage picture with an AI avatar and the logos of LIL-ECHOES and the European Union, with an XR HUB Bavaria banner on the left" loading="lazy" width="1200" height="722"><img src="../assets/lil-echoes-raum.jpg" alt="Célest Lang at XR HUB Bavaria, with the Schönberg installation and the AI avatar of Arnold Schönberg on screen to the left and the XR HUB Bavaria logo to the right" loading="lazy" width="1200" height="698"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-11-25T18:00">25 November 2026, 6 pm</time><span>Munich</span></p>
+            <h3>Launch of LIL-ECHOES</h3>
+            <p class="ev-place">XR LAB at Forum der Zukunft</p>
+            <p>At the invitation of XR HUB Bavaria, ComposerMeet was presented as a showcase at the kick-off of the Horizon Europe project LIL-ECHOES.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-10-24">
+          <div class="ev-media ev-media--duo"><img src="../assets/xplorer-poster.jpg" alt="ComposerMeet poster at Xplorer Day: historical figures as AI avatars answering students’ questions" loading="lazy" width="800" height="797" style="object-position: 50% 30%"><img src="../assets/xplorer-halle.jpg" alt="Célest Lang’s name badge for ComposerMeet at Xplorer Day in the Deutsches Museum Verkehrszentrum" loading="lazy" width="800" height="739" style="object-position: 30% 70%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-10-24">24 October 2026</time><span>Munich</span></p>
+            <h3>Xplorer Day</h3>
+            <p class="ev-place">Deutsches Museum Verkehrszentrum</p>
+            <p>ComposerMeet to try out at the XR Hub’s Xplorer Day, with a focus on schools and education.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-11">
+          <div class="ev-media ev-media--duo"><img src="../assets/imbra-roundtable.jpg" alt="Célest Lang at the IMBRA conference roundtable" loading="lazy" width="900" height="419" style="object-position: 50% 35%"><img src="../assets/imbra-vortrag.jpg" alt="Célest Lang giving his talk at the IMBRA conference in the Gasteig" loading="lazy" width="826" height="900" style="object-position: 72% 22%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-11">11 September 2026</time><span>Munich</span></p>
+            <h3>IMBRA Conference</h3>
+            <p class="ev-place">17th International Music Business Research Days</p>
+            <p>Célest Lang as a speaker and on the roundtable “Music and Entrepreneurship”.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-09-09">
+          <div class="ev-media ev-media--duo"><img src="../assets/linz-festivalpass.jpg" alt="Ars Electronica 2026 festival pass and Bayern Innovativ Cross-Innovation Journey badge, both in the name of Célest Lang" loading="lazy" width="800" height="837" style="object-position: 55% 40%"><img src="../assets/linz-poster.jpg" alt="Célest Lang’s ComposerMeet poster at Ars Electronica 2026" loading="lazy" width="800" height="778" style="object-position: 30% 0%"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><time datetime="2026-09-09">9–10 September 2026</time><span>Linz</span></p>
+            <h3>Ars Electronica 2026</h3>
+            <p class="ev-place">Cross-Innovation Journey</p>
+            <p>With ComposerMeet as part of Bayern Innovativ’s Cross-Innovation Journey to Ars Electronica.</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-04-01">
+          <div class="ev-media"><img src="../assets/award-ceremony.jpg" alt="Award of the Honorable Mention at “The next THING”" loading="lazy" width="342" height="512" style="object-position: 50% 30%"></div>
+          <div class="ev-body">
+            <p class="ev-meta">April 2026</p>
+            <h3>“The next THING”</h3>
+            <p class="ev-place">Venture Team Kultur</p>
+            <p>Honorable Mention for a source-based, AI-driven format for engaging audiences with history.</p>
+            <p class="ev-credit">Photo: Venture Team Kultur (Yolanda Castillo-Kuchenbecker)</p>
+          </div>
+        </article>
+        <article class="ev-card" data-date="2026-02-01" data-persona="hensel">
+          <div class="ev-media"><img src="../assets/video-poster.jpg" alt="Pilot episode with Fanny Hensel at HMTM Munich" loading="lazy" width="1067" height="600"></div>
+          <div class="ev-body">
+            <p class="ev-meta"><span>February 2026</span><span>Munich</span></p>
+            <h3>Pilot episode with Fanny Hensel</h3>
+            <p class="ev-place">HMTM</p>
+            <p>The first live staging of ComposerMeet as part of XPLORE, the HMTM competition for new concert formats: a concert in which the audience talked with Fanny Hensel.</p>
+            <p class="ev-credit">Photo: Jakob Schad</p>
+          </div>
+        </article>
+        <article class="ev-card ev-card--text" data-date="2025">
+          <p class="ev-date"><time datetime="2025"><span class="ev-date-day">2025/2026</span><span class="ev-date-month">How it began</span></time></p>
+          <div class="ev-body">
+            <h3>STARTER funding</h3>
+            <p class="ev-place">Venture Team Kultur of the Bavarian art universities</p>
+            <p>Where ComposerMeet began: admission to the Venture Team Kultur’s STARTER programme, funding period 2025/2026.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. About -->
+  <section class="section" id="ueber">
+    <div class="container about-grid">
+      <div class="about-portrait reveal">
+        <img src="../assets/portrait-celest-lang.jpg" alt="Portrait of Célest Lang" width="1167" height="832" loading="lazy">
+      </div>
+      <div class="about-text reveal">
+        <h2>Célest Lang.</h2>
+        <p>Pianist and music communicator with a focus on new concert formats. His work combines artistic practice with technical curiosity and a critical view of historical sources. ComposerMeet emerged at this intersection of music, AI and cultural education and has since grown beyond music.</p>
+        <p>He developed the prototype for XPLORE, the HMTM Munich competition for new concert formats. Since 2025, ComposerMeet has been funded by Venture Team Kultur in Bavaria.</p>
+        <details class="about-more" id="about-more" open>
+        <summary>Career</summary>
+        <ul class="about-list">
+          <li>Piano studies at HMTM Munich and mdw Vienna</li>
+          <li>Research on Schönberg and Kandinsky, presented at NaMu2025 (Austrian Academy of Sciences)</li>
+          <li>Founder of ComposerMeet</li>
+          <li>Co-founder of the Accento Orchester München</li>
+          <li>Co-founder of the SchERZo festival (in founding)</li>
+          <li>Academy member of the Tonali Bühnenakademie (since October 2026)</li>
+        </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Contact -->
+  <section class="section contact band" id="kontakt">
+    <div class="container contact-grid reveal">
+      <div class="contact-intro">
+        <h2>Planning an exhibition, a concert, a reading or a festival?</h2>
+        <p>Tell us which figure you’re interested in. Catalogue figure or tailor-made: together we’ll work out sources, format and scope.</p>
+      </div>
+      <div class="contact-main">
+        <div class="contact-email-row">
+          <a class="contact-email" href="mailto:celest@composermeet.com" data-umami-event="anfrage" data-umami-event-ort="kontakt-adresse">celest@composermeet.com</a>
+          <button class="copy-btn" id="copy-email" type="button" data-umami-event="email-kopiert" hidden>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2H3.5A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:celest@composermeet.com?subject=Enquiry%20about%20ComposerMeet" data-umami-event="anfrage" data-umami-event-ort="kontakt">Enquire about a project</a>
+          <a class="btn btn-ghost" href="../assets/ComposerMeet_Infosheet.pdf" download hreflang="de" data-umami-event="pdf-geladen">Download information PDF (German)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="logo-link footer-logo" href="#" aria-label="ComposerMeet, back to top"><img src="../assets/signet.svg" alt="" width="45" height="36"><span>Composer<em>Meet</em></span></a>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <span class="footer-label">© 2026</span>
+        <p>ComposerMeet / Célest Lang</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">Funding</span>
+        <p>STARTER programme<br>Venture Team Kultur</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">Legal</span>
+        <a href="impressum.html">Imprint</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="../" hreflang="de" lang="de">Deutsch</a>
+      </div>
+    </div>
+    <p class="footer-note">Funded by the STARTER programme of Venture Team Kultur.</p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
