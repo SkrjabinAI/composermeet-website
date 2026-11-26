@@ -273,6 +273,8 @@ body, .site-header, .band:not(.contact), .bespoke { background-image: var(--text
 .ev-past { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: min(380px, 82%); gap: var(--gap-columns); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--color-rule-2) transparent; margin-inline-end: calc(-1 * var(--gutter)); padding-inline-end: var(--gutter); padding-bottom: var(--space-lg); overscroll-behavior-x: contain; }
 .ev-past .ev-card { scroll-snap-align: start; display: grid; gap: var(--space-md); align-content: start; }
 .ev-past .ev-media { aspect-ratio: 4 / 3; }
+.ev-past .ev-media--stack { aspect-ratio: auto; display: grid; gap: var(--space-3xs); }
+.ev-media--stack img { height: auto; }
 .js .ev-past { cursor: grab; }
 .js .ev-past.dragging { cursor: grabbing; user-select: none; }
 
@@ -632,7 +634,7 @@ html:not(.js) .seg-panel-title { display: block; grid-column: 1 / -1; font-size:
       </div>
       <div class="ev-past reveal" id="ev-past" tabindex="0" aria-label="Rückblick: vergangene Stationen">
         <article class="ev-card" data-date="2026-11-25" data-end="2026-11-25">
-          <div class="ev-media ev-media--duo"><img src="assets/lil-echoes-slide.jpg" alt="Folie der ComposerMeet-Präsentation beim Projektstart LIL-ECHOES, mit ComposerMeet-Text und Logos von LIL-ECHOES und der Europäischen Union" loading="lazy" width="1200" height="722" style="object-position: 50% 50%"><img src="assets/lil-echoes-raum.jpg" alt="Célest Lang im XR HUB Bavaria neben einem Bildschirm mit einem KI-Porträt" loading="lazy" width="1200" height="698" style="object-position: 40% 50%"></div>
+          <div class="ev-media ev-media--stack"><img src="assets/lil-echoes-slide.jpg" alt="Folie der ComposerMeet-Präsentation beim Projektstart LIL-ECHOES, mit ComposerMeet-Text, einem Bühnenbild mit KI-Avatar und den Logos von LIL-ECHOES und der Europäischen Union, links ein Banner des XR HUB Bavaria" loading="lazy" width="1200" height="722"><img src="assets/lil-echoes-raum.jpg" alt="Célest Lang im XR HUB Bavaria, links die Schönberg-Installation mit dem KI-Avatar von Arnold Schönberg auf dem Bildschirm, rechts das Logo des XR HUB Bavaria" loading="lazy" width="1200" height="698"></div>
           <div class="ev-body">
             <p class="ev-meta"><time datetime="2026-11-25T18:00">25. November 2026, 18 Uhr</time><span>München</span></p>
             <h3>Projektstart LIL-ECHOES</h3>
